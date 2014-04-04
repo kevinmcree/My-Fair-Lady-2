@@ -25,6 +25,9 @@ public class Com_Chatter : MonoBehaviour {
 						if (rand == 0) {
 								GameObject bird = GameObject.Find ("Bird");
 								bird.transform.position = new Vector3 (8, -.4f, 13);
+								GameObject terminal = GameObject.Find ("Terminal");
+								terminal.transform.position = new Vector3 (8, -.4f, 20);
+
 								start = 0;
 								end = 3;
 								talking = true;
@@ -32,6 +35,8 @@ public class Com_Chatter : MonoBehaviour {
 						else if (rand == 1) {
 								GameObject hare = GameObject.Find ("Bob");
 								hare.transform.position = new Vector3 (8, -.4f, 13);
+								GameObject terminal = GameObject.Find ("Terminal");
+								terminal.transform.position = new Vector3 (8, -.4f, 20);
 								start = 20;
 								end = 23;
 								talking = true;
@@ -39,6 +44,8 @@ public class Com_Chatter : MonoBehaviour {
 						else if (rand == 2) {
 								GameObject frog = GameObject.Find ("Froggerson");
 								frog.transform.position = new Vector3 (8, -.4f, 13);
+								GameObject terminal = GameObject.Find ("Terminal");
+								terminal.transform.position = new Vector3 (8, -.4f, 20);						
 								start = 10;
 								end = 13;
 								talking = true;

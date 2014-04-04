@@ -20,6 +20,7 @@ public class Done_PlayerController : MonoBehaviour
 	public string playerColor; 
 	public int playerHealth;
 	private float nextFire;
+	public int powerUp;
 
 	void Start ()
 	{
@@ -32,6 +33,11 @@ public class Done_PlayerController : MonoBehaviour
 		{
 			nextFire = Time.time + fireRate;
 			Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+			if (powerUp==1){
+				Instantiate(shot, shotSpawn.position + new Vector3(-.5f,0,0), shotSpawn.rotation);
+				Instantiate(shot, shotSpawn.position + new Vector3(.5f,0,0), shotSpawn.rotation);
+			}
+
 			audio.Play ();
 		}
 

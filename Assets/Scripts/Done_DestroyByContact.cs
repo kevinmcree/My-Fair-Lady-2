@@ -36,6 +36,10 @@ public class Done_DestroyByContact : MonoBehaviour
 			GameObject go = GameObject.Find("Player");
 		if ((String.Compare(go.GetComponent<Done_PlayerController>().playerColor, color)==0) || (String.Compare("none", color) == 0)){
 				go.GetComponent<Done_PlayerController>().playerHealth--;
+				go.GetComponent<Done_PlayerController>().powerUp=0;
+				GameObject health = GameObject.Find("Health");
+				health.transform.position += new Vector3(.5f,0,0);
+				health.transform.localScale += new Vector3 (-1f,0,0); 
 				if(go.GetComponent<Done_PlayerController>().playerHealth<=0){
 					Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
 					gameController.GameOver();
