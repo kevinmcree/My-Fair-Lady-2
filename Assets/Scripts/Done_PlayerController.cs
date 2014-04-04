@@ -93,13 +93,13 @@ public class Done_PlayerController : MonoBehaviour
 		float moveHorizontal = Input.GetAxis ("Horizontal");
 		float moveVertical = 0;//Input.GetAxis ("Vertical");
 
-		Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
+		Vector3 movement = new Vector3 (moveHorizontal, 0f, moveVertical);
 		rigidbody.velocity = movement * speed;
 		
 		rigidbody.position = new Vector3
 		(
 			Mathf.Clamp (rigidbody.position.x, boundary.xMin, boundary.xMax), 
-			0.0f, 
+			-3f, 
 			Mathf.Clamp (rigidbody.position.z, boundary.zMin, boundary.zMax)
 		);
 		

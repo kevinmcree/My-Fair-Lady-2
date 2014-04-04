@@ -72,33 +72,33 @@ public class Com_Chatter : MonoBehaviour {
 						}
 						else if (rand == 8){
 							start = 47;
-							end = 55;
+							end = 54;
 						}
 			talking = true;
 				}
 		if (counter <= 0 && talking == true){
-			words.transform.position = new Vector3 (.15f,.95f,0);
+			words.transform.position = new Vector3 (.2f,.1f,0);
 			words.guiText.text = dialouge[start];
 			if( speaker[start]==0){
-				hare.transform.position = new Vector3 (8, -.4f,13);
-				frog.transform.position = new Vector3 (8, -.4f, 20);
-				bird.transform.position = new Vector3 (8, -.4f, 20);
-				eliza.transform.position = new Vector3 (8, -.4f, 20);
+				hare.transform.position = new Vector3 (-11.5f, -.4f,-7.4f);
+				frog.transform.position = new Vector3 (-11.5f, -.4f,-20);
+				bird.transform.position = new Vector3 (-11.5f, -.4f,-20);
+				eliza.transform.position = new Vector3 (11.5f, -.4f,-20);
 			}else if( speaker[start]==1){
-				bird.transform.position = new Vector3 (8, -.4f,13);
-				frog.transform.position = new Vector3 (8, -.4f, 20);
-				hare.transform.position = new Vector3 (8, -.4f, 20);
-				eliza.transform.position = new Vector3 (8, -.4f, 20);
+				bird.transform.position = new Vector3 (-11.5f, -.4f,-7.4f);
+				frog.transform.position = new Vector3 (11.5f, -.4f,-20);
+				hare.transform.position = new Vector3 (11.5f, -.4f,-20);
+				eliza.transform.position = new Vector3 (11.5f, -.4f,-20);
 			}else if( speaker[start]==2){
-				frog.transform.position = new Vector3 (8, -.4f,13);
-				hare.transform.position = new Vector3 (8, -.4f, 20);
-				bird.transform.position = new Vector3 (8, -.4f, 20);
-				eliza.transform.position = new Vector3 (8, -.4f, 20);
+				frog.transform.position = new Vector3 (-11.5f, -.4f,-7.4f);
+				hare.transform.position = new Vector3 (11.5f, -.4f,-20);
+				bird.transform.position = new Vector3 (11.5f, -.4f,-200);
+				eliza.transform.position = new Vector3 (11.6f, -.4f,-20);
 			}else if( speaker[start]==3){
-				frog.transform.position = new Vector3 (8, -.4f,20);
-				hare.transform.position = new Vector3 (8, -.4f, 20);
-				bird.transform.position = new Vector3 (8, -.4f, 20);
-				eliza.transform.position = new Vector3 (8, -.4f, 13);
+				frog.transform.position = new Vector3 (11.6f, -.4f,-20);
+				hare.transform.position = new Vector3 (11.6f, -.4f,-20);
+				bird.transform.position = new Vector3 (11.6f, -.4f,-200);
+				eliza.transform.position = new Vector3 (-11.5f, -.4f,-7.4f);
 			}
 
 			
@@ -108,10 +108,10 @@ public class Com_Chatter : MonoBehaviour {
 				counter = 800;
 				talking = false;
 				words.transform.position = new Vector3 (10,10,10);
-				frog.transform.position = new Vector3 (8, -.4f, 20);
-				hare.transform.position = new Vector3 (8, -.4f, 20);
-				bird.transform.position = new Vector3 (8, -.4f, 20);
-				eliza.transform.position = new Vector3 (8, -.4f, 20);
+				frog.transform.position = new Vector3 (11.6f, -.4f,-20);
+				hare.transform.position = new Vector3 (11.6f, -.4f,-20);
+				bird.transform.position = new Vector3 (11.6f, -.4f,-20);
+				eliza.transform.position = new Vector3 (11.6f, -.4f,-20);
 			}
 		}
 
@@ -193,16 +193,16 @@ public class Com_Chatter : MonoBehaviour {
 		speaker[47] = 2;
 		yo[48] = "Ahem, I said oh nooooooo!";
 		speaker [48] = 2;
-		yo[50] = "Hello? Isn't anyone going to help me?";
-		speaker[50] = 2;
-		yo[51] = "No.";
-		speaker[51] = 3;
-		yo[52] = "Nope.";
-		speaker[52] = 1;
-		yo[53] = "Nah.";
-		speaker[53] = 0;
-		yo[54] = "Oh come on!";
-		speaker[54] = 2;
+		yo[49] = "Hello? Isn't anyone going to help me?";
+		speaker[49] = 2;
+		yo[50] = "No.";
+		speaker[50] = 3;
+		yo[51] = "Nope.";
+		speaker[51] = 1;
+		yo[52] = "Nah.";
+		speaker[52] = 0;
+		yo[53] = "Oh come on!";
+		speaker[53] = 2;
 
 		
 		

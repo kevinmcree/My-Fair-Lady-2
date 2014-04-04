@@ -35,11 +35,11 @@ public class Done_EvasiveManeuver : MonoBehaviour
 	void FixedUpdate ()
 	{
 		float newManeuver = Mathf.MoveTowards (rigidbody.velocity.x, targetManeuver, smoothing * Time.deltaTime);
-		rigidbody.velocity = new Vector3 (newManeuver, 0.0f, currentSpeed);
+		rigidbody.velocity = new Vector3 (newManeuver, 0, currentSpeed);
 		rigidbody.position = new Vector3
 		(
 			Mathf.Clamp(rigidbody.position.x, boundary.xMin, boundary.xMax), 
-			0.0f, 
+			-3, 
 			Mathf.Clamp(rigidbody.position.z, boundary.zMin, boundary.zMax)
 		);
 		

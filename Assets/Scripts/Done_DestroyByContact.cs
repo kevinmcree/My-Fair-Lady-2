@@ -38,12 +38,13 @@ public class Done_DestroyByContact : MonoBehaviour
 				go.GetComponent<Done_PlayerController>().playerHealth--;
 				go.GetComponent<Done_PlayerController>().powerUp=0;
 				GameObject health = GameObject.Find("Health");
-				health.transform.position += new Vector3(.5f,0,0);
-				health.transform.localScale += new Vector3 (-1f,0,0); 
+				health.transform.position -= new Vector3(0,0,.5f);
+				health.transform.localScale += new Vector3 (-1,0,0); 
 				if(go.GetComponent<Done_PlayerController>().playerHealth<=0){
 					Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
 					gameController.GameOver();
 				}else{
+					Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
 					Instantiate(explosion, transform.position, transform.rotation);
 					Destroy (gameObject);
 					return;
@@ -65,7 +66,7 @@ public class Done_DestroyByContact : MonoBehaviour
 			}
 		}
 
-		if (explosion != null)
+			if (explosion != null)
 		{
 			Instantiate(explosion, transform.position, transform.rotation);
 		}
