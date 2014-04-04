@@ -9,4 +9,12 @@ public class Done_Mover : MonoBehaviour
 	{
 		rigidbody.velocity = transform.forward * speed;
 	}
+	void Update ()
+	{
+		if (transform.position.z>=20)
+		{
+			Destroy (gameObject);
+		}
+	}
+
 }

@@ -12,6 +12,7 @@ public class Done_DestroyByContact : MonoBehaviour
 	public string color;
 
 
+
 	void Start ()
 	{
 		GameObject gameControllerObject = GameObject.FindGameObjectWithTag ("GameController");
@@ -22,6 +23,14 @@ public class Done_DestroyByContact : MonoBehaviour
 		if (gameController == null)
 		{
 			Debug.Log ("Cannot find 'GameController' script");
+		}
+
+	}
+	void Update ()
+	{
+		if (transform.position.z<=-8)
+		{
+			Destroy (gameObject);
 		}
 	}
 
@@ -58,13 +67,19 @@ public class Done_DestroyByContact : MonoBehaviour
 			GameObject go = GameObject.Find("Player");
 			if ((String.Compare(go.GetComponent<Done_PlayerController>().playerColor, color)==0) || (String.Compare("none", color) == 0)){
 				Instantiate(explosion, transform.position, transform.rotation);
-				gameController.AddScore(scoreValue);
+				gameController.AddCombo();
+				gameController.AddScore(scoreValue*gameController.combo);
 				Destroy (other.gameObject);
 				Destroy (gameObject);
 			} else {
 				return;
 			}
 		}
+		//if (other.tag == "edge"){
+		//	Destroy (gameObject);
+		//	return;
+		//}
+
 
 			if (explosion != null)
 		{

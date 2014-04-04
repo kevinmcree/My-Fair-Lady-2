@@ -15,7 +15,10 @@ public class Done_WeaponController : MonoBehaviour
 
 	void Fire ()
 	{
-		Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
-		audio.Play();
+		if (transform.position.z>=-4)
+		{
+			Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+			audio.Play();
+		}
 	}
 }

@@ -6,6 +6,7 @@ public class Com_Chatter : MonoBehaviour {
 	public int counter;
 	public  string[] dialouge;
 	public int[] speaker;
+	public bool[] used;
 	public int start;
 	public int end;
 	public bool talking;			
@@ -21,6 +22,11 @@ public class Com_Chatter : MonoBehaviour {
 		counter = 200;
 		dialouge = new string[100];
 		speaker = new int[100];
+		used = new bool[100];
+		for (int i = 0; i<100; i++){	
+			used[i] = false;
+		}
+
 		dialouge = dialougeSet (dialouge);
 		bird = GameObject.Find ("Bird");
 		 hare = GameObject.Find ("Bob");
@@ -37,47 +43,74 @@ public class Com_Chatter : MonoBehaviour {
 		if (counter <= 0 && talking == false) {
 			//GameObject terminal = GameObject.Find ("Terminal");
 			//terminal.transform.position = new Vector3 (8, -.4f, 20);
-			rand = Random.Range (0, 9);
+			rand = Random.Range (0, 11);
+			int i = 0;
+			while (used[rand]==true){
+				rand = Random.Range (0, 11);
+				i++;
+				if (i>=10){
+					break;
+				}
+			}
 						if (rand == 0) {
-								start = 0;
-								end = 3;
+							start = 0;
+							end = 3;
+							used[0] = true;
 						}
 						else if (rand == 1) {
-								start = 20;
-								end = 23;
+							start = 20;
+							end = 23;
+							used[1] = true;
 						}
 						else if (rand == 2) {
-								start = 23;
-								end = 24;
+							start = 23;
+							end = 24;
+							used[2] = true;
 						}
 						else if (rand == 3) {
-								start = 10;
-								end = 14;
+							start = 10;
+							end = 14;
+							used[3] = true;
 						}
 						else if (rand == 4) {
 							start = 24;
 							end = 26;
-						}
+							used[4] = true;
+							}
 						else if (rand == 5) {
 							start = 30;
 							end = 37;
+							used[5] = true;
 						}
 						else if (rand == 6){
 							start = 38;
 							end = 42;
+							used[6] = true;
 						}
 						else if (rand == 7){
 							start = 43;
 							end = 47;
+							used[7] = true;
 						}
 						else if (rand == 8){
 							start = 47;
 							end = 54;
+							used[8] = true;
+						}
+						else if (rand == 9){
+							start = 55;
+							end = 66;
+							used[9] = true;
+						}
+						else if (rand == 10){
+							start = 67;
+							end = 79;
+							used[10] = true;
 						}
 			talking = true;
 				}
 		if (counter <= 0 && talking == true){
-			words.transform.position = new Vector3 (.2f,.1f,0);
+			words.transform.position = new Vector3 (.25f,.1f,0);
 			words.guiText.text = dialouge[start];
 			if( speaker[start]==0){
 				hare.transform.position = new Vector3 (-11.5f, -.4f,-7.4f);
@@ -102,7 +135,7 @@ public class Com_Chatter : MonoBehaviour {
 			}
 
 			
-			counter = 150;
+			counter = 200;
 			start++;
 			if (start>end){ 
 				counter = 800;
@@ -204,7 +237,53 @@ public class Com_Chatter : MonoBehaviour {
 		yo[53] = "Oh come on!";
 		speaker[53] = 2;
 
-		
+		yo[55] = "Froggerson this is Eliza, do you copy?";
+		speaker[55] = 3;
+		yo[56] = "Yup, I here you. What's wrong Eliza?";
+		speaker[56] = 2;
+		yo[57] = "I can't seem to speed up or slow down.";
+		speaker[57] = 3;
+		yo[58] = "I can only go left or right.";
+		speaker[58] = 3;
+		yo[59] = "Yeah. What's the problem.";
+		speaker[59] = 2;
+		yo[60] = "It's a spaceship, why can't I just move in any direction I want.";
+		speaker[60] = 3;
+		yo[61]  = "Oh. Well that just seemed like a lot of work so I didn't bother.";
+		speaker[61] = 2;
+		yo[62] = "Why are we working with this guy?";
+		speaker[62] = 3;
+		yo[63] = "We're a team Eliza, we have to stick together.";
+		speaker[63] = 0;
+		yo[64] = "Oh noooo! Help me Eliza!";
+		speaker[64] = 2;
+		yo[65] = "Ugh. Fine.";
+		speaker[65] = 3;
+
+		yo[67] = "So Bird, how's the family?";
+		speaker[67] = 0;
+		yo[68] = "Pretty good. The wife and I are thinking of having an egg pretty soon.";
+		speaker[68] = 1;
+		yo[69] = "Congratulations! And do soon after the wedding!";
+		speaker[69] = 0;
+		yo[70] = "Wait, what wedding.";
+		speaker[70] = 3;
+		yo[71] = "The one I had that you weren't invited to, what wedding did you think?";
+		speaker[71] = 1;
+		yo[72] = "I've saved your life like twenty times!";
+		speaker[72] = 3;
+		yo[73] = "I tried to get him to invite you Eliza.";
+		speaker[73] = 0;
+		yo[74] = "Oh sorry Eliza the invitite when I shoved it in the garbage.";
+		speaker[74] = 1;
+		yo[75] = "What's your problem Bird?";
+		speaker[75] = 3;
+		yo[76] = "He thinks you're his rival.";
+		speaker[76] = 2;
+		yo[77] = "You think I'm your rival?";
+		speaker[77] = 3;
+		yo[78] = "What? You didn't even... screw you Eliza.";
+		speaker[78] = 1;
 		
 		return yo;
 	}		
