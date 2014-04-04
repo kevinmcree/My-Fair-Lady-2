@@ -29,7 +29,7 @@ public class Done_PlayerController : MonoBehaviour
 
 	void Update ()
 	{
-		if (Input.GetKeyDown("space") && Time.time > nextFire) 
+		if (Input.GetKeyDown("space") && Time.time >= nextFire) 
 		{
 			nextFire = Time.time + fireRate;
 			Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
