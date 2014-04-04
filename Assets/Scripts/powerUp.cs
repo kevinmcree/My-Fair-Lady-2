@@ -21,7 +21,7 @@ public class powerUp : MonoBehaviour {
 		}
 		if (other.tag == "Player"){
 			GameObject go = GameObject.Find("Player");
-			go.GetComponent<Done_PlayerController>().powerUp=1;
+			go.GetComponent<Done_PlayerController>().powerUp++;
 			if (explosion != null)
 			{
 				Instantiate(explosion, transform.position, transform.rotation);
