@@ -79,7 +79,7 @@ public class Done_GameController : MonoBehaviour
 				yield return new WaitForSeconds (spawnWait);
 			}
 			hazardCount++;
-			spawnWait-=.001f;
+			spawnWait-=.01f;
 				waveWait-=.1f;
 			yield return new WaitForSeconds (waveWait);
 			

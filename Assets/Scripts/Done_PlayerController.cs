@@ -21,10 +21,23 @@ public class Done_PlayerController : MonoBehaviour
 	public int playerHealth;
 	private float nextFire;
 	public int powerUp;
+	public AudioClip[] clips = new AudioClip[5];
+	private AudioSource[] audioSources = new AudioSource[5];
 
+	
 	void Start ()
 	{
 		playerColor = "blue";
+		int i = 0;
+		while (i < 5) {
+			GameObject child = new GameObject("audio");
+			child.transform.parent = gameObject.transform;
+			audioSources[i] = child.AddComponent("AudioSource") as AudioSource;
+			audioSources[i].volume=.8f;
+			
+			i++;
+		}
+
 	}
 
 	void Update ()
@@ -33,18 +46,22 @@ public class Done_PlayerController : MonoBehaviour
 		{
 			nextFire = Time.time + fireRate;
 			Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
-			audio.Play ();
+			audioSources[0].clip = clips[0];
+			audioSources[0].Play();
 			if (powerUp==1){
 				Instantiate(shot, shotSpawn.position + new Vector3(-.5f,0,0), shotSpawn.rotation);
 				Instantiate(shot, shotSpawn.position + new Vector3(.5f,0,0), shotSpawn.rotation);
-				audio.Play ();
+				audioSources[1].clip = clips[1];
+				audioSources[1].Play();
 			}
 			if (powerUp==2){
 				Instantiate(shot, shotSpawn.position + new Vector3(-.5f,0,0), shotSpawn.rotation);
 				Instantiate(shot, shotSpawn.position + new Vector3(.5f,0,0), shotSpawn.rotation);	
 				Instantiate(shot, shotSpawn.position + new Vector3(-1f,0,0), shotSpawn.rotation);
 				Instantiate(shot, shotSpawn.position + new Vector3(1f,0,0), shotSpawn.rotation);
-				audio.Play ();
+				audioSources[2].clip = clips[2];
+				audioSources[2].Play();
+
 			}
 			if (powerUp==3){
 				Instantiate(shot, shotSpawn.position + new Vector3(-.5f,0,0), shotSpawn.rotation);
@@ -55,8 +72,10 @@ public class Done_PlayerController : MonoBehaviour
 				Instantiate(shot, shotSpawn.position + new Vector3(.5f,0,0), new Quaternion(0, -20,0,90));	
 				Instantiate(shot, shotSpawn.position + new Vector3(-1f,0,0), new Quaternion(0, 40,0,90));
 				Instantiate(shot, shotSpawn.position + new Vector3(1f,0,0), new Quaternion(0, -40,0,90));
-				audio.Play ();
-				
+				audioSources[3].clip = clips[3];
+				audioSources[3].Play();
+
+					
 			}
 			if (powerUp>=4){
 				Instantiate(shot, shotSpawn.position + new Vector3(-.5f,0,0), shotSpawn.rotation);
@@ -75,7 +94,8 @@ public class Done_PlayerController : MonoBehaviour
 				Instantiate(shot, shotSpawn.position + new Vector3(1.5f,0,0), new Quaternion(0, -60,0,90));	
 				Instantiate(shot, shotSpawn.position + new Vector3(-2f,0,0), new Quaternion(0, 80,0,90));
 				Instantiate(shot, shotSpawn.position + new Vector3(2,0,0), new Quaternion(0, -80,0,90));
-				audio.Play ();
+				audioSources[4].clip = clips[4];
+				audioSources[4].Play();
 			}
 		}
 
