@@ -40,8 +40,25 @@ public class Done_DestroyByContact : MonoBehaviour
 		{
 			return;
 		}
+		if (other.tag=="barrier"){
+			GameObject yo = GameObject.Find("Player");
+			if ((String.Compare(yo.GetComponent<Done_PlayerController>().playerColor, color)==0) || (String.Compare("none", color) == 0)){
+				GameObject sheild = GameObject.Find("player_sheild");
+				sheild.GetComponent<sheild>().sheildHealth--;
+				Instantiate(explosion, transform.position, transform.rotation);
+				Destroy (gameObject);
+				if (sheild.GetComponent<sheild>().sheildHealth<=0){
+					Destroy (other.gameObject);
+					Destroy (gameObject);
+					GameObject go = GameObject.Find("buySheild");
+					go.GetComponent<BuySheild>().toggle=false;
+					Instantiate(explosion, transform.position, transform.rotation);
+				}
+			}
+				return;
+		}
 
-		if (other.tag == "Player"){
+			if (other.tag == "Player"){
 			GameObject go = GameObject.Find("Player");
 		if ((String.Compare(go.GetComponent<Done_PlayerController>().playerColor, color)==0) || (String.Compare("none", color) == 0)){
 				go.GetComponent<Done_PlayerController>().playerHealth--;
