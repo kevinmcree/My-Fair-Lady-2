@@ -23,7 +23,7 @@ public class Helpful_Mover : MonoBehaviour{
 		if (other.tag == "Enemy"){
 			Instantiate(explosion, transform.position, transform.rotation);
 			GameObject go = GameObject.Find("buySideShooter");
-			go.GetComponent<BuySideShooter>().toggle=false;
+			go.GetComponent<BuySideShooter>().sideToggle=false;
 			Destroy (gameObject);
 		}
 

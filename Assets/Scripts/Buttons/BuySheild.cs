@@ -16,7 +16,7 @@ public class BuySheild : MonoBehaviour {
 	
 	}
 
-	void OnMouseDown(){
+	void OnMouseUp(){
 		GameObject go = GameObject.Find("Game Controller");
 		if (toggle==false && go.GetComponent<Done_GameController>().score>=5000){
 			Instantiate (sheild, new Vector3(0,0,0), new Quaternion(0, 0,0,0));

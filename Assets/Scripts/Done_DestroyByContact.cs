@@ -11,6 +11,8 @@ public class Done_DestroyByContact : MonoBehaviour
 	private Done_GameController gameController;
 	public string color;
 	public int hits;
+	public GameObject shot;
+
 
 
 
@@ -86,11 +88,48 @@ public class Done_DestroyByContact : MonoBehaviour
 			if ((String.Compare(go.GetComponent<Done_PlayerController>().playerColor, color)==0) || (String.Compare("none", color) == 0)){
 				Destroy (other.gameObject);
 				hits--;				
-				Destroy (other.gameObject);
 				if(hits<=0){
 					Instantiate(explosion, transform.position, transform.rotation);
 					gameController.AddCombo();
 					gameController.AddScore(scoreValue*gameController.combo);
+					if (go.GetComponent<Done_PlayerController>().weapon == 2){
+						Instantiate(shot, this.transform.position, new Quaternion(0, 0,0,90));
+						Instantiate(shot, this.transform.position, new Quaternion(0, 20,0,90));
+						Instantiate(shot, this.transform.position, new Quaternion(0, 40,0,90));
+						Instantiate(shot, this.transform.position, new Quaternion(0, 60,0,90));
+						Instantiate(shot, this.transform.position, new Quaternion(0, 80,0,90));
+						Instantiate(shot, this.transform.position, new Quaternion(0, 100,0,90));
+						Instantiate(shot, this.transform.position, new Quaternion(0, 120,0,90));
+						Instantiate(shot, this.transform.position, new Quaternion(0, 140,0,90));
+						Instantiate(shot, this.transform.position, new Quaternion(0, 160,0,90));
+						Instantiate(shot, this.transform.position, new Quaternion(0, 180,0,90));
+						Instantiate(shot, this.transform.position, new Quaternion(0, 200,0,90));
+						Instantiate(shot, this.transform.position, new Quaternion(0, 220,0,90));
+						Instantiate(shot, this.transform.position, new Quaternion(0, 240,0,90));
+						Instantiate(shot, this.transform.position, new Quaternion(0, 260,0,90));
+						Instantiate(shot, this.transform.position, new Quaternion(0, 280,0,90));
+						Instantiate(shot, this.transform.position, new Quaternion(0, 300,0,90));
+						Instantiate(shot, this.transform.position, new Quaternion(0, 320,0,90));
+						Instantiate(shot, this.transform.position, new Quaternion(0, 340,0,90));
+						Instantiate(shot, this.transform.position, new Quaternion(0, 360,0,90));
+						Instantiate(shot, this.transform.position, new Quaternion(0, -20,0,90));
+						Instantiate(shot, this.transform.position, new Quaternion(0, -40,0,90));
+						Instantiate(shot, this.transform.position, new Quaternion(0, -60,0,90));
+						Instantiate(shot, this.transform.position, new Quaternion(0, -80,0,90));
+						Instantiate(shot, this.transform.position, new Quaternion(0, -100,0,90));
+						Instantiate(shot, this.transform.position, new Quaternion(0, -120,0,90));
+						Instantiate(shot, this.transform.position, new Quaternion(0, -140,0,90));
+						Instantiate(shot, this.transform.position, new Quaternion(0, -160,0,90));
+						Instantiate(shot, this.transform.position, new Quaternion(0, -180,0,90));
+						Instantiate(shot, this.transform.position, new Quaternion(0, -200,0,90));
+						Instantiate(shot, this.transform.position, new Quaternion(0, -220,0,90));
+						Instantiate(shot, this.transform.position, new Quaternion(0, -240,0,90));
+						Instantiate(shot, this.transform.position, new Quaternion(0, -260,0,90));
+						Instantiate(shot, this.transform.position, new Quaternion(0, -280,0,90));
+						Instantiate(shot, this.transform.position, new Quaternion(0, -300,0,90));
+						Instantiate(shot, this.transform.position, new Quaternion(0, -320,0,90));
+						Instantiate(shot, this.transform.position, new Quaternion(0, -340,0,90));
+					}
 					Destroy (gameObject);
 				}else{
 					return;
@@ -105,11 +144,10 @@ public class Done_DestroyByContact : MonoBehaviour
 		//}
 
 
-			if (explosion != null)
+		if (explosion != null)
 		{
 			Instantiate(explosion, transform.position, transform.rotation);
 		}
-		
 		gameController.AddScore(scoreValue);
 		Destroy (other.gameObject);
 		Destroy (gameObject);

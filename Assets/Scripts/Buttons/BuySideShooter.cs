@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class BuySideShooter : MonoBehaviour {
-	public bool toggle = false;
+	public bool sideToggle = false;
 	public GameObject sideShooter;
 	
 	
@@ -16,13 +16,13 @@ public class BuySideShooter : MonoBehaviour {
 		
 	}
 	
-	void OnMouseDown(){
+	void OnMouseUp(){
 
 		GameObject go = GameObject.Find("Game Controller");
-		if (toggle==false && go.GetComponent<Done_GameController>().score>=2000){
+		if (sideToggle==false && go.GetComponent<Done_GameController>().score>=2000){
 			Instantiate (sideShooter, new Vector3(0,0,0), new Quaternion(0, 0,0,0));
 			go.GetComponent<Done_GameController>().AddScore(-(2000/go.GetComponent<Done_GameController>().scoreMultiplier));
-			toggle = true;
+			sideToggle = true;
 			audio.Play ();
 		}
 		

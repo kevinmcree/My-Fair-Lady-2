@@ -16,6 +16,7 @@ public class Done_PlayerController : MonoBehaviour
 
 	public GameObject shot;
 	public GameObject blast;
+	public GameObject chainReaction;
 	public Transform shotSpawn;
 	public float fireRate;
 	public string playerColor; 
@@ -24,9 +25,10 @@ public class Done_PlayerController : MonoBehaviour
 	public int powerUp;
 	public int weapon;
 	public bool onScreen;
-	public AudioClip[] clips = new AudioClip[5];
-	private AudioSource[] audioSources = new AudioSource[5];
+	public AudioClip[] clips = new AudioClip[7];
+	private AudioSource[] audioSources = new AudioSource[7];
 	public int stopSpam;
+	public bool littleDoctorWait;
 
 	
 	void Start ()
@@ -34,11 +36,12 @@ public class Done_PlayerController : MonoBehaviour
 		playerColor = "blue";
 		int i = 0;
 		stopSpam=5;
-		while (i < 5) {
+		while (i < 7) {
 			GameObject child = new GameObject("audio");
 			child.transform.parent = gameObject.transform;
 			audioSources[i] = child.AddComponent("AudioSource") as AudioSource;
 			audioSources[i].volume=.8f;
+			littleDoctorWait=false;
 			
 			i++;
 		}
@@ -110,6 +113,19 @@ public class Done_PlayerController : MonoBehaviour
 				audioSources[0].clip = clips[0];
 				audioSources[0].Play();
 					onScreen=true;
+			}
+		}
+		if (weapon==2){
+			if (littleDoctorWait==false){
+					littleDoctorWait=true;
+					audioSources[5].clip = clips[5];
+					audioSources[5].Play();
+
+			}else{
+				Instantiate(chainReaction, shotSpawn.position, shotSpawn.rotation);
+				audioSources[6].clip = clips[6];
+				audioSources[6].Play();
+				littleDoctorWait=false;
 			}
 		}
 

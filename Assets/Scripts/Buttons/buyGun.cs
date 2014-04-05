@@ -13,7 +13,7 @@ public class buyGun : MonoBehaviour {
 	
 	}
 	
-	void OnMouseDown(){
+	void OnMouseUP(){
 		GameObject go = GameObject.Find("Game Controller");
 		GameObject yo = GameObject.Find("Player");
 		if (go.GetComponent<Done_GameController>().score>=3000 && yo.GetComponent<Done_PlayerController>().powerUp<=3){
