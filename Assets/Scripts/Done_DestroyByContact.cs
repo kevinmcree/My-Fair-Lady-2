@@ -10,6 +10,7 @@ public class Done_DestroyByContact : MonoBehaviour
 	public int scoreValue;
 	private Done_GameController gameController;
 	public string color;
+	public int hits;
 
 
 
@@ -43,15 +44,15 @@ public class Done_DestroyByContact : MonoBehaviour
 		if (other.tag=="barrier"){
 			GameObject yo = GameObject.Find("Player");
 			if ((String.Compare(yo.GetComponent<Done_PlayerController>().playerColor, color)==0) || (String.Compare("none", color) == 0)){
-				GameObject sheild = GameObject.Find("player_sheild");
-				sheild.GetComponent<sheild>().sheildHealth--;
+				GameObject go = GameObject.Find("player_sheild");
+				go.GetComponent<sheild>().sheildHealth--;
 				Instantiate(explosion, transform.position, transform.rotation);
 				Destroy (gameObject);
-				if (sheild.GetComponent<sheild>().sheildHealth<=0){
+				if (go.GetComponent<sheild>().sheildHealth<=0){
 					Destroy (other.gameObject);
 					Destroy (gameObject);
-					GameObject go = GameObject.Find("buySheild");
-					go.GetComponent<BuySheild>().toggle=false;
+					GameObject jo = GameObject.Find("buySheild");
+					jo.GetComponent<BuySheild>().toggle=false;
 					Instantiate(explosion, transform.position, transform.rotation);
 				}
 			}
@@ -83,11 +84,17 @@ public class Done_DestroyByContact : MonoBehaviour
 		if (other.tag == "projectile"){
 			GameObject go = GameObject.Find("Player");
 			if ((String.Compare(go.GetComponent<Done_PlayerController>().playerColor, color)==0) || (String.Compare("none", color) == 0)){
-				Instantiate(explosion, transform.position, transform.rotation);
-				gameController.AddCombo();
-				gameController.AddScore(scoreValue*gameController.combo);
 				Destroy (other.gameObject);
-				Destroy (gameObject);
+				hits--;				
+				Destroy (other.gameObject);
+				if(hits<=0){
+					Instantiate(explosion, transform.position, transform.rotation);
+					gameController.AddCombo();
+					gameController.AddScore(scoreValue*gameController.combo);
+					Destroy (gameObject);
+				}else{
+					return;
+				}
 			} else {
 				return;
 			}

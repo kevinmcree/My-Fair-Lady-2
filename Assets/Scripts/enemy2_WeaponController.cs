@@ -15,14 +15,9 @@ public class enemy2_WeaponController : MonoBehaviour
 
 	void Fire ()
 	{
-				Instantiate(shot, shotSpawn.position + new Vector3(0, 10, 0), shotSpawn.rotation);
-                Instantiate(shot, shotSpawn.position + new Vector3(0, 10, 0), shotSpawn.rotation);
-                Instantiate(shot, shotSpawn.position + new Vector3(0, 10, 0), shotSpawn.rotation);
-                Instantiate(shot, shotSpawn.position + new Vector3(0, 10, 0), shotSpawn.rotation);
-				//Instantiate(shot, shotSpawn.position, new Quaternion(0, 20,0,90));
-				//Instantiate(shot, shotSpawn.position, new Quaternion(0, -20,0,90));	
-				//Instantiate(shot, shotSpawn.position, new Quaternion(0, 40,0,90));
-				//Instantiate(shot, shotSpawn.position, new Quaternion(0, -40,0,90));
-				audio.Play ();
+		Instantiate(shot, shotSpawn.position + new Vector3(1f, 0, 0), shotSpawn.rotation);
+		Instantiate(shot, shotSpawn.position + new Vector3(0, 0, 0), shotSpawn.rotation);
+		Instantiate(shot, shotSpawn.position + new Vector3(-1f, 0, 0), shotSpawn.rotation);
+		audio.Play ();
 	}
 }

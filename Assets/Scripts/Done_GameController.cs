@@ -10,6 +10,7 @@ public class Done_GameController : MonoBehaviour
 	public float startWait;
 	public float waveWait;
 	public bool inStore;
+	public int range;
 	
 	public GUIText scoreText;
 	public GUIText restartText;
@@ -70,9 +71,9 @@ public class Done_GameController : MonoBehaviour
 		{
 			for (int i = 0; i < hazardCount; i++)
 			{
-				int rand = Random.Range (0, hazards.Length);
+				int rand = Random.Range (0, range);
 				if (rand==6 || rand==7 || rand==8){
-					rand = Random.Range (0, hazards.Length);
+					rand = Random.Range (0, range);
 				}
 				GameObject hazard = hazards [rand];
 				Vector3 spawnPosition = new Vector3 (Random.Range (-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
@@ -88,6 +89,9 @@ public class Done_GameController : MonoBehaviour
 			}
 			if (waveWait<=0){
 				waveWait=0;
+			}
+			if (hazardCount==16){
+				range+=4;
 			}
 			yield return new WaitForSeconds (waveWait);
 			
