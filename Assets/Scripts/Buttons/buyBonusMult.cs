@@ -5,9 +5,19 @@ public class buyBonusMult : MonoBehaviour {
 	public int cost;
 	
 	// Use this for initialization
+	public AudioClip[] clips = new AudioClip[2];
+	private AudioSource[] audioSources = new AudioSource[2];
+	
+	// Use this for initialization
 	void Start () {
-		GameObject words = GameObject.Find("BonusCost");
-		words.GetComponent<TextMesh>().text = "Combo last longer: " +cost;
+		int i = 0;
+		while (i < 2) {
+			GameObject child = new GameObject("audio");
+			child.transform.parent = gameObject.transform;
+			audioSources[i] = child.AddComponent("AudioSource") as AudioSource;
+			audioSources[i].volume=.8f;
+			i++;
+		}
 		
 	}
 	
@@ -22,10 +32,14 @@ public class buyBonusMult : MonoBehaviour {
 			go.GetComponent<Done_GameController>().comboExtender +=50;
 			go.GetComponent<Done_GameController>().AddScore(-(cost/go.GetComponent<Done_GameController>().scoreMultiplier));
 			cost=cost*5;
-			audio.Play ();
+			audioSources[0].clip = clips[0];
+			audioSources[0].Play();
 			GameObject words = GameObject.Find("BonusCost");
 			words.GetComponent<TextMesh>().text = "Combo last longer: " +cost;
 			
+		}else{
+			audioSources[1].clip = clips[1];
+			audioSources[1].Play();
 		}
 	}
 }

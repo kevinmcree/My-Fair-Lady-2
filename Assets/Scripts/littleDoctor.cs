@@ -30,6 +30,69 @@ public class littleDoctor : MonoBehaviour {
 				GameObject yo = GameObject.Find("Game Controller");
 				yo.GetComponent<Done_GameController>().AddCombo();
 				yo.GetComponent<Done_GameController>().AddScore(other.GetComponent<Done_DestroyByContact>().scoreValue*yo.GetComponent<Done_GameController>().combo);
+			
+			if (go.GetComponent<Done_PlayerController>().powerUp==0){
+					Instantiate(shot, this.transform.position, new Quaternion(0, 0,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, 180,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, -180,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, 360,0,90));
+					Destroy (gameObject);
+			}
+			if (go.GetComponent<Done_PlayerController>().powerUp==1){
+					Instantiate(shot, this.transform.position, new Quaternion(0, 0,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, 120,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, 240,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, 360,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, -120,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, -240,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, -60,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, 60,0,90));
+					Destroy (gameObject);
+			}			
+			if (go.GetComponent<Done_PlayerController>().powerUp==2){
+					Instantiate(shot, this.transform.position, new Quaternion(0, 0,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, 60,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, 120,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, 180,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, 240,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, 300,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, 360,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, -60,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, -120,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, -180,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, -240,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, -300,0,90));
+					Destroy (gameObject);
+			}	
+			if (go.GetComponent<Done_PlayerController>().powerUp==3){
+					Instantiate(shot, this.transform.position, new Quaternion(0, 0,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, 30,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, 60,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, 90,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, 120,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, 150,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, 180,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, 210,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, 240,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, 270,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, 300,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, 330,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, 360,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, -30,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, -60,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, -90,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, -120,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, -150,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, -180,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, -210,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, -240,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, -270,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, -300,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, -3,0,90));
+					Destroy (gameObject);
+			}			
+
+			if (go.GetComponent<Done_PlayerController>().powerUp==4){
 				Instantiate(shot, this.transform.position, new Quaternion(0, 0,0,90));
 				Instantiate(shot, this.transform.position, new Quaternion(0, 20,0,90));
 				Instantiate(shot, this.transform.position, new Quaternion(0, 40,0,90));
@@ -68,6 +131,7 @@ public class littleDoctor : MonoBehaviour {
 				Instantiate(shot, this.transform.position, new Quaternion(0, -340,0,90));
 				Destroy (gameObject);
 				}
+			}
 			}
 		}
 	}
