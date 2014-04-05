@@ -11,7 +11,7 @@ public class Done_Mover : MonoBehaviour
 	}
 	void Update ()
 	{
-		if (transform.position.z>=20)
+		if (transform.position.z>=20 || transform.position.z<=-20 ||transform.position.x>=20 || transform.position.x<=-20 )
 		{
 			Destroy (gameObject);
 		}

@@ -15,20 +15,25 @@ public class Done_PlayerController : MonoBehaviour
 	public Done_Boundary boundary;
 
 	public GameObject shot;
+	public GameObject blast;
 	public Transform shotSpawn;
 	public float fireRate;
 	public string playerColor; 
 	public int playerHealth;
 	private float nextFire;
 	public int powerUp;
+	public int weapon;
+	public bool onScreen;
 	public AudioClip[] clips = new AudioClip[5];
 	private AudioSource[] audioSources = new AudioSource[5];
+	public int stopSpam;
 
 	
 	void Start ()
 	{
 		playerColor = "blue";
 		int i = 0;
+		stopSpam=5;
 		while (i < 5) {
 			GameObject child = new GameObject("audio");
 			child.transform.parent = gameObject.transform;
@@ -45,6 +50,7 @@ public class Done_PlayerController : MonoBehaviour
 		if (Input.GetKeyDown("space") && Time.time >= nextFire) 
 		{
 			nextFire = Time.time + fireRate;
+		if (weapon==0){
 			Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
 			audioSources[0].clip = clips[0];
 			audioSources[0].Play();
@@ -98,12 +104,22 @@ public class Done_PlayerController : MonoBehaviour
 				audioSources[4].Play();
 			}
 		}
+		if (weapon==1){
+			if (onScreen==false){
+				Instantiate(blast, shotSpawn.position, shotSpawn.rotation);
+				audioSources[0].clip = clips[0];
+				audioSources[0].Play();
+					onScreen=true;
+			}
+		}
 
-		if (Input.GetKeyDown("up")){
+		}
+
+		if (Input.GetKeyDown("up") && stopSpam<=0){
 			GameObject red = GameObject.Find("Red");
 			GameObject yellow = GameObject.Find("Yellow");
 			GameObject blue = GameObject.Find("Blue");
-
+			stopSpam=10;
 
 			if (String.Compare(playerColor, "blue")==0){
 				red.transform.position = new Vector3(0,-9,1);
@@ -121,16 +137,18 @@ public class Done_PlayerController : MonoBehaviour
 				playerColor = "blue";
 			}
 		}
-		if (Input.GetKeyDown("down")){
+		if (Input.GetKeyDown("down") && stopSpam<=0){
 			GameObject red = GameObject.Find("Red");
 			GameObject yellow = GameObject.Find("Yellow");
 			GameObject blue = GameObject.Find("Blue");
-			
+			stopSpam=10;
+
 			
 			if (String.Compare(playerColor, "blue")==0){
 				yellow.transform.position = new Vector3(0,-9,1);
 				blue.transform.position = new Vector3(0,-11,1);
 				playerColor = "yellow";
+
 			}		
 			else if (String.Compare(playerColor, "red")==0){
 				blue.transform.position = new Vector3(0,-9,1);
@@ -143,6 +161,8 @@ public class Done_PlayerController : MonoBehaviour
 				playerColor = "red";
 			}
 		}
+		stopSpam--;
+
 
 	}
 
