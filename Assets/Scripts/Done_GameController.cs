@@ -9,6 +9,7 @@ public class Done_GameController : MonoBehaviour
 	public float spawnWait;
 	public float startWait;
 	public float waveWait;
+	public bool inStore;
 	
 	public GUIText scoreText;
 	public GUIText restartText;
@@ -28,6 +29,7 @@ public class Done_GameController : MonoBehaviour
 		comboText = GameObject.Find ("Combo");
 		gameOver = false;
 		restart = false;
+		inStore=false;
 		restartText.text = "";
 		gameOverText.text = "";
 		score = 0;
@@ -39,17 +41,12 @@ public class Done_GameController : MonoBehaviour
 	
 	void Update ()
 	{
-	//	if (counter<=0){
-	//		hazardCount++;
-	//		counter = 1000;
-	//	}
 		if (comboCounter<=0){
 			combo = 0;
 			UpdateCombo();
 			comboCounter = 100;
 		}
 		comboCounter--;
-
 		counter--;
 
 		if (restart)
@@ -59,6 +56,7 @@ public class Done_GameController : MonoBehaviour
 				Application.LoadLevel (Application.loadedLevel);
 			}
 		}
+
 	}
 	
 	IEnumerator SpawnWaves ()
@@ -69,7 +67,7 @@ public class Done_GameController : MonoBehaviour
 			for (int i = 0; i < hazardCount; i++)
 			{
 				int rand = Random.Range (0, hazards.Length);
-				if (rand==6 || rand==7){
+				if (rand==6 || rand==7 || rand==8){
 					rand = Random.Range (0, hazards.Length);
 				}
 				GameObject hazard = hazards [rand];

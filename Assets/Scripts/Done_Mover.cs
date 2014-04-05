@@ -15,6 +15,11 @@ public class Done_Mover : MonoBehaviour
 		{
 			Destroy (gameObject);
 		}
+		GameObject go = GameObject.Find("Game Controller");
+		if (go.GetComponent<Done_GameController>().inStore==true){
+			Destroy (gameObject);
+		}
+
 	}
 
 }

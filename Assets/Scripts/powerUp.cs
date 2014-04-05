@@ -22,11 +22,7 @@ public class powerUp : MonoBehaviour {
 		if (other.tag == "Player"){
 			GameObject go = GameObject.Find("Player");
 			go.GetComponent<Done_PlayerController>().powerUp++;
-			if (explosion != null)
-				audio.Play(); 
-			{
-				Instantiate(explosion, transform.position, transform.rotation);
-			}
+			Instantiate(explosion, transform.position, transform.rotation);
 			Destroy (gameObject);
 		}
 		

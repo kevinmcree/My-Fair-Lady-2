@@ -40,6 +40,13 @@ public class Com_Chatter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+	GameObject go = GameObject.Find("Game Controller");
+	if (	go.GetComponent<Done_GameController>().inStore==false){
+		if (talking == true){
+			words.transform.position = new Vector3 (.20f,.13f,0);
+		}else{
+			words.transform.position = new Vector3 (10,10,10);
+		}
 		if (counter <= 0 && talking == false) {
 			//GameObject terminal = GameObject.Find ("Terminal");
 			//terminal.transform.position = new Vector3 (8, -.4f, 20);
@@ -110,7 +117,6 @@ public class Com_Chatter : MonoBehaviour {
 			talking = true;
 				}
 		if (counter <= 0 && talking == true){
-			words.transform.position = new Vector3 (.25f,.1f,0);
 			words.guiText.text = dialouge[start];
 			if( speaker[start]==0){
 				hare.transform.position = new Vector3 (-11.5f, -.4f,-7.4f);
@@ -149,6 +155,9 @@ public class Com_Chatter : MonoBehaviour {
 		}
 
 		counter--;
+	} else {
+		words.transform.position = new Vector3 (10,10,10);
+	}
 	}
 
 	string[] dialougeSet(string[] yo){
@@ -274,7 +283,7 @@ public class Com_Chatter : MonoBehaviour {
 		speaker[72] = 3;
 		yo[73] = "I tried to get him to invite you Eliza.";
 		speaker[73] = 0;
-		yo[74] = "Oh sorry Eliza the invitite when I shoved it in the garbage.";
+		yo[74] = "Oh sorry Eliza I lost the invitite when I threw it in the garbage.";
 		speaker[74] = 1;
 		yo[75] = "What's your problem Bird?";
 		speaker[75] = 3;
