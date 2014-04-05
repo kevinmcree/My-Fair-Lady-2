@@ -23,6 +23,8 @@ public class Done_GameController : MonoBehaviour
 	public int combo;
 	public int comboCounter;
 	GameObject comboText;
+	public int scoreMultiplier;
+	public int comboExtender;
 
 	void Start ()
 	{
@@ -34,6 +36,8 @@ public class Done_GameController : MonoBehaviour
 		gameOverText.text = "";
 		score = 0;
 		counter = 1000;
+		comboExtender = 0;
+		scoreMultiplier = 1;
 		UpdateScore ();
 		StartCoroutine (SpawnWaves ());
 
@@ -44,7 +48,7 @@ public class Done_GameController : MonoBehaviour
 		if (comboCounter<=0){
 			combo = 0;
 			UpdateCombo();
-			comboCounter = 100;
+			comboCounter = 100+comboExtender;
 		}
 		comboCounter--;
 		counter--;
@@ -76,9 +80,15 @@ public class Done_GameController : MonoBehaviour
 				Instantiate (hazard, spawnPosition, spawnRotation);
 				yield return new WaitForSeconds (spawnWait);
 			}
-			hazardCount++;
-			spawnWait-=.01f;
-				waveWait-=.1f;
+			hazardCount+=2;
+			spawnWait-=.03f;
+			waveWait-=.2f;
+			if (spawnWait<=0){
+				spawnWait=0;
+			}
+			if (waveWait<=0){
+				waveWait=0;
+			}
 			yield return new WaitForSeconds (waveWait);
 			
 			if (gameOver)
@@ -92,13 +102,13 @@ public class Done_GameController : MonoBehaviour
 	
 	public void AddScore (int newScoreValue)
 	{
-		score += newScoreValue;
+		score += newScoreValue*scoreMultiplier;
 		UpdateScore ();
 	}
 
 	public void AddCombo (){
 		combo++;
-		comboCounter = 100;
+		comboCounter = 100+comboExtender;
 		UpdateCombo();
 	}
 	

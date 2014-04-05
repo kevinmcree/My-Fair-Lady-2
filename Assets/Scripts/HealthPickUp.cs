@@ -21,10 +21,12 @@ void OnTriggerEnter (Collider other)
 	}
 	if (other.tag == "Player"){
 		GameObject go = GameObject.Find("Player");
-			go.GetComponent<Done_PlayerController>().playerHealth++;
-			GameObject health = GameObject.Find("Health");
-			health.transform.position += new Vector3(0,0,.5f);
-			health.transform.localScale -= new Vector3 (-1f,0,0); 
+			if (go.GetComponent<Done_PlayerController>().playerHealth<4){
+				go.GetComponent<Done_PlayerController>().playerHealth++;
+				GameObject health = GameObject.Find("Health");
+				health.transform.position += new Vector3(0,0,.5f);
+				health.transform.localScale -= new Vector3 (-1f,0,0); 
+			}
 			if (explosion != null)
 			{
 				Instantiate(explosion, transform.position, transform.rotation);
