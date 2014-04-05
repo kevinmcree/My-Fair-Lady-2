@@ -17,12 +17,13 @@ public class BuySheild : MonoBehaviour {
 	}
 
 	void OnMouseDown(){
-		if (toggle==false){
+		GameObject go = GameObject.Find("Game Controller");
+		if (toggle==false && go.GetComponent<Done_GameController>().score>=10000){
 			Instantiate (sheild, new Vector3(0,0,0), new Quaternion(0, 0,0,0));
-			GameObject go = GameObject.Find("Game Controller");
-			go.GetComponent<Done_GameController>().AddScore(-10000);
+			go.GetComponent<Done_GameController>().AddScore(-5000);
+			toggle = true;
+			audio.Play ();
 		}
 
-		toggle = true;
 	}
 }
