@@ -13,7 +13,7 @@ public class lightSaber : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		GameObject player = GameObject.Find ("Player");
-		if(Input.GetKeyDown("space") && player.GetComponent<Done_PlayerController>().weapon==3 && extended==false){
+		if(Input.GetKeyDown("space") && player.GetComponent<Done_PlayerController>().weapon==3 && extended==false && player.GetComponent<Done_PlayerController>().shipType!=4){
 			audio.Play();
 			extended = true;
 		}

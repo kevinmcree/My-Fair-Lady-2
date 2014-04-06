@@ -69,7 +69,10 @@ public class Done_DestroyByContact : MonoBehaviour
 					go.GetComponent<Done_PlayerController>().playerHealth--;
 					go.GetComponent<Done_PlayerController>().hitStun=50;
 				}
-				go.GetComponent<Done_PlayerController>().powerUp=0;
+				if (go.GetComponent<Done_PlayerController>().powerUp==4){
+					go.GetComponent<Done_PlayerController>().powerUp--;
+				}
+				go.GetComponent<Done_PlayerController>().powerUp--;
 				GameObject health = GameObject.Find("Health");
 				health.transform.position -= new Vector3(0,0,.5f);
 				health.transform.localScale += new Vector3 (-1,0,0); 
@@ -88,7 +91,7 @@ public class Done_DestroyByContact : MonoBehaviour
  		}
 		if (other.tag == "beam"){
 			GameObject go = GameObject.Find("Player");
-			if ((String.Compare(go.GetComponent<Done_PlayerController>().playerColor, color)==0) || (String.Compare("none", color) == 0)){
+			if (String.Compare(go.GetComponent<Done_PlayerController>().playerColor, color)==0 || String.Compare("none", color) == 0|| go.GetComponent<Done_PlayerController>().shipType==3){
 				hits--;				
 				if(hits<=0){
 					Instantiate(explosion, transform.position, transform.rotation);
