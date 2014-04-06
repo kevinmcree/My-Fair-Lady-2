@@ -25,6 +25,7 @@ public class shieldPickUp : MonoBehaviour {
 						GameObject go = GameObject.Find ("Player");
 						if (go.GetComponent<Done_PlayerController> ().hasShield == false) {
 								Instantiate (sheild, new Vector3 (0, 0, 0), new Quaternion (0, 0, 0, 0));
+								go.GetComponent<Done_PlayerController>().hasShield=true;
 						} else {
 								GameObject yo = GameObject.Find ("player_sheild(Clone)");
 								yo.GetComponent<sheild> ().sheildHealth++;

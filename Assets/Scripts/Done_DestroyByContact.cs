@@ -51,6 +51,7 @@ public class Done_DestroyByContact : MonoBehaviour
 				Instantiate(explosion, transform.position, transform.rotation);
 				Destroy (gameObject);
 				if (go.GetComponent<sheild>().sheildHealth<=0){
+					yo.GetComponent<Done_PlayerController> ().hasShield=false;
 					Destroy (other.gameObject);
 					Destroy (gameObject);
 					GameObject jo = GameObject.Find("buySheild");

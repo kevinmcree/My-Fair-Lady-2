@@ -11,7 +11,8 @@ public class Done_GameController : MonoBehaviour
 	public float waveWait;
 	public bool inStore;
 	public int range;
-	
+	public bool isTutorial;
+
 	public GUIText scoreText;
 	public GUIText restartText;
 	public GUIText gameOverText;
@@ -72,8 +73,15 @@ public class Done_GameController : MonoBehaviour
 			for (int i = 0; i < hazardCount; i++)
 			{
 				int rand = Random.Range (0, range);
-				if (rand==6 || rand==7 || rand==8 || rand==12 || rand==13 || rand==14){
+				if (rand==6 || rand==7 || rand==8 || rand==9 || rand==13 || rand==14 || rand==15){
 					rand = Random.Range (0, range);
+					if (rand==8 || rand==9 || rand==13 || rand==14 || rand==15){
+						int otherRand = Random.Range (0, 2);
+						if (otherRand!=1){
+							rand = Random.Range (0, range);
+						}
+					}
+
 				}
 				if (rand == 9 || rand == 10 || rand == 11){
 					int otherRand = Random.Range (0, 2);
@@ -96,10 +104,10 @@ public class Done_GameController : MonoBehaviour
 			if (waveWait<=0){
 				waveWait=0;
 			}
-			if (hazardCount==16){
-				range+=4;
+			if (hazardCount==16 && !isTutorial){
+				range+=5;
 			}
-			if (hazardCount==30){
+			if (hazardCount==30 && !isTutorial){
 				range+=3;
 			}
 			yield return new WaitForSeconds (waveWait);
