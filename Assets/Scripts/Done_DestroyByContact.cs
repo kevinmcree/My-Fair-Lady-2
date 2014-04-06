@@ -64,7 +64,10 @@ public class Done_DestroyByContact : MonoBehaviour
 			if (other.tag == "Player"){
 			GameObject go = GameObject.Find("Player");
 		if ((String.Compare(go.GetComponent<Done_PlayerController>().playerColor, color)==0) || (String.Compare("none", color) == 0)){
-				go.GetComponent<Done_PlayerController>().playerHealth--;
+				if (go.GetComponent<Done_PlayerController>().hitStun<=0){;
+					go.GetComponent<Done_PlayerController>().playerHealth--;
+					go.GetComponent<Done_PlayerController>().hitStun=50;
+				}
 				go.GetComponent<Done_PlayerController>().powerUp=0;
 				GameObject health = GameObject.Find("Health");
 				health.transform.position -= new Vector3(0,0,.5f);
@@ -87,17 +90,19 @@ public class Done_DestroyByContact : MonoBehaviour
 			GameObject go = GameObject.Find("Player");
 			if ((String.Compare(go.GetComponent<Done_PlayerController>().playerColor, color)==0) || (String.Compare("none", color) == 0)){
 				Destroy (other.gameObject);
+				go.GetComponent<Done_PlayerController>().shotAmount--;
 				hits--;				
 				if(hits<=0){
 					Instantiate(explosion, transform.position, transform.rotation);
 					gameController.AddCombo();
 					gameController.AddScore(scoreValue*gameController.combo);
-					if (go.GetComponent<Done_PlayerController>().weapon == 2){
+					if (go.GetComponent<Done_PlayerController>().weapon == 2 && go.GetComponent<Done_PlayerController>().shotAmount<=500){
 						if (go.GetComponent<Done_PlayerController>().powerUp==0){
 							Instantiate(shot, this.transform.position, new Quaternion(0, 0,0,90));
 							Instantiate(shot, this.transform.position, new Quaternion(0, 180,0,90));
 							Instantiate(shot, this.transform.position, new Quaternion(0, -180,0,90));
 							Instantiate(shot, this.transform.position, new Quaternion(0, 360,0,90));
+							go.GetComponent<Done_PlayerController>().shotAmount+=4;
 							Destroy (gameObject);
 						}
 						if (go.GetComponent<Done_PlayerController>().powerUp==1){
@@ -109,6 +114,8 @@ public class Done_DestroyByContact : MonoBehaviour
 							Instantiate(shot, this.transform.position, new Quaternion(0, -240,0,90));
 							Instantiate(shot, this.transform.position, new Quaternion(0, -60,0,90));
 							Instantiate(shot, this.transform.position, new Quaternion(0, 60,0,90));
+							go.GetComponent<Done_PlayerController>().shotAmount+=8;
+
 							Destroy (gameObject);
 						}			
 						if (go.GetComponent<Done_PlayerController>().powerUp==2){
@@ -124,6 +131,8 @@ public class Done_DestroyByContact : MonoBehaviour
 							Instantiate(shot, this.transform.position, new Quaternion(0, -180,0,90));
 							Instantiate(shot, this.transform.position, new Quaternion(0, -240,0,90));
 							Instantiate(shot, this.transform.position, new Quaternion(0, -300,0,90));
+							go.GetComponent<Done_PlayerController>().shotAmount+=12;
+				
 							Destroy (gameObject);
 						}	
 						if (go.GetComponent<Done_PlayerController>().powerUp==3){
@@ -151,6 +160,8 @@ public class Done_DestroyByContact : MonoBehaviour
 							Instantiate(shot, this.transform.position, new Quaternion(0, -270,0,90));
 							Instantiate(shot, this.transform.position, new Quaternion(0, -300,0,90));
 							Instantiate(shot, this.transform.position, new Quaternion(0, -3,0,90));
+							go.GetComponent<Done_PlayerController>().shotAmount+=24;
+
 							Destroy (gameObject);
 						}			
 						
@@ -191,9 +202,12 @@ public class Done_DestroyByContact : MonoBehaviour
 							Instantiate(shot, this.transform.position, new Quaternion(0, -300,0,90));
 							Instantiate(shot, this.transform.position, new Quaternion(0, -320,0,90));
 							Instantiate(shot, this.transform.position, new Quaternion(0, -340,0,90));
+							go.GetComponent<Done_PlayerController>().shotAmount+=36;
+
 							Destroy (gameObject);
 						}					}
 					Destroy (gameObject);
+
 				}else{
 					return;
 				}

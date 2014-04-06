@@ -13,8 +13,8 @@ public class blastWeapon : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKeyDown("space")){
-			GameObject yo = GameObject.Find("Player");
+		GameObject yo = GameObject.Find("Player");
+		if(Input.GetKeyDown("space") && yo.GetComponent<Done_PlayerController>().shotAmount<=500){
 			if (yo.GetComponent<Done_PlayerController>().powerUp==0){
 				Instantiate(shot, this.transform.position, new Quaternion(0, 0,0,90));
 				Instantiate(shot, this.transform.position, new Quaternion(0, 60,0,90));
@@ -28,6 +28,8 @@ public class blastWeapon : MonoBehaviour {
 				Instantiate(shot, this.transform.position, new Quaternion(0, -180,0,90));
 				Instantiate(shot, this.transform.position, new Quaternion(0, -240,0,90));
 				Instantiate(shot, this.transform.position, new Quaternion(0, -300,0,90));
+				yo.GetComponent<Done_PlayerController>().shotAmount+=12;
+
 				Instantiate(explosion, transform.position, transform.rotation);
 				yo.GetComponent<Done_PlayerController>().onScreen=false;
 				Destroy(gameObject);
@@ -52,6 +54,7 @@ public class blastWeapon : MonoBehaviour {
 				Instantiate(shot, this.transform.position, new Quaternion(0, -280,0,90));
 				Instantiate(shot, this.transform.position, new Quaternion(0, -320,0,90));
 				Instantiate(shot, this.transform.position, new Quaternion(0, -360,0,90));
+				yo.GetComponent<Done_PlayerController>().shotAmount+=19;
 				Instantiate(explosion, transform.position, transform.rotation);
 				yo.GetComponent<Done_PlayerController>().onScreen=false;
 				Destroy(gameObject);
@@ -94,6 +97,8 @@ public class blastWeapon : MonoBehaviour {
 				Instantiate(shot, this.transform.position, new Quaternion(0, -320,0,90));
 				Instantiate(shot, this.transform.position, new Quaternion(0, -340,0,90));
 				Instantiate(shot, this.transform.position, new Quaternion(0, -360,0,90));
+				yo.GetComponent<Done_PlayerController>().shotAmount+=37;
+
 				Instantiate(explosion, transform.position, transform.rotation);
 				yo.GetComponent<Done_PlayerController>().onScreen=false;
 				Destroy(gameObject);
@@ -172,6 +177,7 @@ public class blastWeapon : MonoBehaviour {
 				Instantiate(shot, this.transform.position, new Quaternion(0, -310,0,90));
 				Instantiate(shot, this.transform.position, new Quaternion(0, -330,0,90));
 				Instantiate(shot, this.transform.position, new Quaternion(0, -350,0,90));
+				yo.GetComponent<Done_PlayerController>().shotAmount+=73;
 				Instantiate(explosion, transform.position, transform.rotation);
 				yo.GetComponent<Done_PlayerController>().onScreen=false;
 				Destroy(gameObject);
@@ -321,6 +327,8 @@ public class blastWeapon : MonoBehaviour {
 			Instantiate(shot, this.transform.position, new Quaternion(0, -350,0,90));
 			Instantiate(shot, this.transform.position, new Quaternion(0, -355,0,90));
 			Instantiate(shot, this.transform.position, new Quaternion(0, -360,0,90));
+			yo.GetComponent<Done_PlayerController>().shotAmount+=144;
+
 			Instantiate(explosion, transform.position, transform.rotation);
 			yo.GetComponent<Done_PlayerController>().onScreen=false;
 			Destroy(gameObject);

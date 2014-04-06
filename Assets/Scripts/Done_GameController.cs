@@ -72,8 +72,14 @@ public class Done_GameController : MonoBehaviour
 			for (int i = 0; i < hazardCount; i++)
 			{
 				int rand = Random.Range (0, range);
-				if (rand==6 || rand==7 || rand==8){
+				if (rand==6 || rand==7 || rand==8 || rand==12 || rand==13 || rand==14){
 					rand = Random.Range (0, range);
+				}
+				if (rand == 9 || rand == 10 || rand == 11){
+					int otherRand = Random.Range (0, 2);
+					if (otherRand!=1){
+						rand = Random.Range (0, range);
+					}
 				}
 				GameObject hazard = hazards [rand];
 				Vector3 spawnPosition = new Vector3 (Random.Range (-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
@@ -92,6 +98,9 @@ public class Done_GameController : MonoBehaviour
 			}
 			if (hazardCount==16){
 				range+=4;
+			}
+			if (hazardCount==30){
+				range+=3;
 			}
 			yield return new WaitForSeconds (waveWait);
 			
