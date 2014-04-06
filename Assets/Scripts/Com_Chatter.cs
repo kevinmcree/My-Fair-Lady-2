@@ -50,12 +50,12 @@ public class Com_Chatter : MonoBehaviour {
 		if (counter <= 0 && talking == false) {
 			//GameObject terminal = GameObject.Find ("Terminal");
 			//terminal.transform.position = new Vector3 (8, -.4f, 20);
-			rand = Random.Range (0, 11);
+			rand = Random.Range (0, 15);
 			int i = 0;
 			while (used[rand]==true){
-				rand = Random.Range (0, 11);
+				rand = Random.Range (0, 15);
 				i++;
-				if (i>=10){
+				if (i>=14){
 					break;
 				}
 			}
@@ -114,6 +114,26 @@ public class Com_Chatter : MonoBehaviour {
 							end = 79;
 							used[10] = true;
 						}
+						else if (rand == 11){
+							start = 79;
+							end = 84;
+							used[11] = true;
+						}
+						else if (rand == 12){
+							start = 84;
+							end = 88;
+							used[12] = true;
+						}
+						else if (rand == 13){
+							start = 89;
+							end = 97;
+							used[13] = true;
+						}
+						else if (rand == 14){
+							start = 3;
+							end = 10;
+							used[14] = true;
+						}
 			talking = true;
 				}
 		if (counter <= 0 && talking == true){
@@ -141,10 +161,10 @@ public class Com_Chatter : MonoBehaviour {
 			}
 
 			
-			counter = 200;
+			counter = 300;
 			start++;
 			if (start>end){ 
-				counter = 800;
+				counter = 700;
 				talking = false;
 				words.transform.position = new Vector3 (10,10,10);
 				frog.transform.position = new Vector3 (11.6f, -.4f,-20);
@@ -173,6 +193,21 @@ public class Com_Chatter : MonoBehaviour {
 		speaker[1] = 1;
 		yo[2] = "Bird out";
 		speaker[2] = 1;
+
+		yo[3] = "So why did they get you to build these ships Froggerson?";
+		speaker[3] = 3;
+		yo[4] = "Because he offered to do it for free for the 'experience'";
+		speaker[4] = 1;
+		yo[5] = "Hey, you got to build a resume somehow.";
+		speaker[5] = 2;
+		yo[6] = "But you still haven't paid me back my money!";
+		speaker[6] = 1;
+		yo[7] = "He owes you money?";
+		speaker[7] = 3;
+		yo[8] = "Yeah because the idiot didn't even get them to cover the materials cost!.";
+		speaker[8] = 1;
+		yo[9] = "Aw c'mon guys don't focus on that. Think of the cool spacehips. Spaceships!";
+		speaker[9] = 2;
 
 		yo[10] = "That's a pretty nice ship Eliza.";
 		speaker[10] = 2;
@@ -293,6 +328,46 @@ public class Com_Chatter : MonoBehaviour {
 		speaker[77] = 3;
 		yo[78] = "What? You didn't even... screw you Eliza.";
 		speaker[78] = 1;
+
+		yo[79] = "Eliza if you hit one of those floating teleporters you can upgrade your ship.";
+		speaker[79] = 0;
+		yo[80] = "Yeah I don't get that. Why is this stufff just floating around?";
+		speaker[80] = 3;
+		yo[81] = "Hey it's not my fault the cargo eject button looks so much like the smoothie machine.";
+		speaker[81] = 2;
+		yo[82] = "You have a smoothie machine?";
+		speaker[82] = 1;
+		yo[83] = "Er... going through asteroids, channel breaking up.";
+		speaker[83] = 2;
+
+		yo[84] = "...I don't know It's pretty big.";
+		speaker[84] = 2;
+		yo[85] = "I'm not a doctor but as long as it's not discolored you should be fine.";
+		speaker[85] = 0;
+		yo[86] = "But it's all sticky and full of pus.";
+		speaker[86] = 2;
+		yo[87] = "Will you two get off my com line!";
+		speaker[87] = 3;
+
+		yo[88] = "Nice shot Bob";
+		speaker[88] = 2;
+		yo[89] = "Thanks Bird.";
+		speaker[89] = 0;
+		yo[90] = "I got one!";
+		speaker[90] = 2;
+		yo[91] = "Great job Froggerson!";
+		speaker[92] = 1;
+		yo[93] = "Ahem.";
+		speaker[93] = 3;
+		yo[94] = "Huh, sure is a lot of static coming through this channel. Almost sounds like whining.";
+		speaker[94] = 1;
+		yo[95] = "Oh come on!";
+		speaker[95] = 3;
+		yo[96] = "Yup, definitly sounds like whining. Weird.";
+		speaker[96] = 1;
+
+
+
 		
 		return yo;
 	}		
