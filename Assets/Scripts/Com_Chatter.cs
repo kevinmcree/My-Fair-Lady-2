@@ -40,8 +40,8 @@ public class Com_Chatter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	GameObject go = GameObject.Find("Game Controller");
-	if (	go.GetComponent<Done_GameController>().inStore==false){
+		GameObject go = GameObject.Find("Game Controller");
+		if (	go.GetComponent<Done_GameController>().inStore==false){
 		if (talking == true){
 			words.transform.position = new Vector3 (.20f,.13f,0);
 		}else{

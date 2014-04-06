@@ -164,7 +164,7 @@ public class Done_PlayerController : MonoBehaviour
 				Instantiate(shot, shotSpawn.position + new Vector3(-2f,0,0), new Quaternion(0, 100,0,90));
 				Instantiate(shot, shotSpawn.position + new Vector3(2,0,0), new Quaternion(0, -100,0,90));
 
-					shotAmount+=24;
+					shotAmount+=20;
 
 				audioSources[4].clip = clips[4];
 				audioSources[4].Play();
@@ -182,7 +182,7 @@ public class Done_PlayerController : MonoBehaviour
 			if (littleDoctorWait==100 ){
 				audioSources[5].clip = clips[5];
 				audioSources[5].Play();
-				littleDoctorWait=60;
+				littleDoctorWait=40;
 			}
 
 			if (littleDoctorWait<=0){ 
