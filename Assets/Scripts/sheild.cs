@@ -5,7 +5,7 @@ public class sheild : MonoBehaviour {
 	public int sheildHealth;
 	
 	void Start(){
-		sheildHealth = 5;
+		sheildHealth = 1;
 	}
 	
 	void Update(){

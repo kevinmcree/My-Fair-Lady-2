@@ -21,20 +21,23 @@ public class storeTeleporter : MonoBehaviour {
 		if (other.tag == "Boundary" || other.tag == "Enemy"){
 			return;
 		}
-		if (other.tag == "Player"){
+		if (other.tag == "Player"  ){
 			GameObject go = GameObject.Find("Game Controller");
-			go.GetComponent<Done_GameController>().inStore=true;
-			go.GetComponent<Done_GameController>().audio.Pause();
+			GameObject yo = GameObject.Find("Player");
+			if (yo.GetComponent<Done_PlayerController>().shipType!=4){
+				go.GetComponent<Done_GameController>().inStore=true;
+				go.GetComponent<Done_GameController>().audio.Pause();
 
-			GameObject store = GameObject.Find("Store");
-			store.audio.Play ();
+				GameObject store = GameObject.Find("Store");
+				store.audio.Play ();
 
-			//GameObject comboText = GameObject.Find("Combo");
-			//comboText.transform.position = new Vector3 (10,10,10);
+			//	GameObject comboText = GameObject.Find("Combo");
+			//	comboText.transform.position = new Vector3 (10,10,10);
 
-			Camera.main.transform.position = new Vector3(-80, 20.4f, -30);
-			Instantiate(explosion, transform.position, transform.rotation);
-			Destroy (gameObject);
+				Camera.main.transform.position = new Vector3(-80, 20.4f, -30);
+				Instantiate(explosion, transform.position, transform.rotation);
+				Destroy (gameObject);
+			}
 		}
 	}
 }

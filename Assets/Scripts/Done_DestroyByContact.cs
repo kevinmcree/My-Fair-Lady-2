@@ -63,7 +63,7 @@ public class Done_DestroyByContact : MonoBehaviour
 
 			if (other.tag == "Player"){
 			GameObject go = GameObject.Find("Player");
-		if ((String.Compare(go.GetComponent<Done_PlayerController>().playerColor, color)==0) || (String.Compare("none", color) == 0)){
+			if (((String.Compare(go.GetComponent<Done_PlayerController>().playerColor, color)==0) || (String.Compare("none", color) == 0) || go.GetComponent<Done_PlayerController>().shipType==3) && go.GetComponent<Done_PlayerController>().shipType!=4){
 				if (go.GetComponent<Done_PlayerController>().hitStun<=0){;
 					go.GetComponent<Done_PlayerController>().playerHealth--;
 					go.GetComponent<Done_PlayerController>().hitStun=50;
@@ -116,7 +116,7 @@ public class Done_DestroyByContact : MonoBehaviour
 
 		if (other.tag == "projectile"){
 			GameObject go = GameObject.Find("Player");
-			if ((String.Compare(go.GetComponent<Done_PlayerController>().playerColor, color)==0) || (String.Compare("none", color) == 0)){
+			if ((String.Compare(go.GetComponent<Done_PlayerController>().playerColor, color)==0) || (String.Compare("none", color) == 0) || go.GetComponent<Done_PlayerController>().shipType==3){
 				Destroy (other.gameObject);
 				go.GetComponent<Done_PlayerController>().shotAmount--;
 				hits--;				

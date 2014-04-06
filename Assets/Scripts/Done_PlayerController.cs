@@ -22,8 +22,10 @@ public class Done_PlayerController : MonoBehaviour
 	public float fireRate;
 	public string playerColor; 
 	public int playerHealth;
+	public int maxHealth;
 	private float nextFire;
 	public int powerUp;
+	public int shipType;
 	public int weapon;
 	public bool onScreen;
 	public AudioClip[] clips = new AudioClip[8];
@@ -32,10 +34,49 @@ public class Done_PlayerController : MonoBehaviour
 	public int littleDoctorWait;
 	public int hitStun;
 	public int shotAmount;
+	public bool hasShield;
 
 	
 	void Start ()
 	{
+		if (shipType == 0) {
+			speed = 18;
+			playerHealth = 4;
+			maxHealth = 4;
+		}
+		if (shipType == 1) {
+			speed = 10;
+			playerHealth = 6;
+			maxHealth = 6;
+		}
+		if (shipType == 2) {
+			speed = 30;
+			playerHealth = 2;
+			maxHealth  = 2;
+			transform.localScale = new Vector3 (.7f,.75f,1.25f);
+		}
+		if (shipType == 3) {
+			speed = 18;
+			playerHealth = 4;
+			maxHealth  = 4;			
+			GameObject red = GameObject.Find("Red");
+			GameObject yellow = GameObject.Find("Yellow");
+			GameObject blue = GameObject.Find("Blue");
+			red.transform.position = new Vector3(100,-9,1);
+			yellow.transform.position = new Vector3(100,-9,1);
+			blue.transform.position = new Vector3(100,-11,1);
+
+		}
+		if (shipType == 4) {
+			speed = 0;
+			playerHealth = 2;
+			maxHealth  = 2;			
+			GameObject carrot = GameObject.Find("carrot");
+			carrot.transform.position = this.transform.position;
+			gameObject.transform.position = new Vector3 (100000,100000,1000000);
+
+
+		}
 		playerColor = "blue";
 		littleDoctorWait=100;
 		int i = 0;
@@ -53,8 +94,11 @@ public class Done_PlayerController : MonoBehaviour
 
 	void Update ()
 	{
-		hitStun--;
-		if (Input.GetKeyDown("space") && Time.time >= nextFire && shotAmount<=500) 
+		if (shipType == 4) {
+			gameObject.transform.position = new Vector3 (100000, 100000, 1000000);
+		}
+			hitStun--;
+		if (Input.GetKeyDown("space") && Time.time >= nextFire && shotAmount<=500 && shipType!=4) 
 		{
 			nextFire = Time.time + fireRate;
 		if (weapon==0){
@@ -209,11 +253,13 @@ public class Done_PlayerController : MonoBehaviour
 			
 		}
 
-		if (Input.GetKeyDown("up") && stopSpam<=0){
+		if (Input.GetKeyDown("up") && stopSpam<=0 && shipType!=3 ){
 			GameObject red = GameObject.Find("Red");
 			GameObject yellow = GameObject.Find("Yellow");
 			GameObject blue = GameObject.Find("Blue");
-			stopSpam=10;
+			if (shipType != 4){
+				stopSpam=10;
+			}
 
 			if (String.Compare(playerColor, "blue")==0){
 				red.transform.position = new Vector3(0,-9,1);
@@ -231,11 +277,13 @@ public class Done_PlayerController : MonoBehaviour
 				playerColor = "blue";
 			}
 		}
-		if (Input.GetKeyDown("down") && stopSpam<=0){
+		if (Input.GetKeyDown("down") && stopSpam<=0 && shipType!=3){
 			GameObject red = GameObject.Find("Red");
 			GameObject yellow = GameObject.Find("Yellow");
 			GameObject blue = GameObject.Find("Blue");
-			stopSpam=10;
+			if (shipType != 4){
+				stopSpam=10;
+			}
 
 			
 			if (String.Compare(playerColor, "blue")==0){
@@ -264,6 +312,10 @@ public class Done_PlayerController : MonoBehaviour
 	{
 		float moveHorizontal = Input.GetAxis ("Horizontal");
 		float moveVertical = 0;//Input.GetAxis ("Vertical");
+
+		if (shipType == 3) {
+			 moveVertical = Input.GetAxis ("Vertical");
+		}
 
 		Vector3 movement = new Vector3 (moveHorizontal, 0f, moveVertical);
 		rigidbody.velocity = movement * speed;

@@ -21,7 +21,7 @@ void OnTriggerEnter (Collider other)
 	}
 	if (other.tag == "Player"){
 		GameObject go = GameObject.Find("Player");
-			if (go.GetComponent<Done_PlayerController>().playerHealth<4){
+			if (go.GetComponent<Done_PlayerController>().playerHealth<go.GetComponent<Done_PlayerController>().maxHealth){
 				go.GetComponent<Done_PlayerController>().playerHealth++;
 				GameObject health = GameObject.Find("Health");
 				health.transform.position += new Vector3(0,0,.5f);
