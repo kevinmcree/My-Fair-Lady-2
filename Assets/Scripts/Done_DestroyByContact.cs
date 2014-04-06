@@ -100,6 +100,19 @@ public class Done_DestroyByContact : MonoBehaviour
 		}
 
 
+		if (other.tag == "rainbow"){
+			GameObject go = GameObject.Find("Player");
+			go.GetComponent<Done_PlayerController>().shotAmount--;
+			Destroy (other.gameObject);
+			hits-=.5f;				
+			if(hits<=0){
+				Instantiate(explosion, transform.position, transform.rotation);
+				gameController.AddCombo();
+				gameController.AddScore(scoreValue*gameController.combo);
+				Destroy (gameObject);
+			}
+			return;
+		}
 
 		if (other.tag == "projectile"){
 			GameObject go = GameObject.Find("Player");

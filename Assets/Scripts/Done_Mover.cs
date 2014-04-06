@@ -14,7 +14,7 @@ public class Done_Mover : MonoBehaviour
 		if (transform.position.z>=20 || transform.position.z<=-20 ||transform.position.x>=20 || transform.position.x<=-20 )
 		{
 			Destroy (gameObject);
-			if (this.tag=="projectile"){
+			if (this.tag=="projectile" || this.tag=="rainbow"){
 				GameObject yo = GameObject.Find("Player");
 				yo.GetComponent<Done_PlayerController>().shotAmount--;
 			}

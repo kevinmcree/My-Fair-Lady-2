@@ -17,6 +17,7 @@ public class Done_PlayerController : MonoBehaviour
 	public GameObject shot;
 	public GameObject blast;
 	public GameObject chainReaction;
+	public GameObject rainbow;
 	public Transform shotSpawn;
 	public float fireRate;
 	public string playerColor; 
@@ -25,10 +26,10 @@ public class Done_PlayerController : MonoBehaviour
 	public int powerUp;
 	public int weapon;
 	public bool onScreen;
-	public AudioClip[] clips = new AudioClip[7];
-	private AudioSource[] audioSources = new AudioSource[7];
+	public AudioClip[] clips = new AudioClip[8];
+	private AudioSource[] audioSources = new AudioSource[8];
 	public int stopSpam;
-	public bool littleDoctorWait;
+	public int littleDoctorWait;
 	public int hitStun;
 	public int shotAmount;
 
@@ -36,15 +37,15 @@ public class Done_PlayerController : MonoBehaviour
 	void Start ()
 	{
 		playerColor = "blue";
+		littleDoctorWait=100;
 		int i = 0;
 		stopSpam=5;
-		while (i < 7) {
+		while (i < 8) {
 			GameObject child = new GameObject("audio");
 			child.transform.parent = gameObject.transform;
 			audioSources[i] = child.AddComponent("AudioSource") as AudioSource;
 			audioSources[i].volume=.8f;
-			littleDoctorWait=false;
-			
+
 			i++;
 		}
 
@@ -58,13 +59,13 @@ public class Done_PlayerController : MonoBehaviour
 			nextFire = Time.time + fireRate;
 		if (weapon==0){
 			Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
-				shotAmount+=1;
+			shotAmount+=1;
 			audioSources[0].clip = clips[0];
 			audioSources[0].Play();
 			if (powerUp==1){
 				Instantiate(shot, shotSpawn.position + new Vector3(-.5f,0,0), shotSpawn.rotation);
 				Instantiate(shot, shotSpawn.position + new Vector3(.5f,0,0), shotSpawn.rotation);
-					shotAmount+=2;
+					shotAmount+=3;
 				audioSources[1].clip = clips[1];
 				audioSources[1].Play();
 			}
@@ -73,7 +74,7 @@ public class Done_PlayerController : MonoBehaviour
 				Instantiate(shot, shotSpawn.position + new Vector3(.5f,0,0), shotSpawn.rotation);	
 				Instantiate(shot, shotSpawn.position + new Vector3(-1f,0,0), shotSpawn.rotation);
 				Instantiate(shot, shotSpawn.position + new Vector3(1f,0,0), shotSpawn.rotation);
-					shotAmount+=4;
+					shotAmount+=5;
 
 				audioSources[2].clip = clips[2];
 				audioSources[2].Play();
@@ -84,11 +85,13 @@ public class Done_PlayerController : MonoBehaviour
 				Instantiate(shot, shotSpawn.position + new Vector3(.5f,0,0), shotSpawn.rotation);	
 				Instantiate(shot, shotSpawn.position + new Vector3(-1f,0,0), shotSpawn.rotation);
 				Instantiate(shot, shotSpawn.position + new Vector3(1f,0,0), shotSpawn.rotation);
+				Instantiate(shot, shotSpawn.position + new Vector3(0,0,0), new Quaternion(0, 10,0,90));
+				Instantiate(shot, shotSpawn.position + new Vector3(0,0,0), new Quaternion(0, -10,0,90));	
 				Instantiate(shot, shotSpawn.position + new Vector3(-.5f,0,0), new Quaternion(0, 20,0,90));
 				Instantiate(shot, shotSpawn.position + new Vector3(.5f,0,0), new Quaternion(0, -20,0,90));	
 				Instantiate(shot, shotSpawn.position + new Vector3(-1f,0,0), new Quaternion(0, 40,0,90));
 				Instantiate(shot, shotSpawn.position + new Vector3(1f,0,0), new Quaternion(0, -40,0,90));
-					shotAmount+=8;
+					shotAmount+=11;
 
 				audioSources[3].clip = clips[3];
 				audioSources[3].Play();
@@ -102,6 +105,8 @@ public class Done_PlayerController : MonoBehaviour
 				Instantiate(shot, shotSpawn.position + new Vector3(1f,0,0), shotSpawn.rotation);
 				Instantiate(shot, shotSpawn.position + new Vector3(-1.5f,0,0), shotSpawn.rotation);
 				Instantiate(shot, shotSpawn.position + new Vector3(1.5f,0,0), shotSpawn.rotation);
+				Instantiate(shot, shotSpawn.position + new Vector3(-2f,0,0), shotSpawn.rotation);
+				Instantiate(shot, shotSpawn.position + new Vector3(2f,0,0), shotSpawn.rotation);
 				Instantiate(shot, shotSpawn.position + new Vector3(0,0,0), new Quaternion(0, 10,0,90));
 				Instantiate(shot, shotSpawn.position + new Vector3(0,0,0), new Quaternion(0, -10,0,90));	
 				Instantiate(shot, shotSpawn.position + new Vector3(-.5f,0,0), new Quaternion(0, 20,0,90));
@@ -112,7 +117,10 @@ public class Done_PlayerController : MonoBehaviour
 				Instantiate(shot, shotSpawn.position + new Vector3(1.5f,0,0), new Quaternion(0, -60,0,90));	
 				Instantiate(shot, shotSpawn.position + new Vector3(-2f,0,0), new Quaternion(0, 80,0,90));
 				Instantiate(shot, shotSpawn.position + new Vector3(2,0,0), new Quaternion(0, -80,0,90));
-					shotAmount+=16;
+				Instantiate(shot, shotSpawn.position + new Vector3(-2f,0,0), new Quaternion(0, 100,0,90));
+				Instantiate(shot, shotSpawn.position + new Vector3(2,0,0), new Quaternion(0, -100,0,90));
+
+					shotAmount+=24;
 
 				audioSources[4].clip = clips[4];
 				audioSources[4].Play();
@@ -126,20 +134,79 @@ public class Done_PlayerController : MonoBehaviour
 					onScreen=true;
 			}
 		}
-		if (weapon==2){
-			if (littleDoctorWait==false){
-					littleDoctorWait=true;
-					audioSources[5].clip = clips[5];
-					audioSources[5].Play();
+		if (weapon==2){		
+			if (littleDoctorWait==100 ){
+				audioSources[5].clip = clips[5];
+				audioSources[5].Play();
+				littleDoctorWait=60;
+			}
 
-			}else{
+			if (littleDoctorWait<=0){ 
 				Instantiate(chainReaction, shotSpawn.position, shotSpawn.rotation);
 				audioSources[6].clip = clips[6];
 				audioSources[6].Play();
-				littleDoctorWait=false;
+				littleDoctorWait=100;
 			}
 		}
+		
+		if (weapon==4){
+					if (powerUp==0){
+						Instantiate(rainbow, shotSpawn.position, shotSpawn.rotation);
+						shotAmount+=1;
+						audioSources[7].clip = clips[7];
+						audioSources[7].Play();
+					}
 
+					if (powerUp==1){
+						Instantiate(rainbow, shotSpawn.position + new Vector3(-.5f,0,0), shotSpawn.rotation);
+						Instantiate(rainbow, shotSpawn.position + new Vector3(.5f,0,0), shotSpawn.rotation);
+						shotAmount+=2;
+						audioSources[7].clip = clips[7];
+						audioSources[7].Play();
+					}
+					if (powerUp==2){
+						Instantiate(rainbow, shotSpawn.position + new Vector3(0,0,0), shotSpawn.rotation);
+						Instantiate(rainbow, shotSpawn.position + new Vector3(-.5f,0,0), shotSpawn.rotation);
+						Instantiate(rainbow, shotSpawn.position + new Vector3(1.5f,0,0), shotSpawn.rotation);
+						shotAmount+=3;
+						audioSources[7].clip = clips[7];
+						audioSources[7].Play();
+						
+					}
+					if (powerUp==3){
+						Instantiate(rainbow, shotSpawn.position + new Vector3(-.5f,0,0), shotSpawn.rotation);
+						Instantiate(rainbow, shotSpawn.position + new Vector3(.5f,0,0), shotSpawn.rotation);	
+						Instantiate(rainbow, shotSpawn.position + new Vector3(0f,0,0), shotSpawn.rotation);
+						Instantiate(rainbow, shotSpawn.position + new Vector3(-.5f,0,0), new Quaternion(0, 20,0,90));
+						Instantiate(rainbow, shotSpawn.position + new Vector3(.5f,0,0), new Quaternion(0, -20,0,90));	
+						shotAmount+=5;
+						
+						audioSources[7].clip = clips[7];
+						audioSources[7].Play();
+						
+						
+					}
+					if (powerUp>=4){
+						Instantiate(rainbow, shotSpawn.position + new Vector3(-.5f,0,0), shotSpawn.rotation);
+						Instantiate(rainbow, shotSpawn.position + new Vector3(.5f,0,0), shotSpawn.rotation);	
+						Instantiate(rainbow, shotSpawn.position + new Vector3(-1f,0,0), shotSpawn.rotation);
+						Instantiate(rainbow, shotSpawn.position + new Vector3(1f,0,0), shotSpawn.rotation);
+						Instantiate(rainbow, shotSpawn.position + new Vector3(0,0,0), new Quaternion(0, 10,0,90));
+						Instantiate(rainbow, shotSpawn.position + new Vector3(0,0,0), new Quaternion(0, -10,0,90));	
+						Instantiate(rainbow, shotSpawn.position + new Vector3(-.5f,0,0), new Quaternion(0, 20,0,90));
+						Instantiate(rainbow, shotSpawn.position + new Vector3(.5f,0,0), new Quaternion(0, -20,0,90));	
+						shotAmount+=8;
+						
+						audioSources[7].clip = clips[7];
+						audioSources[7].Play();
+				}
+			}
+
+
+		}
+		if (littleDoctorWait!=100){
+			littleDoctorWait--;
+			
 		}
 
 		if (Input.GetKeyDown("up") && stopSpam<=0){
