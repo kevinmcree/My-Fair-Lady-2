@@ -20,7 +20,7 @@ public class Done_Mover : MonoBehaviour
 			}
 		}
 		GameObject go = GameObject.Find("Game Controller");
-		if (go.GetComponent<Done_GameController>().inStore==true){
+		if (go.GetComponent<tutorial_GameController>().inStore==true){
 			Destroy (gameObject);
 		}
 
