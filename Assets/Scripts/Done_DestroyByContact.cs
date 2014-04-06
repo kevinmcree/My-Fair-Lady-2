@@ -10,7 +10,7 @@ public class Done_DestroyByContact : MonoBehaviour
 	public int scoreValue;
 	private Done_GameController gameController;
 	public string color;
-	public int hits;
+	public float hits;
 	public GameObject shot;
 
 
@@ -85,6 +85,21 @@ public class Done_DestroyByContact : MonoBehaviour
 				return;
 			}
  		}
+		if (other.tag == "beam"){
+			GameObject go = GameObject.Find("Player");
+			if ((String.Compare(go.GetComponent<Done_PlayerController>().playerColor, color)==0) || (String.Compare("none", color) == 0)){
+				hits--;				
+				if(hits<=0){
+					Instantiate(explosion, transform.position, transform.rotation);
+					gameController.AddCombo();
+					gameController.AddScore(scoreValue*gameController.combo);
+					Destroy (gameObject);
+				}
+			}
+			return;
+		}
+
+
 
 		if (other.tag == "projectile"){
 			GameObject go = GameObject.Find("Player");
