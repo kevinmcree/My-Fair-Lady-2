@@ -39,6 +39,9 @@ public class Done_PlayerController : MonoBehaviour
 	
 	void Start ()
 	{
+		GameObject opt = GameObject.Find("options");
+		weapon = opt.GetComponent<options> ().weapon;
+		shipType = opt.GetComponent<options> ().shipType;
 		if (shipType == 0) {
 			speed = 18;
 			playerHealth = 4;
