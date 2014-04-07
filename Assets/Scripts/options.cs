@@ -4,6 +4,7 @@ using System.Collections;
 public class options : MonoBehaviour {
 	public int shipType;
 	public int weapon;
+	public int playerModifier;
 	// Use this for initialization
 	void Start () {
 	

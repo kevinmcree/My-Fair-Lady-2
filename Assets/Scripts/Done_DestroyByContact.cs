@@ -75,8 +75,36 @@ public class Done_DestroyByContact : MonoBehaviour
 				if (go.GetComponent<Done_PlayerController>().powerUp>0){
 					go.GetComponent<Done_PlayerController>().powerUp--;
 				}
-				GameObject health = GameObject.Find("Health");
-				health.transform.position -= new Vector3(0,0,.5f);
+
+				if (go.GetComponent<Done_PlayerController>().playerModifier==0){
+					Instantiate(shot, this.transform.position, new Quaternion(0, 0,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, 30,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, 60,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, 90,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, 120,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, 150,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, 180,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, 210,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, 240,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, 270,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, 300,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, 330,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, 360,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, -30,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, -60,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, -90,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, -120,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, -150,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, -180,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, -210,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, -240,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, -270,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, -300,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, -3,0,90));
+					go.GetComponent<Done_PlayerController>().shotAmount+=24;
+				}
+					GameObject health = GameObject.Find("Health");
+					health.transform.position -= new Vector3(0,0,.5f);
 				health.transform.localScale += new Vector3 (-1,0,0); 
 				if(go.GetComponent<Done_PlayerController>().playerHealth<=0){
 					Instantiate(playerExplosion, other.transform.position, other.transform.rotation);

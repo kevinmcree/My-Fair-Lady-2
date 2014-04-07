@@ -35,13 +35,16 @@ public class Done_PlayerController : MonoBehaviour
 	public int hitStun;
 	public int shotAmount;
 	public bool hasShield;
+	public int playerModifier;
 
 	
 	void Start ()
 	{
 		GameObject opt = GameObject.Find("options");
 		weapon = opt.GetComponent<options> ().weapon;
-		shipType = opt.GetComponent<options> ().shipType;
+		shipType = opt.GetComponent<options> ().shipType;	
+		playerModifier = opt.GetComponent<options> ().playerModifier;
+
 		if (shipType == 0) {
 			speed = 18;
 			playerHealth = 4;
@@ -80,6 +83,9 @@ public class Done_PlayerController : MonoBehaviour
 
 
 		}
+		if (playerModifier == 1) {
+						powerUp = 1;
+				}
 		playerColor = "blue";
 		littleDoctorWait=100;
 		int i = 0;
@@ -97,13 +103,26 @@ public class Done_PlayerController : MonoBehaviour
 
 	void Update ()
 	{
+		if (playerModifier == 1 && powerUp<1) {
+			powerUp = 1;
+		}
+
 		if (shipType == 4) {
 			gameObject.transform.position = new Vector3 (100000, 100000, 1000000);
 		}
 			hitStun--;
 		if (Input.GetKeyDown("space") && Time.time >= nextFire && shotAmount<=500 && shipType!=4) 
 		{
-			nextFire = Time.time + fireRate;
+			if (playerModifier==2){
+				Instantiate(shot, shotSpawn.position + new Vector3(-1.5f,0,0), new Quaternion(0, 80,0,90));
+				Instantiate(shot, shotSpawn.position + new Vector3(1.5f,0,0), new Quaternion(0, -80,0,90));	
+				Instantiate(shot, shotSpawn.position + new Vector3(-2f,0,0), new Quaternion(0, 100,0,90));
+				Instantiate(shot, shotSpawn.position + new Vector3(2,0,0), new Quaternion(0, -100,0,90));
+				shotAmount+=4;
+
+			}
+				
+				nextFire = Time.time + fireRate;
 		if (weapon==0){
 			Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
 			shotAmount+=1;
