@@ -64,7 +64,18 @@ public class Done_DestroyByContact : MonoBehaviour
 
 			if (other.tag == "Player"){
 			GameObject go = GameObject.Find("Player");
-			if (((String.Compare(go.GetComponent<Done_PlayerController>().playerColor, color)==0) || (String.Compare("none", color) == 0) || go.GetComponent<Done_PlayerController>().shipType==3) && go.GetComponent<Done_PlayerController>().shipType!=4){
+			if (((String.Compare(go.GetComponent<Done_PlayerController>().playerColor, color)==0) || (String.Compare("none", color) == 0)
+			    	|| go.GetComponent<Done_PlayerController>().shipType==3) && go.GetComponent<Done_PlayerController>().shipType!=4
+			  		|| (String.Compare(go.GetComponent<Done_PlayerController>().playerColor, color)!=0 && go.GetComponent<Done_PlayerController>().shipType==5)){
+
+				if (String.Compare(go.GetComponent<Done_PlayerController>().playerColor, color)==0 && go.GetComponent<Done_PlayerController>().shipType==5){
+					if (go.GetComponent<Done_PlayerController>().bombCharge<=9){
+						go.GetComponent<Done_PlayerController>().addBombCharge();
+					}
+					Instantiate(explosion, transform.position, transform.rotation);
+					Destroy (gameObject);
+					return;
+				}
 				if (go.GetComponent<Done_PlayerController>().hitStun<=0){;
 					go.GetComponent<Done_PlayerController>().playerHealth--;
 					go.GetComponent<Done_PlayerController>().hitStun=50;
@@ -148,7 +159,7 @@ public class Done_DestroyByContact : MonoBehaviour
 			return;
 		}
 
-		if (other.tag == "projectile"){
+		if (other.tag == "projectile" || other.tag == "chain"){
 			GameObject go = GameObject.Find("Player");
 			if ((String.Compare(go.GetComponent<Done_PlayerController>().playerColor, color)==0) || (String.Compare("none", color) == 0) || go.GetComponent<Done_PlayerController>().shipType==3){
 				Destroy (other.gameObject);
@@ -162,7 +173,7 @@ public class Done_DestroyByContact : MonoBehaviour
 					Instantiate(explosion, transform.position, transform.rotation);
 					gameController.AddCombo();
 					gameController.AddScore(scoreValue*gameController.combo);
-					if (go.GetComponent<Done_PlayerController>().weapon == 2 && go.GetComponent<Done_PlayerController>().shotAmount<=500){
+					if (other.tag == "chain" && go.GetComponent<Done_PlayerController>().shotAmount<=500){
 						if (go.GetComponent<Done_PlayerController>().powerUp==0){
 							Instantiate(shot, this.transform.position, new Quaternion(0, 0,0,90));
 							Instantiate(shot, this.transform.position, new Quaternion(0, 180,0,90));
@@ -271,6 +282,7 @@ public class Done_DestroyByContact : MonoBehaviour
 							go.GetComponent<Done_PlayerController>().shotAmount+=36;
 
 							Destroy (gameObject);
+
 						}					}
 					Destroy (gameObject);
 
