@@ -45,8 +45,15 @@ public class Done_GameController : MonoBehaviour
 
 	}
 	
-	void Update ()
-	{
+	void Update (){
+		if (comboCounter<=0){
+			combo = 0;
+			UpdateCombo();
+			comboCounter = 100+comboExtender;
+		}
+		comboCounter--;
+		counter--;
+
 		if (comboCounter<=0){
 			combo = 0;
 			UpdateCombo();
@@ -72,6 +79,8 @@ public class Done_GameController : MonoBehaviour
 		{
 			for (int i = 0; i < hazardCount; i++)
 			{
+				if(isTutorial)
+					range = 6;
 				int rand = Random.Range (0, range);
 				if (rand==6 || rand==7 || rand==8 || rand==9 || rand==13 || rand==14 || rand==15){
 					rand = Random.Range (0, range);
