@@ -72,7 +72,9 @@ public class Done_DestroyByContact : MonoBehaviour
 				if (go.GetComponent<Done_PlayerController>().powerUp==4){
 					go.GetComponent<Done_PlayerController>().powerUp--;
 				}
-				go.GetComponent<Done_PlayerController>().powerUp--;
+				if (go.GetComponent<Done_PlayerController>().powerUp>0){
+					go.GetComponent<Done_PlayerController>().powerUp--;
+				}
 				GameObject health = GameObject.Find("Health");
 				health.transform.position -= new Vector3(0,0,.5f);
 				health.transform.localScale += new Vector3 (-1,0,0); 

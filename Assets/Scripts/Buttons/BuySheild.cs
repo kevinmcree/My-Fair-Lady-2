@@ -27,10 +27,19 @@ public class BuySheild : MonoBehaviour {
 
 	void OnMouseUp(){
 		GameObject go = GameObject.Find("Game Controller");
-		if (toggle==false && go.GetComponent<Done_GameController>().score>=5000){
-			Instantiate (sheild, new Vector3(0,0,0), new Quaternion(0, 0,0,0));
-			go.GetComponent<Done_GameController>().AddScore(-(5000/go.GetComponent<Done_GameController>().scoreMultiplier));
-			toggle = true;
+		if (go.GetComponent<Done_GameController>().score>=2000){
+			if (go.GetComponent<Done_PlayerController> ().hasShield == false) {
+				GameObject yo = GameObject.Find ("player_sheild(Clone)");
+				yo.GetComponent<sheild> ().sheildHealth++;
+
+			} else {
+				GameObject yo = GameObject.Find ("player_sheild(Clone)");
+				yo.GetComponent<sheild> ().sheildHealth++;
+				Instantiate (sheild, new Vector3 (0, 0, 0), new Quaternion (0, 0, 0, 0));
+				go.GetComponent<Done_PlayerController>().hasShield=true;
+
+			}
+			go.GetComponent<Done_GameController>().AddScore(-(2000/go.GetComponent<Done_GameController>().scoreMultiplier));
 			audioSources[0].clip = clips[0];
 			audioSources[0].Play();
 		}else{
