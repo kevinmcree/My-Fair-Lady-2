@@ -24,6 +24,8 @@ public class storeTeleporter : MonoBehaviour {
 		if (other.tag == "Player"  ){
 			GameObject go = GameObject.Find("Game Controller");
 			GameObject yo = GameObject.Find("Player");
+			yo.GetComponent<Done_PlayerController>().onScreen=false;
+
 			if (yo.GetComponent<Done_PlayerController>().shipType!=4){
 				go.GetComponent<Done_GameController>().inStore=true;
 				go.GetComponent<Done_GameController>().audio.Pause();

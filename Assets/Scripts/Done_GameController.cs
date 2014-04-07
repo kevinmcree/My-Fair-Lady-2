@@ -155,5 +155,8 @@ public void GameOver ()
 	{
 		gameOverText.text = "Game Over!";
 		gameOver = true;
+		GameObject laser = GameObject.Find ("lightSaber");
+		laser.transform.position = new Vector3 (1000,1000,1000);
+
 	}
 }
