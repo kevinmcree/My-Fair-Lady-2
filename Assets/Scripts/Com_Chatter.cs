@@ -218,6 +218,8 @@ public class Com_Chatter : MonoBehaviour {
 		yo[13] = "Right?";
 		speaker[13] =2;
 
+
+
 		yo [20] = "Bob here.";
 		speaker[20] = 0;
 		yo [21] = "Do a barrel roll!";

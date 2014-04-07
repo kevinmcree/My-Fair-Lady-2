@@ -25,11 +25,11 @@ public class BuySideShooter : MonoBehaviour {
 		
 	}
 	
-	void OnMouseUp(){
+	void OnMouseDown(){
 
 		GameObject go = GameObject.Find("Game Controller");
 		if (sideToggle==false && go.GetComponent<Done_GameController>().score>=2000){
-			Instantiate (sideShooter, new Vector3(0,0,0), new Quaternion(0, 0,0,0));
+			Instantiate (sideShooter, new Vector3(100,100,000), new Quaternion(0, 0,0,0));
 			go.GetComponent<Done_GameController>().AddScore(-(2000/go.GetComponent<Done_GameController>().scoreMultiplier));
 			sideToggle = true;
 			audioSources[0].clip = clips[0];

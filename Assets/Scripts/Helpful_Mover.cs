@@ -38,8 +38,9 @@ public class Helpful_Mover : MonoBehaviour{
 					audio.Play ();
 					yield return new WaitForSeconds (fireRate);
 				}
-				yield return new WaitForSeconds (delay);
 			}
+			yield return new WaitForSeconds (delay);
+
 		}
 
 	}
