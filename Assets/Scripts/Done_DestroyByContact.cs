@@ -153,8 +153,12 @@ public class Done_DestroyByContact : MonoBehaviour
 			if ((String.Compare(go.GetComponent<Done_PlayerController>().playerColor, color)==0) || (String.Compare("none", color) == 0) || go.GetComponent<Done_PlayerController>().shipType==3){
 				Destroy (other.gameObject);
 				go.GetComponent<Done_PlayerController>().shotAmount--;
-				hits--;				
-				if(hits<=0){
+				hits--;	
+				if 	(go.GetComponent<Done_PlayerController>().weapon==3){
+					hits--;	
+				}
+
+					if(hits<=0){
 					Instantiate(explosion, transform.position, transform.rotation);
 					gameController.AddCombo();
 					gameController.AddScore(scoreValue*gameController.combo);

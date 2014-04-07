@@ -126,7 +126,7 @@ public class Com_Chatter : MonoBehaviour {
 						}
 						else if (rand == 13){
 							start = 89;
-							end = 97;
+							end = 96;
 							used[13] = true;
 						}
 						else if (rand == 14){
@@ -356,15 +356,15 @@ public class Com_Chatter : MonoBehaviour {
 		yo[90] = "I got one!";
 		speaker[90] = 2;
 		yo[91] = "Great job Froggerson!";
-		speaker[92] = 1;
-		yo[93] = "Ahem.";
-		speaker[93] = 3;
-		yo[94] = "Huh, sure is a lot of static coming through this channel. Almost sounds like whining.";
-		speaker[94] = 1;
-		yo[95] = "Oh come on!";
-		speaker[95] = 3;
-		yo[96] = "Yup, definitly sounds like whining. Weird.";
-		speaker[96] = 1;
+		speaker[91] = 1;
+		yo[92] = "Ahem.";
+		speaker[92] = 3;
+		yo[93] = "Huh, sure is a lot of static coming through this channel. Almost sounds like whining.";
+		speaker[93] = 1;
+		yo[94] = "Oh come on!";
+		speaker[94] = 3;
+		yo[95] = "Yup, definitly sounds like whining. Weird.";
+		speaker[95] = 1;
 
 
 

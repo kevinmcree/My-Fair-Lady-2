@@ -114,14 +114,58 @@ public class Done_PlayerController : MonoBehaviour
 		if (Input.GetKeyDown("space") && Time.time >= nextFire && shotAmount<=500 && shipType!=4) 
 		{
 			if (playerModifier==2){
-				Instantiate(shot, shotSpawn.position + new Vector3(-1.5f,0,0), new Quaternion(0, 80,0,90));
-				Instantiate(shot, shotSpawn.position + new Vector3(1.5f,0,0), new Quaternion(0, -80,0,90));	
-				Instantiate(shot, shotSpawn.position + new Vector3(-2f,0,0), new Quaternion(0, 100,0,90));
-				Instantiate(shot, shotSpawn.position + new Vector3(2,0,0), new Quaternion(0, -100,0,90));
-				shotAmount+=4;
+				if (powerUp==0){
+					Instantiate(shot, shotSpawn.position + new Vector3(-2f,0,0), new Quaternion(0, 100,0,90));
+					Instantiate(shot, shotSpawn.position + new Vector3(2,0,0), new Quaternion(0, -100,0,90));
+					shotAmount+=2;
 
+				}
+				if (powerUp==1){
+					Instantiate(shot, shotSpawn.position + new Vector3(-2f,0,0), new Quaternion(0, 100,0,90));
+					Instantiate(shot, shotSpawn.position + new Vector3(2,0,0), new Quaternion(0, -100,0,90));
+					Instantiate(shot, shotSpawn.position + new Vector3(-2f,0,0), new Quaternion(0, 80,0,90));
+					Instantiate(shot, shotSpawn.position + new Vector3(2,0,0), new Quaternion(0, -80,0,90));
+					shotAmount+=4;
+					
+				}
+				if (powerUp==2){
+					Instantiate(shot, shotSpawn.position + new Vector3(-1.5f,0,0), new Quaternion(0, 80,0,90));
+					Instantiate(shot, shotSpawn.position + new Vector3(1.5f,0,0), new Quaternion(0, -80,0,90));	
+					Instantiate(shot, shotSpawn.position + new Vector3(-1.5f,0,0), new Quaternion(0, 90,0,90));
+					Instantiate(shot, shotSpawn.position + new Vector3(1.5f,0,0), new Quaternion(0, -90,0,90));	
+					Instantiate(shot, shotSpawn.position + new Vector3(-2f,0,0), new Quaternion(0, 100,0,90));
+					Instantiate(shot, shotSpawn.position + new Vector3(2,0,0), new Quaternion(0, -100,0,90));
+					shotAmount+=6;
+									
+				}
+				if (powerUp==3){
+					Instantiate(shot, shotSpawn.position + new Vector3(-1.5f,0,0), new Quaternion(0, 70,0,90));
+					Instantiate(shot, shotSpawn.position + new Vector3(1.5f,0,0), new Quaternion(0, -70,0,90));	
+					Instantiate(shot, shotSpawn.position + new Vector3(-1.5f,0,0), new Quaternion(0, 80,0,90));
+					Instantiate(shot, shotSpawn.position + new Vector3(1.5f,0,0), new Quaternion(0, -80,0,90));	
+					Instantiate(shot, shotSpawn.position + new Vector3(-1.5f,0,0), new Quaternion(0, 90,0,90));
+					Instantiate(shot, shotSpawn.position + new Vector3(1.5f,0,0), new Quaternion(0, -90,0,90));	
+					Instantiate(shot, shotSpawn.position + new Vector3(-2f,0,0), new Quaternion(0, 100,0,90));
+					Instantiate(shot, shotSpawn.position + new Vector3(2,0,0), new Quaternion(0, -100,0,90));
+					shotAmount+=8;
+					
+				}
+				if (powerUp==4){
+					Instantiate(shot, shotSpawn.position + new Vector3(-1.5f,0,0), new Quaternion(0, 70,0,90));
+					Instantiate(shot, shotSpawn.position + new Vector3(1.5f,0,0), new Quaternion(0, -70,0,90));	
+					Instantiate(shot, shotSpawn.position + new Vector3(-1.5f,0,0), new Quaternion(0, 50,0,90));
+					Instantiate(shot, shotSpawn.position + new Vector3(1.5f,0,0), new Quaternion(0, -50,0,90));	
+					Instantiate(shot, shotSpawn.position + new Vector3(-1.5f,0,0), new Quaternion(0, 90,0,90));
+					Instantiate(shot, shotSpawn.position + new Vector3(1.5f,0,0), new Quaternion(0, -90,0,90));	
+					Instantiate(shot, shotSpawn.position + new Vector3(-2f,0,0), new Quaternion(0, 110,0,90));
+					Instantiate(shot, shotSpawn.position + new Vector3(2,0,0), new Quaternion(0, -110,0,90));
+					Instantiate(shot, shotSpawn.position + new Vector3(-1.5f,0,0), new Quaternion(0, -120,0,90));
+					Instantiate(shot, shotSpawn.position + new Vector3(1.5f,0,0), new Quaternion(0, 120,0,90));	
+
+					shotAmount+=10;
+					
+				}
 			}
-				
 				nextFire = Time.time + fireRate;
 		if (weapon==0){
 			Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
@@ -232,7 +276,7 @@ public class Done_PlayerController : MonoBehaviour
 					}
 					if (powerUp==2){
 						Instantiate(rainbow, shotSpawn.position + new Vector3(0,0,0), shotSpawn.rotation);
-						Instantiate(rainbow, shotSpawn.position + new Vector3(-.5f,0,0), shotSpawn.rotation);
+						Instantiate(rainbow, shotSpawn.position + new Vector3(-1.5f,0,0), shotSpawn.rotation);
 						Instantiate(rainbow, shotSpawn.position + new Vector3(1.5f,0,0), shotSpawn.rotation);
 						shotAmount+=3;
 						audioSources[7].clip = clips[7];
@@ -240,8 +284,8 @@ public class Done_PlayerController : MonoBehaviour
 						
 					}
 					if (powerUp==3){
-						Instantiate(rainbow, shotSpawn.position + new Vector3(-.5f,0,0), shotSpawn.rotation);
-						Instantiate(rainbow, shotSpawn.position + new Vector3(.5f,0,0), shotSpawn.rotation);	
+						Instantiate(rainbow, shotSpawn.position + new Vector3(-1f,0,0), shotSpawn.rotation);
+						Instantiate(rainbow, shotSpawn.position + new Vector3(1f,0,0), shotSpawn.rotation);	
 						Instantiate(rainbow, shotSpawn.position + new Vector3(0f,0,0), shotSpawn.rotation);
 						Instantiate(rainbow, shotSpawn.position + new Vector3(-.5f,0,0), new Quaternion(0, 20,0,90));
 						Instantiate(rainbow, shotSpawn.position + new Vector3(.5f,0,0), new Quaternion(0, -20,0,90));	
