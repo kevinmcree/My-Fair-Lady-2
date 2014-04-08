@@ -133,7 +133,7 @@ public class Done_DestroyByContact : MonoBehaviour
 		if (other.tag == "beam"){
 			GameObject go = GameObject.Find("Player");
 			if (String.Compare(go.GetComponent<Done_PlayerController>().playerColor, color)==0 || String.Compare("none", color) == 0|| go.GetComponent<Done_PlayerController>().shipType==3){
-				hits--;				
+				hits-=.8f;				
 				if(hits<=0){
 					Instantiate(explosion, transform.position, transform.rotation);
 					gameController.AddCombo();
@@ -149,7 +149,7 @@ public class Done_DestroyByContact : MonoBehaviour
 			GameObject go = GameObject.Find("Player");
 			go.GetComponent<Done_PlayerController>().shotAmount--;
 			Destroy (other.gameObject);
-			hits-=.5f;				
+			hits-=.4f;				
 			if(hits<=0){
 				Instantiate(explosion, transform.position, transform.rotation);
 				gameController.AddCombo();

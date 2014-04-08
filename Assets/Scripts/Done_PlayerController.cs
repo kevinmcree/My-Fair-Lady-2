@@ -63,9 +63,9 @@ public class Done_PlayerController : MonoBehaviour
 			transform.localScale = new Vector3 (.7f,.75f,1.25f);
 		}
 		if (shipType == 3) {
-			speed = 18;
-			playerHealth = 4;
-			maxHealth  = 4;			
+			speed = 15;
+			playerHealth = 3;
+			maxHealth  = 3;			
 			GameObject red = GameObject.Find("Red");
 			GameObject yellow = GameObject.Find("Yellow");
 			GameObject blue = GameObject.Find("Blue");
