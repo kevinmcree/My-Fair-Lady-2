@@ -123,7 +123,7 @@ public class Done_GameController : MonoBehaviour
 			if (hazardCount==30 && !isTutorial){
 				range+=3;
 			}
-			if (hazardCount==45 && !isTutorial){
+			if (hazardCount==46 && !isTutorial){
 				range+=3;
 			}
 			yield return new WaitForSeconds (waveWait);
