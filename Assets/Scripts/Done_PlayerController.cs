@@ -38,6 +38,7 @@ public class Done_PlayerController : MonoBehaviour
 	public int playerModifier;
 	public int bombCharge;
 
+
 	
 	void Start ()
 	{
@@ -97,6 +98,13 @@ public class Done_PlayerController : MonoBehaviour
 		if (playerModifier == 1) {
 						powerUp = 1;
 				}
+		if (playerModifier == 3) {
+			GameObject bulletTimeText = GameObject.Find("bulletTimeChargeCounter");
+			bulletTimeText.transform.position= new Vector3 (.9f,.24f,0);
+
+		}
+
+
 		playerColor = "blue";
 		littleDoctorWait=100;
 		int i = 0;
