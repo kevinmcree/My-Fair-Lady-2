@@ -20,10 +20,10 @@ public class Com_Chatter : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		counter = 200;
-		dialouge = new string[100];
-		speaker = new int[100];
-		used = new bool[100];
-		for (int i = 0; i<100; i++){	
+		dialouge = new string[200];
+		speaker = new int[200];
+		used = new bool[200];
+		for (int i = 0; i<200; i++){	
 			used[i] = false;
 		}
 
@@ -50,12 +50,12 @@ public class Com_Chatter : MonoBehaviour {
 		if (counter <= 0 && talking == false) {
 			//GameObject terminal = GameObject.Find ("Terminal");
 			//terminal.transform.position = new Vector3 (8, -.4f, 20);
-			rand = Random.Range (0, 15);
+			rand = Random.Range (0, 17);
 			int i = 0;
 			while (used[rand]==true){
-				rand = Random.Range (0, 15);
+				rand = Random.Range (0, 17);
 				i++;
-				if (i>=14){
+				if (i>=16){
 					break;
 				}
 			}
@@ -134,7 +134,17 @@ public class Com_Chatter : MonoBehaviour {
 							end = 10;
 							used[14] = true;
 						}
-			talking = true;
+						else if (rand == 15){
+							start = 96;
+							end = 104;
+							used[15] = true;
+						}
+						else if (rand == 16){
+							start = 104;
+							end = 111;
+							used[16] = true;
+						}
+				talking = true;
 				}
 		if (counter <= 0 && talking == true){
 			words.guiText.text = dialouge[start];
@@ -181,10 +191,10 @@ public class Com_Chatter : MonoBehaviour {
 	}
 
 	string[] dialougeSet(string[] yo){
-		for (int i = 0; i<100; i++){
+		for (int i = 0; i<200; i++){
 			yo[i] = i.ToString();
 		}
-		for (int i = 0; i<100; i++){	// 0=hare, 1=bird, 2=frog, 3=Eliza
+		for (int i = 0; i<200; i++){	// 0=hare, 1=bird, 2=frog, 3=Eliza
 			speaker[i] = 0;
 		}
 		yo[0] = "Yo this is Bird.";
@@ -234,6 +244,7 @@ public class Com_Chatter : MonoBehaviour {
 		speaker[24] = 3;
 		yo [25] = "It's just kind of a change of pace is what I'm saying.";
 		speaker[25] = 3;
+
 
 		yo[30] = "Eliza help me!";
 		speaker[30] = 2;
@@ -289,7 +300,7 @@ public class Com_Chatter : MonoBehaviour {
 		speaker[56] = 2;
 		yo[57] = "I can't seem to speed up or slow down.";
 		speaker[57] = 3;
-		yo[58] = "I can only go left or right.";
+		yo[58] = "Also I can only go left or right.";
 		speaker[58] = 3;
 		yo[59] = "Yeah. What's the problem.";
 		speaker[59] = 2;
@@ -367,6 +378,43 @@ public class Com_Chatter : MonoBehaviour {
 		speaker[94] = 3;
 		yo[95] = "Yup, definitly sounds like whining. Weird.";
 		speaker[95] = 1;
+
+		
+		yo[96] = "Great shot Eliza.";
+		speaker[96] = 0;
+		yo[97] = "Thanks Bob.";
+		speaker[97] = 3; 
+		yo[98] = "Move left or right to dodge bullets.";
+		speaker[98] = 0;
+		yo[99] = "I know Bob.";
+		speaker[99] = 3;
+		yo[100] = "You can only hit or be hit by enemies of the same color as you";
+		speaker[100] = 0;
+		yo[101] = "I KNOW BOB!";
+		speaker[101] = 3;
+		yo[102] = "Well gosh, I was only trying to help.";
+		speaker[102] = 0;
+		yo[103] = " *Sigh*. I know Bob.";
+		speaker[103] = 3;
+
+		yo[104] = "...I just think it's a nice color.";
+		speaker[104] = 1;
+		yo[105] = "Well it sure is... different.";
+		speaker[105] = 0;
+		yo[106] = "I just don't want to ask Froggerson to do it until Eliza joins a different squard.";
+		speaker[106] = 1;
+		yo[107] = "Oh come on now, she won't make fun of you.";
+		speaker[107] = 0;
+		yo[108] = "Yeah right, if she sees me flying in a bright pink ship of course she'd...";
+		speaker[108] = 1;
+		yo[109] = "What are you guys talking about?";
+		speaker[109] = 3;
+		yo[110] = "Change frequencies! Change frequencies!";
+		speaker[110] = 1;
+
+
+
+
 
 
 
