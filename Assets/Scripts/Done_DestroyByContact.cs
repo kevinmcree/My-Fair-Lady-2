@@ -138,8 +138,9 @@ public class Done_DestroyByContact : MonoBehaviour
 					go.GetComponent<Done_PlayerController>().shotAmount+=24;
 				}
 					GameObject health = GameObject.Find("Health");
-					health.transform.position -= new Vector3(0,0,.5f);
-				health.transform.localScale += new Vector3 (-1,0,0); 
+				float temp = 4/go.GetComponent<Done_PlayerController>().maxHealth;
+				health.transform.position -= new Vector3(0,0,temp);
+			//	health.transform.localScale += new Vector3 (-1,0,0); 
 				if(go.GetComponent<Done_PlayerController>().playerHealth<=0){
 					Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
 					gameController.GameOver();

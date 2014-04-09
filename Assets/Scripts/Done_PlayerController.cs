@@ -22,7 +22,7 @@ public class Done_PlayerController : MonoBehaviour
 	public float fireRate;
 	public string playerColor; 
 	public int playerHealth;
-	public int maxHealth;
+	public float maxHealth;
 	private float nextFire;
 	public int powerUp;
 	public int shipType;
@@ -53,23 +53,23 @@ public class Done_PlayerController : MonoBehaviour
 		if (shipType == 0) {
 			speed = 18;
 			playerHealth = 4;
-			maxHealth = 4;
+			maxHealth = 4f;
 		}
 		if (shipType == 1) {
 			speed = 10;
 			playerHealth = 6;
-			maxHealth = 6;
+			maxHealth = 6f;
 		}
 		if (shipType == 2) {
 			speed = 30;
 			playerHealth = 2;
-			maxHealth  = 2;
+			maxHealth  = 2f;
 			transform.localScale = new Vector3 (.7f,.75f,1.25f);
 		}
 		if (shipType == 3) {
 			speed = 15;
 			playerHealth = 3;
-			maxHealth  = 3;			
+			maxHealth  = 3f;			
 			GameObject red = GameObject.Find("Red");
 			GameObject yellow = GameObject.Find("Yellow");
 			GameObject blue = GameObject.Find("Blue");
@@ -81,7 +81,7 @@ public class Done_PlayerController : MonoBehaviour
 		if (shipType == 4) {
 			speed = 0;
 			playerHealth = 2;
-			maxHealth  = 2;			
+			maxHealth  = 2f;			
 			GameObject carrot = GameObject.Find("carrot");
 			carrot.transform.position = this.transform.position;
 			gameObject.transform.position = new Vector3 (100000,100000,1000000);
@@ -91,9 +91,9 @@ public class Done_PlayerController : MonoBehaviour
 		if (shipType == 5) {
 			GameObject chargeText = GameObject.Find("bombChargeCounter");
 			chargeText.transform.position = new Vector3 (.9f,.24f,0);
-			speed = 10;
-			playerHealth = 6;
-			maxHealth = 6;
+			speed = 20;
+			playerHealth = 4;
+			maxHealth = 4f;
 		}else{
 			GameObject chargeText = GameObject.Find("bombChargeCounter");
 			chargeText.transform.position = new Vector3 (100f,100f,100);
@@ -274,7 +274,7 @@ public class Done_PlayerController : MonoBehaviour
 			if (littleDoctorWait==100 ){
 				audioSources[5].clip = clips[5];
 				audioSources[5].Play();
-				littleDoctorWait=40;
+				littleDoctorWait=30;
 			}
 
 			if (littleDoctorWait<=0){ 
