@@ -35,7 +35,12 @@ public class Done_EvasiveManeuver : MonoBehaviour
 	void FixedUpdate ()
 	{
 		float newManeuver = Mathf.MoveTowards (rigidbody.velocity.x, targetManeuver, smoothing * Time.deltaTime);
-		rigidbody.velocity = new Vector3 (newManeuver, 0, currentSpeed);
+		GameObject yo = GameObject.Find("Player");
+		if (yo.GetComponent<bulletTime>().BulletTime==true){
+			rigidbody.velocity = new Vector3 (newManeuver, 0, currentSpeed/10);
+		} else {
+			rigidbody.velocity = new Vector3 (newManeuver, 0, currentSpeed);
+		}
 		rigidbody.position = new Vector3
 		(
 			Mathf.Clamp(rigidbody.position.x, boundary.xMin, boundary.xMax), 

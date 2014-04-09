@@ -111,7 +111,30 @@ public class Done_DestroyByContact : MonoBehaviour
 					Instantiate(shot, this.transform.position, new Quaternion(0, -240,0,90));
 					Instantiate(shot, this.transform.position, new Quaternion(0, -270,0,90));
 					Instantiate(shot, this.transform.position, new Quaternion(0, -300,0,90));
-					Instantiate(shot, this.transform.position, new Quaternion(0, -3,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, -360,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, 15,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, 45,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, 75,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, 105,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, 135,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, 165,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, 195,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, 225,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, 255,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, 285,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, 315,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, 345,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, -15,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, -45,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, -75,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, -105,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, -135,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, -165,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, -195,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, -225,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, -255,0,90));
+					Instantiate(shot, this.transform.position, new Quaternion(0, -285,0,90));
+
 					go.GetComponent<Done_PlayerController>().shotAmount+=24;
 				}
 					GameObject health = GameObject.Find("Health");
@@ -212,7 +235,7 @@ public class Done_DestroyByContact : MonoBehaviour
 				
 							Destroy (gameObject);
 						}	
-						if (go.GetComponent<Done_PlayerController>().powerUp==3){
+						if (go.GetComponent<Done_PlayerController>().powerUp==3 ){
 							Instantiate(shot, this.transform.position, new Quaternion(0, 0,0,90));
 							Instantiate(shot, this.transform.position, new Quaternion(0, 30,0,90));
 							Instantiate(shot, this.transform.position, new Quaternion(0, 60,0,90));
@@ -242,7 +265,7 @@ public class Done_DestroyByContact : MonoBehaviour
 							Destroy (gameObject);
 						}			
 						
-						if (go.GetComponent<Done_PlayerController>().powerUp==4){
+						if (go.GetComponent<Done_PlayerController>().powerUp==4 || (go.GetComponent<Done_PlayerController>().playerModifier == 0 && go.GetComponent<Done_PlayerController>().weapon!=2) ){
 							Instantiate(shot, this.transform.position, new Quaternion(0, 0,0,90));
 							Instantiate(shot, this.transform.position, new Quaternion(0, 20,0,90));
 							Instantiate(shot, this.transform.position, new Quaternion(0, 40,0,90));

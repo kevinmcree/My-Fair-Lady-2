@@ -30,16 +30,16 @@ public class BuySheild : MonoBehaviour {
 		GameObject xo = GameObject.Find("Player");
 		GameObject yo = GameObject.Find ("player_sheild(Clone)");
 
-		if (go.GetComponent<Done_GameController>().score>=2000){
+		if (go.GetComponent<Done_GameController>().score>=5000){
 			if (xo.GetComponent<Done_PlayerController> ().hasShield == false) {
 				Instantiate (sheild, new Vector3 (0, 0, 0), new Quaternion (0, 0, 0, 0));
 				xo.GetComponent<Done_PlayerController>().hasShield=true;
-				go.GetComponent<Done_GameController>().AddScore(-(2000/go.GetComponent<Done_GameController>().scoreMultiplier));
+				go.GetComponent<Done_GameController>().AddScore(-(5000/go.GetComponent<Done_GameController>().scoreMultiplier));
 				audioSources[0].clip = clips[0];
 				audioSources[0].Play();
 			} else if (yo.GetComponent<sheild>().sheildHealth<=3){
 				yo.GetComponent<sheild> ().sheildHealth++;
-				go.GetComponent<Done_GameController>().AddScore(-(2000/go.GetComponent<Done_GameController>().scoreMultiplier));
+				go.GetComponent<Done_GameController>().AddScore(-(5000/go.GetComponent<Done_GameController>().scoreMultiplier));
 				audioSources[0].clip = clips[0];
 				audioSources[0].Play();
 			}else{

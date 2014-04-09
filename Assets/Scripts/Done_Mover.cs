@@ -17,7 +17,7 @@ public class Done_Mover : MonoBehaviour
 		if (transform.position.z>=20 || transform.position.z<=-20 ||transform.position.x>=20 || transform.position.x<=-20 )
 		{
 			Destroy (gameObject);
-			if (this.tag=="projectile" || this.tag=="rainbow" || this.name == "burst(Clone)"){
+			if (this.tag=="projectile" || this.tag=="rainbow" || this.name == "burst(Clone)" || this.tag=="chain"){
 				yo.GetComponent<Done_PlayerController>().shotAmount--;
 				yo.GetComponent<Done_PlayerController>().onScreen=false;
 

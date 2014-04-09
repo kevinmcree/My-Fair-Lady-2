@@ -17,6 +17,10 @@ public class LeaveStore : MonoBehaviour {
 		go.GetComponent<Done_GameController>().inStore=false;
 		go.GetComponent<Done_GameController>().audio.Play();
 
+		GameObject yo = GameObject.Find("Player");
+		yo.GetComponent<Done_PlayerController>().shotAmount=0;
+
+		
 		GameObject store = GameObject.Find("Store");
 		store.audio.Stop ();
 

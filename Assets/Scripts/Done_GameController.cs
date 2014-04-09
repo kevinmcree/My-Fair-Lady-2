@@ -140,6 +140,10 @@ public class Done_GameController : MonoBehaviour
 	public void AddScore (int newScoreValue)
 	{
 		score += newScoreValue*scoreMultiplier;
+		GameObject go = GameObject.Find("Player");
+		if (go.GetComponent<Done_PlayerController>().shipType == 4){
+			score=0;
+		}
 		UpdateScore ();
 	}
 

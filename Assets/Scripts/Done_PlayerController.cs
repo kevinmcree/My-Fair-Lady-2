@@ -47,6 +47,9 @@ public class Done_PlayerController : MonoBehaviour
 		shipType = opt.GetComponent<options> ().shipType;	
 		playerModifier = opt.GetComponent<options> ().playerModifier;
 
+		if (weapon==1){
+			fireRate=1;
+		}
 		if (shipType == 0) {
 			speed = 18;
 			playerHealth = 4;
@@ -122,6 +125,10 @@ public class Done_PlayerController : MonoBehaviour
 
 	void Update ()
 	{
+		if (shotAmount<0){
+			shotAmount=0;
+		}
+
 		if (playerModifier == 1 && powerUp<1) {
 			powerUp = 1;
 		}
@@ -509,7 +516,7 @@ public class Done_PlayerController : MonoBehaviour
 			}
 			else if (String.Compare(playerColor, "yellow")==0){
 				blue.transform.position = new Vector3(0,-9,1);
-				yellow.transform.position = new Vector3(0,-11,1);
+					yellow.transform.position = new Vector3(0,-11,1);
 				playerColor = "blue";
 			}
 		}
