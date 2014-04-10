@@ -82,21 +82,21 @@ public class Done_GameController : MonoBehaviour
 				if(isTutorial)
 					range = 6;
 				int rand = Random.Range (0, range);
-				if (rand==6 || rand==7 || rand==8 || rand==9 || rand==13 || rand==14 || rand==15 || rand==16 || rand==17 || rand==18){
+				if (rand==9 || rand==10 || rand==11 || rand==12 || rand==16 || rand==17 || rand==18 || rand==19 || rand==20 || rand==21){
 					rand = Random.Range (0, range);
-					if (rand==8 || rand==9 || rand==13 || rand==14 || rand==15|| rand==16 || rand==17 || rand==18){
+					if (rand==11 || rand==12 || rand==16 || rand==17 || rand==18 || rand==19 || rand==20 || rand==21){
 						int otherRand = Random.Range (0, 2);
 						if (otherRand!=1){
 							rand = Random.Range (0, range);
 						}
-						if ( rand==16 || rand==17 || rand==18){
+						if ( rand==19 || rand==20 || rand==21){
 							rand = Random.Range (0, range);
 							}
 
 						}
 
 				}
-				if (rand == 9 || rand == 10 || rand == 11){
+				if ( rand == 6 || rand == 7 || rand == 8 || rand == 13 || rand == 14 || rand == 15){
 					int otherRand = Random.Range (0, 2);
 					if (otherRand!=1){
 						rand = Random.Range (0, range);
