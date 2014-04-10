@@ -37,6 +37,7 @@ public class Done_PlayerController : MonoBehaviour
 	public bool hasShield;
 	public int playerModifier;
 	public int bombCharge;
+	public bool vaccum;
 
 
 	

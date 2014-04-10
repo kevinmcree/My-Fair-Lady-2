@@ -108,9 +108,11 @@ public class Done_GameController : MonoBehaviour
 				Instantiate (hazard, spawnPosition, spawnRotation);
 				yield return new WaitForSeconds (spawnWait);
 			}
-			hazardCount+=2;
-			spawnWait-=.03f;
-			waveWait-=.2f;
+			if (inStore == false){
+				hazardCount+=2;
+				spawnWait-=.03f;
+				waveWait-=.2f;
+			}
 			if (spawnWait<=0){
 				spawnWait=0;
 			}
