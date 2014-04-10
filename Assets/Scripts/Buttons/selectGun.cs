@@ -5,7 +5,8 @@ public class selectGun : MonoBehaviour {
 	public int weapon;
 	public AudioClip[] clips = new AudioClip[2];
 	private AudioSource[] audioSources = new AudioSource[2];
-	
+	public string text;
+
 	// Use this for initialization
 	void Start () {
 		int i = 0;
@@ -35,6 +36,9 @@ public class selectGun : MonoBehaviour {
 			audioSources [1].clip = clips [1];
 			audioSources [1].Play ();	
 		}
+		GameObject explain = GameObject.Find("explainText");
+		explain.guiText.text = text;
+
 		
 	}
 }

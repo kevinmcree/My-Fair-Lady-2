@@ -6,7 +6,7 @@ public class buyGun : MonoBehaviour {
 	// Use this for initialization
 	public AudioClip[] clips = new AudioClip[2];
 	private AudioSource[] audioSources = new AudioSource[2];
-	
+
 	// Use this for initialization
 	void Start () {
 		int i = 0;

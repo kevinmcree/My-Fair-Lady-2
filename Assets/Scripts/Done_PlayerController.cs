@@ -104,7 +104,7 @@ public class Done_PlayerController : MonoBehaviour
 				}
 		if (playerModifier == 3) {
 			GameObject bulletTimeText = GameObject.Find("bulletTimeChargeCounter");
-			bulletTimeText.transform.position= new Vector3 (.9f,.24f,0);
+			bulletTimeText.transform.position= new Vector3 (.9f,.34f,0);
 
 		}
 
@@ -341,7 +341,7 @@ public class Done_PlayerController : MonoBehaviour
 
 
 		}
-		if (Input.GetKeyDown("right ctrl") && shipType==5 && bombCharge>=10){
+		if (Input.GetKeyDown("right shift") && shipType==5 && bombCharge>=10){
 			Instantiate(chainReaction, this.transform.position, new Quaternion(0, 5,0,90));
 			Instantiate(chainReaction, this.transform.position, new Quaternion(0, 10,0,90));
 			Instantiate(chainReaction, this.transform.position, new Quaternion(0, 15,0,90));
@@ -506,18 +506,21 @@ public class Done_PlayerController : MonoBehaviour
 			}
 
 			if (String.Compare(playerColor, "blue")==0){
-				red.transform.position = new Vector3(0,-9,1);
-				blue.transform.position = new Vector3(0,-11,1);
+				red.transform.position = new Vector3(0,-8.5f,6.95f);
+				blue.transform.position = new Vector3(0,-9,-23.25f);
+				yellow.transform.position = new Vector3(0,-9,37.2f);
 				playerColor = "red";
 			}		
 			else if (String.Compare(playerColor, "red")==0){
-				yellow.transform.position = new Vector3(0,-9,1);
-				red.transform.position = new Vector3(0,-11,1);
+				yellow.transform.position = new Vector3(0,-8.5f,6.95f);
+				red.transform.position = new Vector3(0,-9,-23.25f);
+				blue.transform.position = new Vector3(0,-9,37.2f);
 				playerColor = "yellow";
 			}
 			else if (String.Compare(playerColor, "yellow")==0){
-				blue.transform.position = new Vector3(0,-9,1);
-					yellow.transform.position = new Vector3(0,-11,1);
+				blue.transform.position = new Vector3(0,-8.5f,6.95f);
+				yellow.transform.position = new Vector3(0,-9,-23.25f);
+				red.transform.position = new Vector3(0,-9,37.2f);
 				playerColor = "blue";
 			}
 		}
@@ -531,19 +534,22 @@ public class Done_PlayerController : MonoBehaviour
 
 			
 			if (String.Compare(playerColor, "blue")==0){
-				yellow.transform.position = new Vector3(0,-9,1);
-				blue.transform.position = new Vector3(0,-11,1);
+				yellow.transform.position = new Vector3(0,-8.5f,6.95f);
+				blue.transform.position = new Vector3(0,-9,37.2f);
+				red.transform.position = new Vector3(0,-9,-23.25f);
 				playerColor = "yellow";
 
 			}		
 			else if (String.Compare(playerColor, "red")==0){
-				blue.transform.position = new Vector3(0,-9,1);
-				red.transform.position = new Vector3(0,-11,1);
+				blue.transform.position = new Vector3(0,-8.5f,6.95f);
+				red.transform.position = new Vector3(0,-9,37.2f);
+				yellow.transform.position = new Vector3(0,-9,-23.25f);
 				playerColor = "blue";
 			}
 			else if (String.Compare(playerColor, "yellow")==0){
-				red.transform.position = new Vector3(0,-9,1);
-				yellow.transform.position = new Vector3(0,-11,1);
+				red.transform.position = new Vector3(0,-8.5f,6.95f);
+				yellow.transform.position = new Vector3(0,-9,37.2f);
+				blue.transform.position = new Vector3(0,-9,-23.25f);
 				playerColor = "red";
 			}
 		}

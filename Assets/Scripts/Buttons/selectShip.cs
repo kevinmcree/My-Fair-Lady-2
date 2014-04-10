@@ -6,6 +6,7 @@ public class selectShip : MonoBehaviour {
 	// Use this for initialization
 	public AudioClip[] clips = new AudioClip[2];
 	private AudioSource[] audioSources = new AudioSource[2];
+	public string text;
 	
 	// Use this for initialization
 	void Start () {
@@ -36,6 +37,8 @@ public class selectShip : MonoBehaviour {
 				audioSources [1].clip = clips [1];
 				audioSources [1].Play ();	
 		}
+		GameObject explain = GameObject.Find("explainText");
+		explain.guiText.text = text;
 
 	}
 	
