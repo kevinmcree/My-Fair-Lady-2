@@ -5,7 +5,8 @@ public class forceField : MonoBehaviour {
 	public bool ForceField;
 	public int fieldCharge;
 	public bool toggle;
-	GameObject yo;
+	public GameObject yo;
+	public GameObject fieldBurst;
 	// Use this for initialization
 	void Start () {
 		yo = GameObject.Find ("Player");
@@ -18,6 +19,9 @@ public class forceField : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (fieldCharge>=30 && Input.GetKeyDown("return") && yo.GetComponent<Done_PlayerController>().playerModifier == 4){
+			Instantiate(fieldBurst, transform.position, transform.rotation);
+			audio.Play();
+			ForceField=true;
 			toggle = true;
 		}
 		
@@ -29,12 +33,10 @@ public class forceField : MonoBehaviour {
 				fieldCharge++;
 			}
 			if (toggle==true){
-				ForceField=true;
-				yield return new WaitForSeconds (1);
+			yield return new WaitForSeconds (1);
 				fieldCharge=0;
 				ForceField=false;
 				toggle=false;			
-				audio.Play();
 			}
 			if (yo.GetComponent<Done_PlayerController>().playerModifier == 4){
 					GameObject bulletTimeText = GameObject.Find("bulletTimeChargeCounter");
