@@ -22,7 +22,7 @@ public class Done_PlayerController : MonoBehaviour
 	public float fireRate;
 	public string playerColor; 
 	public int playerHealth;
-	public float maxHealth;
+	public int maxHealth;
 	private float nextFire;
 	public int powerUp;
 	public int shipType;
@@ -54,23 +54,23 @@ public class Done_PlayerController : MonoBehaviour
 		if (shipType == 0) {
 			speed = 18;
 			playerHealth = 4;
-			maxHealth = 4f;
+			maxHealth = 4;
 		}
 		if (shipType == 1) {
 			speed = 10;
 			playerHealth = 6;
-			maxHealth = 6f;
+			maxHealth = 6;
 		}
 		if (shipType == 2) {
 			speed = 30;
 			playerHealth = 2;
-			maxHealth  = 2f;
+			maxHealth  = 2;
 			transform.localScale = new Vector3 (.7f,.75f,1.25f);
 		}
 		if (shipType == 3) {
 			speed = 15;
 			playerHealth = 3;
-			maxHealth  = 3f;			
+			maxHealth  = 3;			
 			GameObject red = GameObject.Find("Red");
 			GameObject yellow = GameObject.Find("Yellow");
 			GameObject blue = GameObject.Find("Blue");
@@ -82,7 +82,7 @@ public class Done_PlayerController : MonoBehaviour
 		if (shipType == 4) {
 			speed = 0;
 			playerHealth = 2;
-			maxHealth  = 2f;			
+			maxHealth  = 2;			
 			GameObject carrot = GameObject.Find("carrot");
 			carrot.transform.position = this.transform.position;
 			gameObject.transform.position = new Vector3 (100000,100000,1000000);
@@ -94,7 +94,7 @@ public class Done_PlayerController : MonoBehaviour
 			chargeText.transform.position = new Vector3 (.9f,.24f,0);
 			speed = 20;
 			playerHealth = 4;
-			maxHealth = 4f;
+			maxHealth = 4;
 		}else{
 			GameObject chargeText = GameObject.Find("bombChargeCounter");
 			chargeText.transform.position = new Vector3 (100f,100f,100);
