@@ -97,7 +97,7 @@ public class Done_GameController : MonoBehaviour
 
 				}
 				if ( rand == 6 || rand == 7 || rand == 8 || rand == 13 || rand == 14 || rand == 15){
-					int otherRand = Random.Range (0, 2);
+					int otherRand = Random.Range (0, 4);
 					if (otherRand!=1){
 						rand = Random.Range (0, range);
 					}

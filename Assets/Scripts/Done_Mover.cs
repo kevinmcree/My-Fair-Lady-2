@@ -2,9 +2,8 @@
 using System.Collections;
 
 public class Done_Mover : MonoBehaviour
-{
+{	public GameObject explosion;
 	public bool toggle;
-
 	public float speed;
 
 	void Start ()
@@ -37,8 +36,18 @@ public class Done_Mover : MonoBehaviour
 			toggle=false;
 		}
 
-		
-		
+		if ( this.tag == "enemyBullet" && yo.GetComponent<forceField>().ForceField==true && toggle == false){
+			rigidbody.velocity = new Vector3 (0,0,0);
+			StartCoroutine (explode());
 		}
+
+
+	}
+
+	IEnumerator explode (){
+		yield return new WaitForSeconds (3);
+		Instantiate(explosion, transform.position, transform.rotation);
+		Destroy (gameObject);			
+	}
 
 }

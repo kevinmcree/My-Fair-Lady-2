@@ -39,7 +39,7 @@ public class Done_DestroyByContact : MonoBehaviour
 
 	void OnTriggerEnter (Collider other)
 	{
-		if (other.tag == "Boundary" || other.tag == "Enemy" || other.tag == "UI")
+		if (other.tag == "Boundary" || other.tag == "enemyBullet" || other.tag == "Enemy" || other.tag == "UI")
 		{
 			return;
 		}

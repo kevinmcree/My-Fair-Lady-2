@@ -108,6 +108,12 @@ public class Done_PlayerController : MonoBehaviour
 
 		}
 
+		if (playerModifier == 4) {
+			GameObject bulletTimeText = GameObject.Find("bulletTimeChargeCounter");
+			bulletTimeText.transform.position= new Vector3 (.9f,.34f,0);
+			
+		}
+
 
 		playerColor = "blue";
 		littleDoctorWait=100;

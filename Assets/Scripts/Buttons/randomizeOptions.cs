@@ -108,7 +108,7 @@ public class randomizeOptions : MonoBehaviour {
 			explain.guiText.text = weapon.GetComponent<selectGun>().text;
 		}
 
-		random = Random.Range (0, 4);
+		random = Random.Range (0, 5);
 		if (random==0){
 			GameObject explain = GameObject.Find("explainText");
 			GameObject mod = GameObject.Find("mod0");
@@ -142,6 +142,15 @@ public class randomizeOptions : MonoBehaviour {
 			GameObject opt = GameObject.Find("options");
 			GameObject select = GameObject.Find("selectMod");
 			opt.GetComponent<options> ().playerModifier = 3;
+			select.transform.position = mod.transform.position;
+			explain.guiText.text = mod.GetComponent<slelectModifier>().text;
+		}
+		if (random==4){
+			GameObject explain = GameObject.Find("explainText");
+			GameObject mod = GameObject.Find("mod4");
+			GameObject opt = GameObject.Find("options");
+			GameObject select = GameObject.Find("selectMod");
+			opt.GetComponent<options> ().playerModifier = 4;
 			select.transform.position = mod.transform.position;
 			explain.guiText.text = mod.GetComponent<slelectModifier>().text;
 		}

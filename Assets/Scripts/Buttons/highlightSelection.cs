@@ -51,6 +51,8 @@ public class highlightSelection : MonoBehaviour {
 			selecShip.transform.position=GameObject.Find("mod2").transform.position;
 		} else if (opt.GetComponent<options>().playerModifier == 3){
 			selecShip.transform.position=GameObject.Find("mod3").transform.position;
+		} else if (opt.GetComponent<options>().playerModifier == 4){
+			selecShip.transform.position=GameObject.Find("mod4").transform.position;
 		}
 	}
 
