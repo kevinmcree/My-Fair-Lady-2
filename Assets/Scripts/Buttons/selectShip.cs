@@ -7,6 +7,8 @@ public class selectShip : MonoBehaviour {
 	public AudioClip[] clips = new AudioClip[2];
 	private AudioSource[] audioSources = new AudioSource[2];
 	public string text;
+	public GameObject particles;
+
 	
 	// Use this for initialization
 	void Start () {
@@ -33,6 +35,8 @@ public class selectShip : MonoBehaviour {
 			opt.GetComponent<options> ().shipType = ship;
 			audioSources [0].clip = clips [0];
 			audioSources [0].Play ();
+			Instantiate(particles, this.transform.position, transform.rotation);
+
 		} else {
 				audioSources [1].clip = clips [1];
 				audioSources [1].Play ();	

@@ -3,6 +3,7 @@ using System.Collections;
 
 public class HealthPickUp : MonoBehaviour {
 	public GameObject explosion;
+	public bool toggle;
 
 	// Use this for initialization
 	void Start () {
@@ -11,7 +12,14 @@ public class HealthPickUp : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if (toggle == true){
+			GameObject health = GameObject.Find("Health");
+			if (this.transform.position.y<health.transform.position.y){
+				this.transform.position += new Vector3 (0, .5f,0);
+			}
+			transform.position = Vector3.MoveTowards(transform.position, health.transform.position, .5f);
+
+		}	
 	}
 
 void OnTriggerEnter (Collider other)
@@ -20,19 +28,23 @@ void OnTriggerEnter (Collider other)
 		return;
 	}
 	if (other.tag == "Player"){
+			rigidbody.velocity = new Vector3 (0,0,0);
+			toggle = true;
+	}
+	if (other.tag == "UI"){
 		GameObject go = GameObject.Find("Player");
-			if (go.GetComponent<Done_PlayerController>().playerHealth<go.GetComponent<Done_PlayerController>().maxHealth){
-				go.GetComponent<Done_PlayerController>().playerHealth++;
-				GameObject health = GameObject.Find("Health");
-				float temp = 4/go.GetComponent<Done_PlayerController>().maxHealth;
-				health.transform.position += new Vector3(0,0,temp);			
-			}
-			if (explosion != null)
-			{
-				Instantiate(explosion, transform.position, transform.rotation);
-			}
-			Destroy (gameObject);
+		if (go.GetComponent<Done_PlayerController>().playerHealth<go.GetComponent<Done_PlayerController>().maxHealth){
+			go.GetComponent<Done_PlayerController>().playerHealth++;
+			GameObject health = GameObject.Find("Health");
+			float temp = 4/go.GetComponent<Done_PlayerController>().maxHealth;
+			health.transform.position += new Vector3(0,0,temp);	
 		}
+
+		if (explosion != null){
+			Instantiate(explosion, transform.position, transform.rotation);
+		}
+		Destroy (gameObject);
+	}
 
 
 }
