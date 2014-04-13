@@ -14,9 +14,7 @@ public class Done_GameController : MonoBehaviour
 	public bool isTutorial;
 
 	public GUIText scoreText;
-	public GUIText restartText;
-	public GUIText gameOverText;
-	
+
 	private bool gameOver;
 	private bool restart;
 	public int score;
@@ -34,8 +32,6 @@ public class Done_GameController : MonoBehaviour
 		gameOver = false;
 		restart = false;
 		inStore=false;
-		restartText.text = "";
-		gameOverText.text = "";
 		score = 0;
 		counter = 1000;
 		comboExtender = 0;
@@ -61,15 +57,6 @@ public class Done_GameController : MonoBehaviour
 		}
 		comboCounter--;
 		counter--;
-
-		if (restart)
-		{
-			if (Input.GetKeyDown (KeyCode.R))
-			{
-				Application.LoadLevel ("options select");
-			}
-		}
-
 	}
 	
 	IEnumerator SpawnWaves ()
@@ -132,7 +119,6 @@ public class Done_GameController : MonoBehaviour
 			
 			if (gameOver)
 			{
-				restartText.text = "Press 'R' for Restart";
 				restart = true;
 				break;
 			}
@@ -166,8 +152,10 @@ public class Done_GameController : MonoBehaviour
 
 public void GameOver ()
 	{
-		gameOverText.text = "Game Over!";
 		gameOver = true;
+		Camera.main.transform.position = new Vector3(315.5f, 22.7f, -2);
+		inStore = true;
+		audio.Pause ();
 		GameObject laser = GameObject.Find ("lightSaber");
 		laser.transform.position = new Vector3 (1000,1000,1000);
 
