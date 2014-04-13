@@ -65,8 +65,11 @@ public class Done_PlayerController : MonoBehaviour
 			speed = 30;
 			playerHealth = 2;
 			maxHealth  = 2;
-			transform.localScale = new Vector3 (.7f,.75f,1.25f);
+			transform.localScale = new Vector3 (.2f,.4f,.4f);
+			this.GetComponent<SphereCollider>().radius=2;
+			this.GetComponent<SphereCollider>().center= new Vector3 (-2.7f, 2, 2);
 		}
+
 		if (shipType == 3) {
 			speed = 15;
 			playerHealth = 3;
@@ -581,6 +584,8 @@ public class Done_PlayerController : MonoBehaviour
 
 		if (shipType == 3) {
 			 moveVertical = Input.GetAxis ("Vertical");
+		}else{
+			transform.position =  new Vector3 (transform.position.x, transform.position.y, -3.3f);
 		}
 
 		Vector3 movement = new Vector3 (moveHorizontal, 0f, moveVertical);
@@ -589,7 +594,7 @@ public class Done_PlayerController : MonoBehaviour
 		rigidbody.position = new Vector3
 		(
 			Mathf.Clamp (rigidbody.position.x, boundary.xMin, boundary.xMax), 
-			-3f, 
+			-4f, 
 			Mathf.Clamp (rigidbody.position.z, boundary.zMin, boundary.zMax)
 		);
 		
