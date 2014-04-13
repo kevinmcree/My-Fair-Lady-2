@@ -25,7 +25,7 @@ public class tutorial_dialog : MonoBehaviour {
 	public GameObject words;
 
 	private DateTime talkTime;					//Keeps track of the time that any dialogue starts
-	private DateTime startTime;					//Keeps track of when this script begins, used to coordinate dialogue with appearance of other GameObjects
+	//private DateTime startTime;					//Keeps track of when this script begins, used to coordinate dialogue with appearance of other GameObjects
 	private DateTime curTime;					//The current time
 	private TimeSpan timeDif;					//Keeps track of the time elapsed, this variable is changed fairly often, but it is more effecient to initialize it here
 
@@ -36,7 +36,7 @@ public class tutorial_dialog : MonoBehaviour {
 	void Start () {
 
 		curDialogue = 0;
-		startTime = System.DateTime.Now;
+		//startTime = System.DateTime.Now;
 		talkTime = System.DateTime.Now;
 
 		dialouge = new string[20];
