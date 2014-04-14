@@ -13,6 +13,11 @@ public class Done_GameController : MonoBehaviour
 	public int range;
 	public bool isTutorial;
 
+	//isBoss checks if the player is currently fighting the boss so that no additional enemies spawn
+	//boss checks if the boss has already spawned this game
+	public bool isBoss;
+	public bool boss;
+
 	public GUIText scoreText;
 
 	private bool gameOver;
@@ -38,6 +43,7 @@ public class Done_GameController : MonoBehaviour
 		scoreMultiplier = 1;
 		UpdateScore ();
 		StartCoroutine (SpawnWaves ());
+		isBoss = false;
 
 	}
 	
@@ -89,10 +95,20 @@ public class Done_GameController : MonoBehaviour
 						rand = Random.Range (0, range);
 					}
 				}
+
 				GameObject hazard = hazards [rand];
 				Vector3 spawnPosition = new Vector3 (Random.Range (-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
 				Quaternion spawnRotation = Quaternion.identity;
-				Instantiate (hazard, spawnPosition, spawnRotation);
+				if(!isBoss){
+					if(rand == 22 && !boss){
+						boss = true;
+						isBoss = true;
+						Instantiate (hazard, spawnPosition, spawnRotation);
+					}
+					else{
+						Instantiate (hazard, spawnPosition, spawnRotation);
+					}
+				}
 				yield return new WaitForSeconds (spawnWait);
 			}
 			if (inStore == false){
