@@ -30,8 +30,9 @@ void OnTriggerEnter (Collider other)
 	if (other.tag == "Player"){
 			rigidbody.velocity = new Vector3 (0,0,0);
 			toggle = true;
+			audio.Play ();
 	}
-	if (other.tag == "UI"){
+	if (other.tag == "healthBar"){
 		GameObject go = GameObject.Find("Player");
 		if (go.GetComponent<Done_PlayerController>().playerHealth<go.GetComponent<Done_PlayerController>().maxHealth){
 			go.GetComponent<Done_PlayerController>().playerHealth++;

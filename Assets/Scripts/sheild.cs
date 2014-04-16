@@ -13,7 +13,7 @@ public class sheild : MonoBehaviour {
 		go.GetComponent<BuySheild>().toggle=true;
 
 		GameObject player = GameObject.Find ("Player");
-		transform.position = new Vector3(player.transform.position.x, player.transform.position.y-1, player.transform.position.z);
+		transform.position = new Vector3(player.transform.position.x-1.2f, player.transform.position.y-1, player.transform.position.z);
 	}
 	
 //	void OnTriggerEnter (Collider other){

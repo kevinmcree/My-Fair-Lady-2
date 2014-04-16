@@ -39,7 +39,7 @@ public class Done_DestroyByContact : MonoBehaviour
 
 	void OnTriggerEnter (Collider other)
 	{
-		if (other.tag == "Boundary" || other.tag == "enemyBullet" || other.tag == "Enemy" || other.tag == "UI")
+		if (other.tag == "Boundary" || other.tag == "enemyBullet" || other.tag == "Enemy" || other.tag == "UI" || other.tag == "healthBar")
 		{
 			return;
 		}
@@ -138,7 +138,8 @@ public class Done_DestroyByContact : MonoBehaviour
 					go.GetComponent<Done_PlayerController>().shotAmount+=24;
 				}
 					GameObject health = GameObject.Find("Health");
-				float temp = 4/go.GetComponent<Done_PlayerController>().maxHealth;
+				float temp = 4.0f/go.GetComponent<Done_PlayerController>().maxHealth;
+				Debug.Log (temp);
 				health.transform.position -= new Vector3(0,0,temp);
 			//	health.transform.localScale += new Vector3 (-1,0,0); 
 				if(go.GetComponent<Done_PlayerController>().playerHealth<=0){
