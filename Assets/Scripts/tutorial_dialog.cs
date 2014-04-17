@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System;
 
@@ -102,27 +102,111 @@ public class tutorial_dialog : MonoBehaviour {
 
 		//Temporary Block, Fills all spaces in the array with a numeric value corresponding to their index.
 		//Basically this ensures that each point in the array has a value
-		for (int i = 0; i < 20; i++){
+		for (int i = 0; i < 50; i++){
 			yo[i] = i.ToString();
 		}
 
-		for (int i = 0; i < 20; i++){	// 0=hare, 1=bird, 2=frog, 3=Eliza
+		for (int i = 0; i < 50; i++){	// 0=hare, 1=bird, 2=frog, 3=Eliza
 			speaker[i] = 0;
 		}
-		yo[0] = "Yo this is Bird.";
-		speaker[0] = 1;
-		yo[1] = "I thought that I would remind you that the  left and right arrow keys control movement";
-		speaker[1] = 1;
-		yo[2] = "Eliza! Quick! Push SPACE to shoot!";
-		speaker[2] = 1;
+
+		//Start blue
+
+		yo[0] = "Eliza!  It's me, Hare.";
+			speaker[0] = 0;
+		yo[1] = "We're going to teach you how to fly your ship, alright?";
+			speaker[1] = 0;
+		yo[2] = "Who is 'we'?  Why are you speaking so slowly?";
+			speaker[2] = 3;
+		yo[3] = "'We' is your squad, Eliza.  Can you say my name?";
+			speaker[3] = 2;
+		yo[4] = "I'm Froggerson.";
+			speaker[4] = 2;
+		yo[5] = "I can understand you just fine.  Bird, please make them stop...";
+			speaker[5] = 3;
+		yo[6] = "Hey Eliza, stop being so stupid.";
+			speaker[6] = 1;
+		yo[7] = "Alright, that's it!";
+			speaker[7] = 3;
+		yo[8] = "As soon as I learn now to pilot this thing, I'm blasting you all out of the sky!";
+			speaker[8] = 3;
+		yo[9] = "Ahahaha!  Alright, alright, no need to get so touchy.";
+			speaker[9] = 0;
+		yo[10] = "Hey, let's get started!  Movement is really simple, just use the arrow keys to go from side to side.";
+			speaker[10] = 2;
+		yo[11] = "Not that you needed us to tell you, probably.";
+			speaker[11] = 1;
+		yo[12] = "And then, you use the spacebar to shoot!";
+			speaker[11] = 2;
+		yo[13] = "Spacebar, heheh~";
+			speaker[13] = 0;
+		yo[14] = "Simple enough, right?  We're sending a few drones your way, so try it out!";
+			speaker[14] = 2;
+
+		//blam blam blam
+
+		yo[15] = "Good job.";
+			speaker[15] = 1;
+		yo[16] = "Woah, I feel like I could scoop up that sarcasm into a cup.";
+			speaker[16] = 0;
+		yo[17] = "Yes, yes, what next?  Why is my view tinted blue?";
+			speaker[17] = 3;
+		yo[18] = "Oh, right, the color system!!";
+			speaker[18] = 2;
+		yo[19] = "The color system?  What's that?";
+			speaker[19] = 3;
+		yo[20] = "Well, it's a little more like shifting dimensions, but the higher-ups wanted to keep it simple.";
+			speaker[20] = 2;
+		yo[21] = "Basically, there are 3 colors: Red, blue, and yellow.  You can change colors by pressing the up and down buttons!";
+			speaker[21] = 2;
+		yo[22] = "Okay…and?";
+			speaker[22] = 3;
+		yo[23] = "AND you can only hit and get hit by the enemy ships that match your color!";
+			speaker[23] = 2;
+		yo[24] = "Hmm…seems simple enough.  Let's give it a try!";
+			speaker[24] = 3;
+		yo[25] = "Let's see how badly you fail with this new wave, then.";
+			speaker[25] = 1;
+		yo[26] = "Bird!  Be nice!!";
+			speaker[26] = 0;
+
+		//blammoooooo red and yellow ships come in little waves
+
+		yo[27] = "I think I'm getting the hang of this.";
+			speaker[27] = 3;
+		yo[28] = "Good!  See, it's not that complicated, right?";
+			speaker[28] = 0;
+		yo[29] = "I can't wait until she gets to the harder levels.";
+			speaker[29] = 1;
+		yo[30] = "Levels?  What?";
+			speaker[30] = 3;
+		yo[31] = "Nevermind.";
+			speaker[31] = 1;
+		yo[32] = "Oh yeah!  And by the way, we've got cool power-ups for you to use!";
+			speaker[32] = 2;
+		yo[33] = "Power-ups?  What are we, in a video game or somethi--";
+			speaker[33] = 3;
+		yo[34] = "Just press (whatever key you need to press) to activate it!  They can be any number of things.";
+			speaker[34] = 2;
+		yo[35] = "Because, y'know, I like things to be customizable.";
+			speaker[35] = 2;
+		yo[36] = "Sounds good to me, then, I'll be sure to try that out next time!";
+			speaker[36] = 3;
+		yo[37] = "Alright then, looks like you're ready to be sent out into the field!";
+			speaker[37] = 0;
+		yo[38] = "I bet you 5000 points she doesn't even last a minute.";
+			speaker[38] = 1;
+		yo[39] = "I bet you 10000 she doesn't last 30 seconds!";
+			speaker[39] = 2;
+		yo[40] = "Hey Eliza, crash for me, okay?  I need the money.";
+			speaker[40] = 2;
+		yo[41] = "Hey!  At least try to be a little supportive…!";
+			speaker[41] = 0;
+		yo[42] = "Oh dear...";
+			speaker[42] = 3;
 		
-		
+		//end of tutorial
+
 		return yo;
 	}		
-	
-	
-	
 }
-
-
-
