@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Com_Chatter : MonoBehaviour {
+public class Done_ComChatter : MonoBehaviour {
 	public int rand;
 	public int counter;
 	public  string[] dialouge;
@@ -10,11 +10,11 @@ public class Com_Chatter : MonoBehaviour {
 	public int start;
 	public int end;
 	public bool talking;			
-	GameObject bird;
-	GameObject hare;
-	GameObject frog;
-	GameObject eliza;
-	GameObject words;
+	public GameObject bird;
+	public GameObject hare;
+	public GameObject frog;
+	public GameObject eliza;
+	public GameObject words;
 
 	
 	// Use this for initialization
@@ -28,11 +28,6 @@ public class Com_Chatter : MonoBehaviour {
 		}
 
 		dialouge = dialougeSet (dialouge);
-		bird = GameObject.Find ("Bird");
-		 hare = GameObject.Find ("Hare");
-		 frog = GameObject.Find ("Froggerson");
-		 eliza = GameObject.Find ("Eliza");
-		 words = GameObject.Find ("WordsTalking");
 
 		
 		
@@ -40,6 +35,12 @@ public class Com_Chatter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+	//	bird = GameObject.Find ("Bird");
+		//hare = GameObject.Find ("Hare");
+		//frog = GameObject.Find ("Froggerson");
+		//eliza = GameObject.Find ("Eliza");
+		//words = GameObject.Find ("WordsTalking");
+
 		GameObject go = GameObject.Find("Game Controller");
 		if (	go.GetComponent<Done_GameController>().inStore==false){
 		if (talking == true){

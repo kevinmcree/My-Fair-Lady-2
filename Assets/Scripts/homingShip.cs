@@ -12,10 +12,10 @@ public class homingShip : MonoBehaviour {
 	void Update () {
 		GameObject go = GameObject.Find("Player");
 			if (this.transform.position.x>go.transform.position.x){ 
-				this.transform.position -= new Vector3 (.12f,0,0);
+				this.transform.position -= new Vector3 (.08f,0,0);
 			}
 			if (this.transform.position.x<go.transform.position.x){ 
-				this.transform.position += new Vector3 (.12f,0, 0);
+				this.transform.position += new Vector3 (.08f,0, 0);
 			}
 		this.transform.position = new Vector3 (this.transform.position.x, -3, this.transform.position.z);
 	}
