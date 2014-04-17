@@ -384,11 +384,11 @@ public class Com_Chatter : MonoBehaviour {
 		speaker[96] = 0;
 		yo[97] = "Thanks, Hare.";
 		speaker[97] = 3; 
-		yo[98] = "Move left or right to dodge bullets.";
+		yo[98] = "Move left or right to dodge bullets!";
 		speaker[98] = 0;
 		yo[99] = "I know, Hare.";
 		speaker[99] = 3;
-		yo[100] = "You can only hit or be hit by enemies of the same color as you";
+		yo[100] = "You can only hit or be hit by enemies of the same color as you!";
 		speaker[100] = 0;
 		yo[101] = "I KNOW, Hare!";
 		speaker[101] = 3;
