@@ -14,6 +14,11 @@ public class daBossAttack : MonoBehaviour {
 	public int attackType;
 
 	void Start () {
+		GameObject yo = GameObject.Find ("Game Controller");
+
+		yo.GetComponent<Done_GameController>().audio.Pause();
+		yo.GetComponent<Done_GameController>().bossSource[0].Play();
+
 		coolDown = 0;
 	}
 	
@@ -21,6 +26,17 @@ public class daBossAttack : MonoBehaviour {
 	//If the cooldown is <= 0 the boss randomizes an attack type and color
 	//then executes the attack in the chosen color
 	void Update () {
+		this.transform.position = new Vector3 (0, this.transform.position.y, this.transform.position.z);
+		if (this.GetComponent<Done_DestroyByContact>().hits<=20){
+			GameObject yo = GameObject.Find ("Game Controller");
+			yo.GetComponent<Done_GameController>().audio.Play();
+			yo.GetComponent<Done_GameController>().boss = false;
+			yo.GetComponent<Done_GameController>().isBoss = false;
+			yo.GetComponent<Done_GameController>().bossSource[0].Pause();
+			yo.GetComponent<Done_GameController>().range--;
+			Destroy (gameObject);
+		}
+
 		//Instantiate (shot, shotSpawn.position, shotSpawn.rotation);
 		if (coolDown <= 0) {
 			attackCol = Random.Range (0, 2);

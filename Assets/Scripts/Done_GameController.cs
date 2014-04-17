@@ -27,13 +27,13 @@ public class Done_GameController : MonoBehaviour
 
 	public int combo;
 	public int comboCounter;
-	GameObject comboText;
 	public int scoreMultiplier;
 	public int comboExtender;
+	public AudioClip[] bossClip = new AudioClip[1];
+	public AudioSource[] bossSource = new AudioSource[1];
 
 	void Start ()
 	{
-		comboText = GameObject.Find ("Combo");
 		gameOver = false;
 		restart = false;
 		inStore=false;
@@ -43,8 +43,19 @@ public class Done_GameController : MonoBehaviour
 		scoreMultiplier = 1;
 		UpdateScore ();
 		StartCoroutine (SpawnWaves ());
-		//isBoss = false;
+		isBoss = false;
 
+		int i = 0;
+		while (i < 1) {
+			GameObject child = new GameObject("audio");
+			child.transform.parent = gameObject.transform;
+			bossSource[i] = child.AddComponent("AudioSource") as AudioSource;
+			bossSource[i].volume=.99f;
+			i++;
+		}
+		bossSource[0].clip = bossClip[0];
+
+		
 	}
 	
 	void Update (){
@@ -69,7 +80,7 @@ public class Done_GameController : MonoBehaviour
 	{
 		yield return new WaitForSeconds (startWait);
 		while (true)
-		{
+		{	if (boss == false){
 			for (int i = 0; i < hazardCount; i++)
 			{
 				if(isTutorial)
@@ -104,12 +115,15 @@ public class Done_GameController : MonoBehaviour
 						boss = true;
 						isBoss = true;
 						Instantiate (hazard, spawnPosition, spawnRotation);
+					//	audio.Pause ();
+					//	bossSource[0].Play ();
 					}
 					else{
 						Instantiate (hazard, spawnPosition, spawnRotation);
 					}
 				}
 				yield return new WaitForSeconds (spawnWait);
+			}
 			}
 			if (inStore == false){
 				hazardCount+=2;
@@ -128,9 +142,14 @@ public class Done_GameController : MonoBehaviour
 			if (hazardCount==30 && !isTutorial){
 				range+=3;
 			}
-			if (hazardCount==46 && !isTutorial){
+			if (hazardCount==40 && !isTutorial){
 				range+=3;
 			}
+			if (hazardCount==50 && !isTutorial){
+				range+=1;
+			}
+			
+
 			yield return new WaitForSeconds (waveWait);
 			
 			if (gameOver)
@@ -163,6 +182,8 @@ public class Done_GameController : MonoBehaviour
 	}
 	
 	void UpdateCombo (){
+		GameObject comboText = GameObject.Find ("Combo");
+
 		comboText.guiText.text = combo.ToString();
 	}
 

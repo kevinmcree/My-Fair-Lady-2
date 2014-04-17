@@ -15,8 +15,8 @@ public class optionsMenu : MonoBehaviour {
 
 void OnMouseDown(){
 
-	//Application.LoadLevel("Main Game");
-	Application.LoadLevel("bossTest");
+	Application.LoadLevel("Main Game");
+	//Application.LoadLevel("bossTest");
 
 }
 }

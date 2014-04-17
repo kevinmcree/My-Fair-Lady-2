@@ -126,7 +126,7 @@ public class Done_PlayerController : MonoBehaviour
 			GameObject child = new GameObject("audio");
 			child.transform.parent = gameObject.transform;
 			audioSources[i] = child.AddComponent("AudioSource") as AudioSource;
-			audioSources[i].volume=.8f;
+			audioSources[i].volume=.7f;
 
 			i++;
 		}

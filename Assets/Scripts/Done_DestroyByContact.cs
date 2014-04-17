@@ -35,6 +35,9 @@ public class Done_DestroyByContact : MonoBehaviour
 		{
 			Destroy (gameObject);
 		}
+		//if (gameController.boss==true && this.name!="daBoss(Clone)"){
+	//		Destroy (gameObject);
+	//	}
 	}
 
 	void OnTriggerEnter (Collider other)
