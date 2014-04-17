@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Done_ComChatter : MonoBehaviour {
+public class Com_Chatter : MonoBehaviour {
 	public int rand;
 	public int counter;
 	public  string[] dialouge;
