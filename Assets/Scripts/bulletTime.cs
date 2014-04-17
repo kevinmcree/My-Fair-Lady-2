@@ -16,7 +16,7 @@ public class bulletTime : MonoBehaviour {
 	void Update () {
 		GameObject yo = GameObject.Find ("Player");
 
-		if (bulletTimeCharge>=30 && Input.GetKeyDown("enter") && yo.GetComponent<Done_PlayerController>().playerModifier == 3){
+		if (bulletTimeCharge>=30 && Input.GetKeyDown("return") && yo.GetComponent<Done_PlayerController>().playerModifier == 3){
 			toggle = true;
 		}
 
@@ -31,11 +31,12 @@ public class bulletTime : MonoBehaviour {
 			}
 			if (toggle==true){
 				BulletTime=true;
+				audio.Play();
+
 				yield return new WaitForSeconds (5);
 				bulletTimeCharge=0;
 				BulletTime=false;
 				toggle=false;			
-				audio.Play();
 			}
 			if (yo.GetComponent<Done_PlayerController>().playerModifier == 3){
 				GameObject bulletTimeText = GameObject.Find("bulletTimeChargeCounter");
