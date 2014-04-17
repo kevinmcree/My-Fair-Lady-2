@@ -43,7 +43,7 @@ public class Done_GameController : MonoBehaviour
 		scoreMultiplier = 1;
 		UpdateScore ();
 		StartCoroutine (SpawnWaves ());
-		isBoss = false;
+		//isBoss = false;
 
 	}
 	

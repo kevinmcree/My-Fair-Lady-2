@@ -7,6 +7,7 @@ public class daBossAttack : MonoBehaviour {
 	public GameObject blueShot;
 	public GameObject yellowShot;
 	public Transform shotSpawn;
+	public Transform shotAngle;
 
 	public int coolDown;
 	public int attackCol;
@@ -25,21 +26,8 @@ public class daBossAttack : MonoBehaviour {
 			attackCol = Random.Range (0, 2);
 			attackType = Random.Range (0, 2);
 
+			attackType = 1;
 
-			attackType = 0;
-
-			/*switch(attackCol){
-				case 0:
-					shot = GameObject.Find ("Enemy_Shot_Blue");
-					break;
-				case 1:
-					shot = GameObject.Find ("Enemy_Shot_Red");
-					break;	
-				case 2:
-					shot = GameObject.Find ("Enemy_Shot_Yellow");
-					break;
-			}*/
-			
 			switch(attackType){
 				case 0:
 					attack1();
@@ -83,12 +71,46 @@ public class daBossAttack : MonoBehaviour {
 			default: 
 				break;
 		}
-		coolDown = 50;
+		coolDown = 150;
 	}
+
+	//Shoots diagonal shots
 	public void attack2(){
-
+		Vector3 shotPos;
+		int colorType = Random.Range (0, 3);
+		switch(colorType){
+			case 0:
+				for (int i = 0; i < 15; i++){
+					shotPos = new Vector3(this.transform.position.x + 4, 0, i);
+					Instantiate (blueShot, shotSpawn.position + shotPos, new Quaternion(0, 220,0,90));
+					shotPos = new Vector3(this.transform.position.x + 35, 0, i);
+					Instantiate (blueShot, shotSpawn.position + shotPos, new Quaternion(0, -180,0,90));
+				}
+				break;
+			case 1:
+				for (int i = 0; i < 15; i++){
+					shotPos = new Vector3(this.transform.position.x + 4, 0, i);
+					Instantiate (redShot, shotSpawn.position + shotPos, new Quaternion(0, 220,0,90));
+					shotPos = new Vector3(this.transform.position.x + 35, 0, i);
+					Instantiate (redShot, shotSpawn.position + shotPos, new Quaternion(0, -180,0,90));
+				}
+				break;
+			case 2:
+				for (int i = 0; i < 15; i++){
+					shotPos = new Vector3(this.transform.position.x + 4, 0, i);
+					Instantiate (yellowShot, shotSpawn.position + shotPos, new Quaternion(0, 220,0,90));
+					shotPos = new Vector3(this.transform.position.x + 35, 0, i);
+					Instantiate (yellowShot, shotSpawn.position + shotPos, new Quaternion(0, -180,0,90));
+				}
+				break;
+			default: 
+				break;
+		}
+		coolDown = 150;
 	}
-	public void attack3(){
 
+	//Heals
+	public void attack3(){
+		this.GetComponent<Done_DestroyByContact> ().hits += 25;
 	}
 }

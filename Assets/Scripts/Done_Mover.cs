@@ -25,7 +25,15 @@ public class Done_Mover : MonoBehaviour
 		GameObject go = GameObject.Find("Game Controller");
 		if (go.GetComponent<Done_GameController>().inStore==true){
 			Destroy (gameObject);
-		}			
+		}
+
+		//If the player is currently fighting the boss, then the boss will be the only enemy on screen
+		//Which allows this code to function
+		//Basically if an enemy gets within distance 2 on the z axis from the player it stops moving.
+		if (go.GetComponent<Done_GameController> ().isBoss == true && this.tag == "Enemy") {
+			if((transform.position.z - yo.transform.position.z) <= 6)
+				rigidbody.velocity = transform.forward * 0;
+		}
 
 		if (yo.GetComponent<bulletTime>().BulletTime==true && toggle == false){
 				rigidbody.velocity = (transform.forward * speed)/10;
