@@ -8,10 +8,13 @@ public class daBossAttack : MonoBehaviour {
 	public GameObject yellowShot;
 	public Transform shotSpawn;
 	public Transform shotAngle;
-
+	public Material blue;
+	public Material red;
+	public Material yellow;
 	public int coolDown;
 	public int attackCol;
 	public int attackType;
+	public int colorChange;
 
 	void Start () {
 		GameObject yo = GameObject.Find ("Game Controller");
@@ -39,11 +42,31 @@ public class daBossAttack : MonoBehaviour {
 
 		//Instantiate (shot, shotSpawn.position, shotSpawn.rotation);
 		if (coolDown <= 0) {
+
+
+			colorChange = Random.Range (0, 3);
 			attackCol = Random.Range (0, 2);
 			attackType = Random.Range (0, 2);
 
-			attackType = 1;
-
+			//attackType = 1;
+			
+			switch(colorChange){
+			case 0:
+				renderer.material = blue;
+				this.GetComponent<Done_DestroyByContact>().color="blue";
+				break;
+			case 1:
+				renderer.material = red;
+				this.GetComponent<Done_DestroyByContact>().color="red";
+				break;
+			case 2:
+				renderer.material = yellow;
+				this.GetComponent<Done_DestroyByContact>().color="yellow";
+				break;
+			default:
+				break;
+			}
+		
 			switch(attackType){
 				case 0:
 					attack1();
