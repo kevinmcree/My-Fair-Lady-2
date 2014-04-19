@@ -74,9 +74,13 @@ public class Done_GameController : MonoBehaviour
 		}
 		comboCounter--;
 		counter--;
-	}
-	
-	IEnumerator SpawnWaves ()
+		if (Input.GetKeyDown("escape") && isTutorial){
+			Application.LoadLevel("options select");
+		}
+
+		}
+		
+		IEnumerator SpawnWaves ()
 	{
 		yield return new WaitForSeconds (startWait);
 		while (true)

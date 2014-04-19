@@ -47,8 +47,8 @@ public class tutorial_dialog : MonoBehaviour {
 		talkTime = System.DateTime.Now;
 		spawns = 0;
 
-		dialouge = new string[20];
-		speaker = new int[20];
+		dialouge = new string[50];
+		speaker = new int[50];
 
 		bird = GameObject.Find ("Bird");
 		hare = GameObject.Find ("Bob");
@@ -78,12 +78,33 @@ public class tutorial_dialog : MonoBehaviour {
 			}
 			Debug.Log("Words Being Moved to Screen\n");
 			words.guiText.text = dialouge [curDialogue];
+			if( speaker[curDialogue]==0){
+				hare.transform.position = new Vector3 (-11.5f, -.4f,-7.4f);
+				frog.transform.position = new Vector3 (-11.5f, -.4f,-20);
+				bird.transform.position = new Vector3 (-11.5f, -.4f,-20);
+				eliza.transform.position = new Vector3 (11.5f, -.4f,-20);
+			}else if( speaker[curDialogue]==1){
+				bird.transform.position = new Vector3 (-11.5f, -.4f,-7.4f);
+				frog.transform.position = new Vector3 (11.5f, -.4f,-20);
+				hare.transform.position = new Vector3 (11.5f, -.4f,-20);
+				eliza.transform.position = new Vector3 (11.5f, -.4f,-20);
+			}else if( speaker[curDialogue]==2){
+				frog.transform.position = new Vector3 (-11.5f, -.4f,-7.4f);
+				hare.transform.position = new Vector3 (11.5f, -.4f,-20);
+				bird.transform.position = new Vector3 (11.5f, -.4f,-200);
+				eliza.transform.position = new Vector3 (11.6f, -.4f,-20);
+			}else if( speaker[curDialogue]==3){
+				frog.transform.position = new Vector3 (11.6f, -.4f,-20);
+				hare.transform.position = new Vector3 (11.6f, -.4f,-20);
+				bird.transform.position = new Vector3 (11.6f, -.4f,-200);
+				eliza.transform.position = new Vector3 (-11.5f, -.4f,-7.4f);
+			}
 			Debug.Log("Words Initialized\n");
 			words.transform.position = new Vector3 (.20f,.13f,0);
-			hare.transform.position = new Vector3 (-11.5f, -.4f, -7.4f);
-			frog.transform.position = new Vector3 (-11.5f, -.4f, -20);
-			bird.transform.position = new Vector3 (-11.5f, -.4f, -20);
-			eliza.transform.position = new Vector3 (11.5f, -.4f, -20);
+			//hare.transform.position = new Vector3 (-11.5f, -.4f, -7.4f);
+			//frog.transform.position = new Vector3 (-11.5f, -.4f, -20);
+			//bird.transform.position = new Vector3 (-11.5f, -.4f, -20);
+			//eliza.transform.position = new Vector3 (11.5f, -.4f, -20);
 				
 			timeDif = curTime - talkTime;
 
@@ -158,13 +179,13 @@ public class tutorial_dialog : MonoBehaviour {
 			speaker[1] = 0;
 		yo[2] = "Who is 'we'?  Why are you speaking so slowly?";
 			speaker[2] = 3;
-		yo[3] = "'We' is your squad, Eliza.  Can you say my name?";
+		yo[3] = "'We' as in your squad, Eliza.  Can you say my name?";
 			speaker[3] = 2;
-		yo[4] = "I'm Froggerson.";
+		yo[4] = "It's Froggerson. Frooogeeersooon.";
 			speaker[4] = 2;
 		yo[5] = "I can understand you just fine.  Bird, please make them stop...";
 			speaker[5] = 3;
-		yo[6] = "Hey Eliza, stop being so stupid.";
+		yo[6] = "Eliza, stop being such an idiot.";
 			speaker[6] = 1;
 		yo[7] = "Alright, that's it!";
 			speaker[7] = 3;
@@ -172,14 +193,14 @@ public class tutorial_dialog : MonoBehaviour {
 			speaker[8] = 3;
 		yo[9] = "Ahahaha!  Alright, alright, no need to get so touchy.";
 			speaker[9] = 0;
-		yo[10] = "Hey, let's get started!  Movement is really simple, just use the arrow keys to go from side to side.";
+		yo[10] = "Movement is really simple, just use the arrow keys to go from side to side.";
 			speaker[10] = 2;
 		yo[11] = "Not that you needed us to tell you, probably.";
 			speaker[11] = 1;
-		yo[12] = "And then, you use the spacebar to shoot!";
+		yo[12] = "And you use the spacebar to shoot! Get it? Spacebar?";
 			speaker[11] = 2;
-		yo[13] = "Spacebar, heheh~";
-			speaker[13] = 0;
+		yo[13] = "I'd feel a lot more comfortable if your didn't design our ships based on puns.";
+			speaker[13] = 3;
 		yo[14] = "Simple enough, right?  We're sending a few drones your way, so try it out!";
 			speaker[14] = 2;
 
@@ -189,21 +210,21 @@ public class tutorial_dialog : MonoBehaviour {
 			speaker[15] = 1;
 		yo[16] = "Woah, I feel like I could scoop up that sarcasm into a cup.";
 			speaker[16] = 0;
-		yo[17] = "Yes, yes, what next?  Why is my view tinted blue?";
+		yo[17] = "Yes, yes, what's next?  Why is my view tinted blue?";
 			speaker[17] = 3;
 		yo[18] = "Oh, right, the color system!!";
 			speaker[18] = 2;
 		yo[19] = "The color system?  What's that?";
 			speaker[19] = 3;
-		yo[20] = "Well, it's a little more like shifting dimensions, but the higher-ups wanted to keep it simple.";
+		yo[20] = "Well, it's a little more like shifting dimensions.";
 			speaker[20] = 2;
-		yo[21] = "Basically, there are 3 colors: Red, blue, and yellow.  You can change colors by pressing the up and down buttons!";
+		yo[21] = "Basically, there are 3 colors: Red, blue, and yellow";
 			speaker[21] = 2;
-		yo[22] = "Okay…and?";
-			speaker[22] = 3;
-		yo[23] = "AND you can only hit and get hit by the enemy ships that match your color!";
+		yo[22] = "You can change colors by pressing the up and down buttons!";
+			speaker[22] = 2;
+		yo[23] = "And you can only hit and get hit by the enemy ships that match your color!";
 			speaker[23] = 2;
-		yo[24] = "Hmm…seems simple enough.  Let's give it a try!";
+		yo[24] = "Hmm... seems simple enough.  Let's give it a try!";
 			speaker[24] = 3;
 		yo[25] = "Let's see how badly you fail with this new wave, then.";
 			speaker[25] = 1;
@@ -222,15 +243,15 @@ public class tutorial_dialog : MonoBehaviour {
 			speaker[30] = 3;
 		yo[31] = "Nevermind.";
 			speaker[31] = 1;
-		yo[32] = "Oh yeah!  And by the way, we've got cool power-ups for you to use!";
+		yo[32] = "Oh yeah!  And by the way, that number on the left is the combo meter";
 			speaker[32] = 2;
-		yo[33] = "Power-ups?  What are we, in a video game or somethi--";
+		yo[33] = "Combo meter?  What are we, in a video game or somethi--";
 			speaker[33] = 3;
-		yo[34] = "Just press (whatever key you need to press) to activate it!  They can be any number of things.";
+		yo[34] = "The more enemies you shoot in a row the higher it gets.";
 			speaker[34] = 2;
-		yo[35] = "Because, y'know, I like things to be customizable.";
+		yo[35] = "And the higher it gets the higher your score.";
 			speaker[35] = 2;
-		yo[36] = "Sounds good to me, then, I'll be sure to try that out next time!";
+		yo[36] = "Okay this is really starting to sound like some kind of...";
 			speaker[36] = 3;
 		yo[37] = "Alright then, looks like you're ready to be sent out into the field!";
 			speaker[37] = 0;
@@ -240,7 +261,7 @@ public class tutorial_dialog : MonoBehaviour {
 			speaker[39] = 2;
 		yo[40] = "Hey Eliza, crash for me, okay?  I need the money.";
 			speaker[40] = 2;
-		yo[41] = "Hey!  At least try to be a little supportive…!";
+		yo[41] = "Hey!  At least try to be a little supportive!";
 			speaker[41] = 0;
 		yo[42] = "Oh dear...";
 			speaker[42] = 3;

@@ -43,6 +43,15 @@ public class Done_PlayerController : MonoBehaviour
 	
 	void Start ()
 	{
+		int i = 0;
+		while (i < 9) {
+			GameObject child = new GameObject("audio");
+			child.transform.parent = gameObject.transform;
+			audioSources[i] = child.AddComponent("AudioSource") as AudioSource;
+			audioSources[i].volume=.7f;
+			
+			i++;
+		}
 		GameObject opt = GameObject.Find("options");
 		weapon = opt.GetComponent<options> ().weapon;
 		shipType = opt.GetComponent<options> ().shipType;	
@@ -120,16 +129,8 @@ public class Done_PlayerController : MonoBehaviour
 
 		playerColor = "blue";
 		littleDoctorWait=100;
-		int i = 0;
 		stopSpam=5;
-		while (i < 9) {
-			GameObject child = new GameObject("audio");
-			child.transform.parent = gameObject.transform;
-			audioSources[i] = child.AddComponent("AudioSource") as AudioSource;
-			audioSources[i].volume=.7f;
-
-			i++;
-		}
+	
 
 	}
 
