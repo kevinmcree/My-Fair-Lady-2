@@ -15,9 +15,13 @@ public class daBossAttack : MonoBehaviour {
 	public int attackCol;
 	public int attackType;
 	public int colorChange;
+	public bool laserAttack;
 
 	void Start () {
 		GameObject yo = GameObject.Find ("Game Controller");
+		GameObject laser = GameObject.Find ("bossLaser");
+
+		laser.transform.position = new Vector3 (-100, -3, 100);
 
 		yo.GetComponent<Done_GameController>().audio.Pause();
 		yo.GetComponent<Done_GameController>().bossSource[0].Play();
@@ -31,22 +35,32 @@ public class daBossAttack : MonoBehaviour {
 	void Update () {
 		this.transform.position = new Vector3 (0, this.transform.position.y, this.transform.position.z);
 		if (this.GetComponent<Done_DestroyByContact>().hits<=20){
+			GameObject laser = GameObject.Find ("bossLaser");
 			GameObject yo = GameObject.Find ("Game Controller");
 			yo.GetComponent<Done_GameController>().audio.Play();
 			yo.GetComponent<Done_GameController>().boss = false;
 			yo.GetComponent<Done_GameController>().isBoss = false;
 			yo.GetComponent<Done_GameController>().bossSource[0].Pause();
 			yo.GetComponent<Done_GameController>().range--;
+			laser.transform.position = new Vector3 (-100, -3, 100);
+		
 			Destroy (gameObject);
 		}
-
-		//Instantiate (shot, shotSpawn.position, shotSpawn.rotation);
+		if (laserAttack){
+			GameObject laser = GameObject.Find ("bossLaser");
+			if (laser.transform.position.x>=45f){
+				laser.transform.position = new Vector3 (-100, -3, 100);
+				laserAttack = false;
+			}
+			laser.transform.position += new Vector3 (.1f, 0, 0);
+		}
+				//Instantiate (shot, shotSpawn.position, shotSpawn.rotation);
 		if (coolDown <= 0) {
 
 
 			colorChange = Random.Range (0, 3);
-			attackCol = Random.Range (0, 2);
-			attackType = Random.Range (0, 2);
+			attackCol = Random.Range (0, 3);
+			attackType = Random.Range (0, 3);
 
 			//attackType = 1;
 			
@@ -77,6 +91,9 @@ public class daBossAttack : MonoBehaviour {
 				case 2:
 					attack3 ();
 					break;
+				case 3:
+					attack4 ();
+						break;
 				default:
 					break;
 			}
@@ -113,43 +130,54 @@ public class daBossAttack : MonoBehaviour {
 		coolDown = 150;
 	}
 
-	//Shoots diagonal shots
 	public void attack2(){
 		Vector3 shotPos;
 		int colorType = Random.Range (0, 3);
 		switch(colorType){
-			case 0:
-				for (int i = 0; i < 15; i++){
-					shotPos = new Vector3(this.transform.position.x + 4, 0, i);
-					Instantiate (blueShot, shotSpawn.position + shotPos, new Quaternion(0, 220,0,90));
-					shotPos = new Vector3(this.transform.position.x + 35, 0, i);
-					Instantiate (blueShot, shotSpawn.position + shotPos, new Quaternion(0, -180,0,90));
-				}
-				break;
-			case 1:
-				for (int i = 0; i < 15; i++){
-					shotPos = new Vector3(this.transform.position.x + 4, 0, i);
-					Instantiate (redShot, shotSpawn.position + shotPos, new Quaternion(0, 220,0,90));
-					shotPos = new Vector3(this.transform.position.x + 35, 0, i);
-					Instantiate (redShot, shotSpawn.position + shotPos, new Quaternion(0, -180,0,90));
-				}
-				break;
-			case 2:
-				for (int i = 0; i < 15; i++){
-					shotPos = new Vector3(this.transform.position.x + 4, 0, i);
-					Instantiate (yellowShot, shotSpawn.position + shotPos, new Quaternion(0, 220,0,90));
-					shotPos = new Vector3(this.transform.position.x + 35, 0, i);
-					Instantiate (yellowShot, shotSpawn.position + shotPos, new Quaternion(0, -180,0,90));
-				}
-				break;
-			default: 
-				break;
+		case 0:
+			for (int i = 0; i < 15; i++){
+				shotPos = new Vector3(this.transform.position.x + 4, 0, i);
+				Instantiate (blueShot, shotSpawn.position + shotPos, new Quaternion(0, 220,0,90));
+				shotPos = new Vector3(this.transform.position.x + 35, 0, i);
+				Instantiate (blueShot, shotSpawn.position + shotPos, new Quaternion(0, -180,0,90));
+			}
+			break;
+		case 1:
+			for (int i = 0; i < 15; i++){
+				shotPos = new Vector3(this.transform.position.x + 4, 0, i);
+				Instantiate (redShot, shotSpawn.position + shotPos, new Quaternion(0, 220,0,90));
+				shotPos = new Vector3(this.transform.position.x + 35, 0, i);
+				Instantiate (redShot, shotSpawn.position + shotPos, new Quaternion(0, -180,0,90));
+			}
+			break;
+		case 2:
+			for (int i = 0; i < 15; i++){
+				shotPos = new Vector3(this.transform.position.x + 4, 0, i);
+				Instantiate (yellowShot, shotSpawn.position + shotPos, new Quaternion(0, 220,0,90));
+				shotPos = new Vector3(this.transform.position.x + 35, 0, i);
+				Instantiate (yellowShot, shotSpawn.position + shotPos, new Quaternion(0, -180,0,90));
+			}
+			break;
+		default: 
+			break;
 		}
 		coolDown = 150;
 	}
 
-	//Heals
+	//Shoots diagonal shots
 	public void attack3(){
+		GameObject laser = GameObject.Find ("bossLaser");
+		Vector3 shotPos;
+		laserAttack=true;
+		laser.transform.position = new Vector3 (-15, -3, .6f);
+		coolDown = 500;
+
+	}
+
+
+
+	//Heals
+	public void attack4(){
 		this.GetComponent<Done_DestroyByContact> ().hits += 25;
 	}
 }
