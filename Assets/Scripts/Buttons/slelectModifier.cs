@@ -41,12 +41,16 @@ public class slelectModifier : MonoBehaviour {
 		void OnMouseDown(){
 			GameObject opt = GameObject.Find("options");
 			if (opt.GetComponent<options> ().playerModifier  != mod) {
+				GameObject explain = GameObject.Find("explainText");
+
 				switch(mod){
 					case 0:
 						opt.GetComponent<options> ().playerModifier  = mod;
 						audioSources [0].clip = clips [0];
 						audioSources [0].Play ();
 						Instantiate(particles, this.transform.position, transform.rotation);
+						explain.guiText.text = text;
+
 						break;
 					case 1:
 						if(opt.GetComponent<options>().highScore >= 2000){
@@ -54,10 +58,14 @@ public class slelectModifier : MonoBehaviour {
 							audioSources [0].clip = clips [0];
 							audioSources [0].Play ();
 							Instantiate(particles, this.transform.position, transform.rotation);
+							explain.guiText.text = text;
+
 						}
 						else{
 							audioSources [1].clip = clips [1];
 							audioSources [1].Play ();
+							explain.guiText.text = "Not Unlocked";
+
 						}
 						break;
 					case 2:
@@ -66,10 +74,14 @@ public class slelectModifier : MonoBehaviour {
 							audioSources [0].clip = clips [0];
 							audioSources [0].Play ();
 							Instantiate(particles, this.transform.position, transform.rotation);
+							explain.guiText.text = text;
+
 						}
 						else{
 							audioSources [1].clip = clips [1];
 							audioSources [1].Play ();
+							explain.guiText.text = "Not Unlocked";
+
 						}
 						break;
 					case 3:
@@ -78,10 +90,14 @@ public class slelectModifier : MonoBehaviour {
 							audioSources [0].clip = clips [0];
 							audioSources [0].Play ();
 							Instantiate(particles, this.transform.position, transform.rotation);
+							explain.guiText.text = text;
+
 						}
 						else{
 							audioSources [1].clip = clips [1];
 							audioSources [1].Play ();
+							explain.guiText.text = "Not Unlocked";
+
 						}
 						break;
 					case 4:
@@ -90,15 +106,21 @@ public class slelectModifier : MonoBehaviour {
 							audioSources [0].clip = clips [0];
 							audioSources [0].Play ();
 							Instantiate(particles, this.transform.position, transform.rotation);
+							explain.guiText.text = text;
+
 						}
 						else{
 							audioSources [1].clip = clips [1];
 							audioSources [1].Play ();
+							explain.guiText.text = "Not Unlocked";
+
 						}
 						break;
 					default:
 						audioSources [1].clip = clips [1];
 						audioSources [1].Play ();
+						explain.guiText.text = "Not Unlocked";
+
 						break;
 				}
 
@@ -107,8 +129,6 @@ public class slelectModifier : MonoBehaviour {
 				audioSources [1].clip = clips [1];
 				audioSources [1].Play ();	
 			}
-		GameObject explain = GameObject.Find("explainText");
-		explain.guiText.text = text;
 			
 		}
 		

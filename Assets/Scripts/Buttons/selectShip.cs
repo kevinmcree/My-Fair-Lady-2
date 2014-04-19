@@ -35,23 +35,30 @@ public class selectShip : MonoBehaviour {
 	void OnMouseDown(){
 		GameObject opt = GameObject.Find("options");
 		if (opt.GetComponent<options> ().shipType != ship) {
+			GameObject explain = GameObject.Find("explainText");
 			switch(ship){
 			case 0:
 				opt.GetComponent<options> ().shipType = ship;
 				audioSources [0].clip = clips [0];
 				audioSources [0].Play ();
 				Instantiate(particles, this.transform.position, transform.rotation);
+				explain.guiText.text = text;
+
 				break;
 			case 1:
 				if(opt.GetComponent<options>().highScore > 1000){
 					opt.GetComponent<options> ().shipType = ship;
 					audioSources [0].clip = clips [0];
 					audioSources [0].Play ();
-					Instantiate(particles, this.transform.position, transform.rotation);
+					Instantiate(particles, this.transform.position, transform.rotation);				
+					explain.guiText.text = text;
+
 				}
 				else{
 					audioSources [1].clip = clips [1];
 					audioSources [1].Play ();	
+					explain.guiText.text = "Not Unlocked";
+
 				}
 				break;
 			case 2:
@@ -60,10 +67,14 @@ public class selectShip : MonoBehaviour {
 					audioSources [0].clip = clips [0];
 					audioSources [0].Play ();
 					Instantiate(particles, this.transform.position, transform.rotation);
+					explain.guiText.text = text;
+
 				}
 				else{
 					audioSources [1].clip = clips [1];
 					audioSources [1].Play ();	
+					explain.guiText.text = "Not Unlocked";
+
 				}
 				break;
 			case 3:
@@ -72,10 +83,14 @@ public class selectShip : MonoBehaviour {
 					audioSources [0].clip = clips [0];
 					audioSources [0].Play ();
 					Instantiate(particles, this.transform.position, transform.rotation);
+					explain.guiText.text = text;
+
 				}
 				else{
 					audioSources [1].clip = clips [1];
 					audioSources [1].Play ();	
+					explain.guiText.text = "Not Unlocked";
+
 				}
 				break;
 			case 4:
@@ -84,15 +99,21 @@ public class selectShip : MonoBehaviour {
 					audioSources [0].clip = clips [0];
 					audioSources [0].Play ();
 					Instantiate(particles, this.transform.position, transform.rotation);
+					explain.guiText.text = text;
+
 				}
 				else{
 					audioSources [1].clip = clips [1];
 					audioSources [1].Play ();	
+					explain.guiText.text = "Not Unlocked";
+
 				}
 				break;
 			default:
 				audioSources [1].clip = clips [1];
 				audioSources [1].Play ();	
+				explain.guiText.text = "Not Unlocked";
+
 				break;
 			}
 
@@ -101,9 +122,6 @@ public class selectShip : MonoBehaviour {
 				audioSources [1].clip = clips [1];
 				audioSources [1].Play ();	
 		}
-		GameObject explain = GameObject.Find("explainText");
-		explain.guiText.text = text;
-
 	}
 	
 }
