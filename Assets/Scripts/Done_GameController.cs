@@ -84,7 +84,7 @@ public class Done_GameController : MonoBehaviour
 			for (int i = 0; i < hazardCount; i++)
 			{
 				if(isTutorial)
-					range = 6;
+					range = 5;
 				int rand = Random.Range (0, range);
 				if (rand==9 || rand==10 || rand==11 || rand==12 || rand==16 || rand==17 || rand==18 || rand==19 || rand==20 || rand==21){
 					rand = Random.Range (0, range);
@@ -106,7 +106,9 @@ public class Done_GameController : MonoBehaviour
 						rand = Random.Range (0, range);
 					}
 				}
-
+				
+				if(isTutorial && rand > 5)
+						rand = Random.Range(0,5);
 				GameObject hazard = hazards [rand];
 				Vector3 spawnPosition = new Vector3 (Random.Range (-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
 				Quaternion spawnRotation = Quaternion.identity;

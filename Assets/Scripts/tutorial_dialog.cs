@@ -14,6 +14,7 @@ spawn times of enemies.
 
 */
 public class tutorial_dialog : MonoBehaviour {
+	public GameObject[] stuff;
 	public  string[] dialouge;
 	public int[] speaker;
 	public int curDialogue;
@@ -25,9 +26,16 @@ public class tutorial_dialog : MonoBehaviour {
 	public GameObject words;
 
 	private DateTime talkTime;					//Keeps track of the time that any dialogue starts
-	//private DateTime startTime;					//Keeps track of when this script begins, used to coordinate dialogue with appearance of other GameObjects
 	private DateTime curTime;					//The current time
 	private TimeSpan timeDif;					//Keeps track of the time elapsed, this variable is changed fairly often, but it is more effecient to initialize it here
+
+
+	//I thought it would make the scripting much easier to see it I spawned enemies directly from here as they are mentioned in the dialogue. This variable keeps track of which enemies are
+	//currently spawning
+	public int spawns;
+	private DateTime lastSpawn;
+	private TimeSpan spawnWait;
+	public Vector3 spawnValues;
 
 
 	
@@ -36,8 +44,8 @@ public class tutorial_dialog : MonoBehaviour {
 	void Start () {
 
 		curDialogue = 0;
-		//startTime = System.DateTime.Now;
 		talkTime = System.DateTime.Now;
+		spawns = 0;
 
 		dialouge = new string[20];
 		speaker = new int[20];
@@ -49,24 +57,28 @@ public class tutorial_dialog : MonoBehaviour {
 		words = GameObject.Find ("WordsTalking");
 
 		dialouge = dialougeSet (dialouge);
-		
+
 	}
 
 
 	void Update () {
 		curTime = System.DateTime.Now;
 		talking = true;
-
+		Debug.Log ("Spam!\n");
 
 
 			//Moves around the sprites who are talking, for the purposes of the tutorial, this should never change, but I am leaving the rest
 			//of the code intact in case we decide to change this later
 			//Kevin, for your reference, you will note that I have removed your variable "Counter" in favor of using the system clock
-		if (talking == true && curDialogue < 20) {	
-			if(talkTime.Second - curTime.Second >= 5)
+		if (talking == true && curDialogue < 45) {
+			Debug.Log("talking\n");
+			if(talkTime.Second - curTime.Second >= 5){
 				talkTime = System.DateTime.Now;
-
+				Debug.Log("Time Updated\n");
+			}
+			Debug.Log("Words Being Moved to Screen\n");
 			words.guiText.text = dialouge [curDialogue];
+			Debug.Log("Words Initialized\n");
 			words.transform.position = new Vector3 (.20f,.13f,0);
 			hare.transform.position = new Vector3 (-11.5f, -.4f, -7.4f);
 			frog.transform.position = new Vector3 (-11.5f, -.4f, -20);
@@ -74,10 +86,10 @@ public class tutorial_dialog : MonoBehaviour {
 			eliza.transform.position = new Vector3 (11.5f, -.4f, -20);
 				
 			timeDif = curTime - talkTime;
-			//start++;
 
 
-			if (timeDif.Seconds  <= 5) { 
+			if (timeDif.Seconds  >= 5) { 
+				talkTime = System.DateTime.Now;
 				curDialogue++;
 				talking = false;
 				words.transform.position = new Vector3 (10, 10, 10);
@@ -94,8 +106,36 @@ public class tutorial_dialog : MonoBehaviour {
 			bird.transform.position = new Vector3 (11.6f, -.4f, -20);
 			eliza.transform.position = new Vector3 (-11.5f, -.4f, -7.4f);
 		}
-		
-			
+
+		//If the conversation has reached a certain point change which enemies spawn
+		if (curDialogue == 14){
+			spawns = 1;
+			lastSpawn = System.DateTime.Now;
+		}
+		if (curDialogue == 26)
+				spawns = 2;
+
+		//Spawns enemies every 3 seconds, the type depends on how long the tutorial has been going on
+		spawnWait = curTime - lastSpawn;
+		if(spawns == 1 && spawnWait.Seconds >= 3){
+			Vector3 spawnPosition = new Vector3 (UnityEngine.Random.Range (-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
+			Quaternion spawnRotation = Quaternion.identity;
+			Instantiate (stuff[0], spawnPosition, spawnRotation);
+			lastSpawn = System.DateTime.Now;
+		}
+		if(spawns == 2 && spawnWait.Seconds >= 3){
+			Vector3 spawnPosition = new Vector3 (UnityEngine.Random.Range (-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
+			Quaternion spawnRotation = Quaternion.identity;
+			int choosenEnemy = UnityEngine.Random.Range(0,2);
+			GameObject thing = stuff[choosenEnemy];
+			Instantiate (thing, spawnPosition, spawnRotation);
+			lastSpawn = System.DateTime.Now;
+		}
+
+		//Once the dialogue has ended, load the main game
+		if(curDialogue >=43)
+			Application.LoadLevel ("options select");
+
 	}
 	
 	string[] dialougeSet(string[] yo){
