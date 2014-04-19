@@ -15,12 +15,12 @@ public class daBossAttack : MonoBehaviour {
 	public int attackCol;
 	public int attackType;
 	public int colorChange;
-	public bool laserAttack;
+	public int laserAttack;
 
 	void Start () {
 		GameObject yo = GameObject.Find ("Game Controller");
 		GameObject laser = GameObject.Find ("bossLaser");
-
+		laserAttack = 0;
 		laser.transform.position = new Vector3 (-100, -3, 100);
 
 		yo.GetComponent<Done_GameController>().audio.Pause();
@@ -46,13 +46,22 @@ public class daBossAttack : MonoBehaviour {
 		
 			Destroy (gameObject);
 		}
-		if (laserAttack){
+		if (laserAttack<0){
 			GameObject laser = GameObject.Find ("bossLaser");
-			if (laser.transform.position.x>=45f){
-				laser.transform.position = new Vector3 (-100, -3, 100);
-				laserAttack = false;
+			if (laserAttack == 1){
+				if (laser.transform.position.x>=3.5f){
+					laser.transform.position = new Vector3 (-100, -3, 100);
+					laserAttack = 0;
+				}
+				laser.transform.position += new Vector3 (.1f, 0, 0);
 			}
-			laser.transform.position += new Vector3 (.1f, 0, 0);
+			if (laserAttack == 2){
+				if (laser.transform.position.x<=-5){
+					laser.transform.position = new Vector3 (-100, -3, 100);
+					laserAttack = 0;
+				}
+				laser.transform.position += new Vector3 (-.1f, 0, 0);
+			}
 		}
 				//Instantiate (shot, shotSpawn.position, shotSpawn.rotation);
 		if (coolDown <= 0) {
@@ -167,9 +176,15 @@ public class daBossAttack : MonoBehaviour {
 	//Shoots diagonal shots
 	public void attack3(){
 		GameObject laser = GameObject.Find ("bossLaser");
-		Vector3 shotPos;
-		laserAttack=true;
-		laser.transform.position = new Vector3 (-15, -3, .6f);
+		int rand = Random.Range (0,2);
+		if (rand==1){
+			laserAttack=0;
+			laser.transform.position = new Vector3 (-15, -3, .6f);
+		}
+		if (rand==2){
+			laserAttack=1;
+			laser.transform.position = new Vector3 (5, -3, .6f);
+		}
 		coolDown = 500;
 
 	}

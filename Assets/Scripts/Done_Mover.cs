@@ -31,7 +31,7 @@ public class Done_Mover : MonoBehaviour
 		//Which allows this code to function
 		//Basically if an enemy gets within distance 2 on the z axis from the player it stops moving.
 		if (go.GetComponent<Done_GameController> ().isBoss == true && this.tag == "Enemy") {
-			if((transform.position.z - yo.transform.position.z) <= 5)
+			if((transform.position.z - yo.transform.position.z) <= 4)
 				rigidbody.velocity = transform.forward * 0;
 		}
 

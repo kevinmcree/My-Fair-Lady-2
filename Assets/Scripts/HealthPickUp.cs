@@ -37,7 +37,7 @@ void OnTriggerEnter (Collider other)
 		if (go.GetComponent<Done_PlayerController>().playerHealth<go.GetComponent<Done_PlayerController>().maxHealth){
 			go.GetComponent<Done_PlayerController>().playerHealth++;
 			GameObject health = GameObject.Find("Health");
-			float temp = 4/go.GetComponent<Done_PlayerController>().maxHealth;
+			float temp = 4.0f/go.GetComponent<Done_PlayerController>().maxHealth;
 			health.transform.position += new Vector3(0,0,temp);	
 		}
 
