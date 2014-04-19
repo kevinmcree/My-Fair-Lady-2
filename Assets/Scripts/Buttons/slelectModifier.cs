@@ -1,6 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/*
+Dear Kevin,
+	I'm writing you another note to let you know what has changed here.
+	I have added a check in the OnMouseDown funtion that only allows the player to select a modifier if their high score
+	as determined in the options script has reached a certain threshold
+
+*/
+
 public class slelectModifier : MonoBehaviour {
 
 		public int mod;
@@ -33,10 +41,67 @@ public class slelectModifier : MonoBehaviour {
 		void OnMouseDown(){
 			GameObject opt = GameObject.Find("options");
 			if (opt.GetComponent<options> ().playerModifier  != mod) {
-				opt.GetComponent<options> ().playerModifier  = mod;
-				audioSources [0].clip = clips [0];
-				audioSources [0].Play ();
-			Instantiate(particles, this.transform.position, transform.rotation);
+				switch(mod){
+					case 0:
+						opt.GetComponent<options> ().playerModifier  = mod;
+						audioSources [0].clip = clips [0];
+						audioSources [0].Play ();
+						Instantiate(particles, this.transform.position, transform.rotation);
+						break;
+					case 1:
+						if(opt.GetComponent<options>().highScore >= 2000){
+							opt.GetComponent<options> ().playerModifier  = mod;
+							audioSources [0].clip = clips [0];
+							audioSources [0].Play ();
+							Instantiate(particles, this.transform.position, transform.rotation);
+						}
+						else{
+							audioSources [1].clip = clips [1];
+							audioSources [1].Play ();
+						}
+						break;
+					case 2:
+						if(opt.GetComponent<options>().highScore >= 5000){
+							opt.GetComponent<options> ().playerModifier  = mod;
+							audioSources [0].clip = clips [0];
+							audioSources [0].Play ();
+							Instantiate(particles, this.transform.position, transform.rotation);
+						}
+						else{
+							audioSources [1].clip = clips [1];
+							audioSources [1].Play ();
+						}
+						break;
+					case 3:
+						if(opt.GetComponent<options>().highScore >= 10000){
+							opt.GetComponent<options> ().playerModifier  = mod;
+							audioSources [0].clip = clips [0];
+							audioSources [0].Play ();
+							Instantiate(particles, this.transform.position, transform.rotation);
+						}
+						else{
+							audioSources [1].clip = clips [1];
+							audioSources [1].Play ();
+						}
+						break;
+					case 4:
+						if(opt.GetComponent<options>().highScore >= 20000){
+							opt.GetComponent<options> ().playerModifier  = mod;
+							audioSources [0].clip = clips [0];
+							audioSources [0].Play ();
+							Instantiate(particles, this.transform.position, transform.rotation);
+						}
+						else{
+							audioSources [1].clip = clips [1];
+							audioSources [1].Play ();
+						}
+						break;
+					default:
+						audioSources [1].clip = clips [1];
+						audioSources [1].Play ();
+						break;
+				}
+
 
 			} else {
 				audioSources [1].clip = clips [1];
