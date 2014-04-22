@@ -46,6 +46,9 @@ public class daBossAttack : MonoBehaviour {
 		
 			Destroy (gameObject);
 		}
+		if (this.transform.position.z<4){
+			this.transform.position = new Vector3 (0, -3, 4);
+		}
 		if (laserAttack<0){
 			GameObject laser = GameObject.Find ("bossLaser");
 			if (laserAttack == 1){
@@ -136,7 +139,7 @@ public class daBossAttack : MonoBehaviour {
 			default: 
 				break;
 		}
-		coolDown = 150;
+		coolDown = 100;
 	}
 
 	public void attack2(){
@@ -170,7 +173,7 @@ public class daBossAttack : MonoBehaviour {
 		default: 
 			break;
 		}
-		coolDown = 150;
+		coolDown = 100;
 	}
 
 	//Shoots diagonal shots
@@ -185,7 +188,7 @@ public class daBossAttack : MonoBehaviour {
 			laserAttack=1;
 			laser.transform.position = new Vector3 (5, -3, .6f);
 		}
-		coolDown = 500;
+		coolDown = 400;
 
 	}
 

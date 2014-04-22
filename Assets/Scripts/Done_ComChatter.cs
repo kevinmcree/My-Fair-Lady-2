@@ -307,7 +307,7 @@ public class Done_ComChatter : MonoBehaviour {
 		speaker[59] = 2;
 		yo[60] = "It's a spaceship, why can't I just move in any direction I want?";
 		speaker[60] = 3;
-		yo[61]  = "Oh… Well, that just seemed like a lot of work so I didn't bother.";
+		yo[61]  = "Oh... Well, that just seemed like a lot of work so I didn't bother.";
 		speaker[61] = 2;
 		yo[62] = "Why are we working with this guy?";
 		speaker[62] = 3;

@@ -259,7 +259,7 @@ public class tutorial_dialog : MonoBehaviour {
 			speaker[38] = 1;
 		yo[39] = "I bet you 10000 she doesn't last 30 seconds!";
 			speaker[39] = 2;
-		yo[40] = "Hey Eliza, crash for me, okay?  I need the money.";
+		yo[40] = "Hey Eliza, take a dive for me, okay?  I need the money.";
 			speaker[40] = 2;
 		yo[41] = "Hey!  At least try to be a little supportive!";
 			speaker[41] = 0;
