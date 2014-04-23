@@ -100,7 +100,7 @@ public class Done_PlayerController : MonoBehaviour
 			playerHealth = 2;
 			maxHealth  = 2;			
 			GameObject carrot = GameObject.Find("carrot");
-			carrot.transform.position = this.transform.position;
+			carrot.transform.position = new Vector3 (this.transform.position.x, -3, this.transform.position.z +2);
 			gameObject.transform.position = new Vector3 (100000,100000,1000000);
 
 

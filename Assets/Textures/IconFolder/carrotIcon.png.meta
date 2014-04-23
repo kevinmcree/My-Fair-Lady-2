@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Textures/IconFolder/carrotIcon.png.meta
 guid: 00ce423c2ac04496ba56f67248a40f61
+=======
+guid: 6d69f5a5e7f61476a91b8bf803f3cac7
+>>>>>>> FETCH_HEAD:Assets/Textures/IconFolder/carrotIcon.png.meta
 TextureImporter:
   serializedVersion: 2
   mipmaps:
@@ -35,10 +39,21 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
+<<<<<<< HEAD:Assets/Textures/IconFolder/carrotIcon.png.meta
   spritePixelsToUnits: 100
   alphaIsTransparency: 0
   textureType: -1
   buildTargetSettings: []
+=======
+  spritePixelsToUnits: 64
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: Standalone
+    maxTextureSize: 64
+    textureFormat: -3
+    compressionQuality: 50
+>>>>>>> FETCH_HEAD:Assets/Textures/IconFolder/carrotIcon.png.meta
   spriteSheet:
     sprites: []
   spritePackingTag: 
