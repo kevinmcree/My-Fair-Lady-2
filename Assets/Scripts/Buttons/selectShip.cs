@@ -94,7 +94,7 @@ public class selectShip : MonoBehaviour {
 				}
 				break;
 			case 4:
-				if(opt.GetComponent<options>().highScore > 10000){
+				if(opt.GetComponent<options>().highScore > 50000){
 					opt.GetComponent<options> ().shipType = ship;
 					audioSources [0].clip = clips [0];
 					audioSources [0].Play ();
@@ -109,6 +109,23 @@ public class selectShip : MonoBehaviour {
 
 				}
 				break;
+			case 5:
+				if(opt.GetComponent<options>().highScore > 10000){
+					opt.GetComponent<options> ().shipType = ship;
+					audioSources [0].clip = clips [0];
+					audioSources [0].Play ();
+					Instantiate(particles, this.transform.position, transform.rotation);
+					explain.guiText.text = text;
+					
+				}
+				else{
+					audioSources [1].clip = clips [1];
+					audioSources [1].Play ();	
+					explain.guiText.text = "Not Unlocked";
+					
+				}
+				break;
+
 			default:
 				audioSources [1].clip = clips [1];
 				audioSources [1].Play ();	
