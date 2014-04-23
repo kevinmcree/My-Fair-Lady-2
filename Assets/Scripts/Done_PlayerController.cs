@@ -38,7 +38,11 @@ public class Done_PlayerController : MonoBehaviour
 	public int playerModifier;
 	public int bombCharge;
 	public bool vaccum;
+	public Material blueBody;
+	public Material redBody;
+	public Material yellowBody;
 
+	
 
 	
 	void Start ()
@@ -516,23 +520,28 @@ public class Done_PlayerController : MonoBehaviour
 			if (shipType != 4){
 				stopSpam=10;
 			}
+			GameObject body = GameObject.Find("Sphere");
 
+			
 			if (String.Compare(playerColor, "blue")==0){
 				red.transform.position = new Vector3(0,-8.5f,6.95f);
 				blue.transform.position = new Vector3(0,-9,-23.25f);
 				yellow.transform.position = new Vector3(0,-9,37.2f);
+				body.renderer.material = redBody;
 				playerColor = "red";
 			}		
 			else if (String.Compare(playerColor, "red")==0){
 				yellow.transform.position = new Vector3(0,-8.5f,6.95f);
 				red.transform.position = new Vector3(0,-9,-23.25f);
 				blue.transform.position = new Vector3(0,-9,37.2f);
+				body.renderer.material = yellowBody;
 				playerColor = "yellow";
 			}
 			else if (String.Compare(playerColor, "yellow")==0){
 				blue.transform.position = new Vector3(0,-8.5f,6.95f);
 				yellow.transform.position = new Vector3(0,-9,-23.25f);
 				red.transform.position = new Vector3(0,-9,37.2f);
+				body.renderer.material = blueBody;
 				playerColor = "blue";
 			}
 		}
@@ -543,12 +552,14 @@ public class Done_PlayerController : MonoBehaviour
 			if (shipType != 4){
 				stopSpam=10;
 			}
+			GameObject body = GameObject.Find("Sphere");
 
 			
 			if (String.Compare(playerColor, "blue")==0){
 				yellow.transform.position = new Vector3(0,-8.5f,6.95f);
 				blue.transform.position = new Vector3(0,-9,37.2f);
 				red.transform.position = new Vector3(0,-9,-23.25f);
+				body.renderer.material = yellowBody;
 				playerColor = "yellow";
 
 			}		
@@ -556,12 +567,14 @@ public class Done_PlayerController : MonoBehaviour
 				blue.transform.position = new Vector3(0,-8.5f,6.95f);
 				red.transform.position = new Vector3(0,-9,37.2f);
 				yellow.transform.position = new Vector3(0,-9,-23.25f);
+				body.renderer.material = blueBody;
 				playerColor = "blue";
 			}
 			else if (String.Compare(playerColor, "yellow")==0){
 				red.transform.position = new Vector3(0,-8.5f,6.95f);
 				yellow.transform.position = new Vector3(0,-9,37.2f);
 				blue.transform.position = new Vector3(0,-9,-23.25f);
+				body.renderer.material = redBody;
 				playerColor = "red";
 			}
 		}
