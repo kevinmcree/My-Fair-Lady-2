@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/Textures/Froggerson.png.meta
 guid: c1366b3eb8f044430ad658f0b67f1a7f
-=======
-guid: ff8a2059111ae412fb3f02cf6703f51c
->>>>>>> FETCH_HEAD:Assets/Textures/Froggerson.png.meta
 TextureImporter:
   serializedVersion: 2
   mipmaps:
@@ -39,7 +35,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 256
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings:

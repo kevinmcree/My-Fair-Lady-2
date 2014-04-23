@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/Textures/Hare.png.meta
 guid: d279013ebae714470bec0ae591c7b6e8
-=======
-guid: 71273fdea2e01432ba18202ba4449ec3
->>>>>>> FETCH_HEAD:Assets/Textures/Hare.png.meta
 TextureImporter:
   serializedVersion: 2
   mipmaps:
@@ -27,7 +23,7 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 1024
   textureSettings:
-    filterMode: -1
+    filterMode: 0
     aniso: 1
     mipBias: -1
     wrapMode: 1
