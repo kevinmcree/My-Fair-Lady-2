@@ -13,7 +13,7 @@ public class buyScoreMult : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		GameObject words = GameObject.Find("ScoreCost");
-		words.GetComponent<TextMesh>().text = "Score x2 Multiplier: " +cost;
+		words.GetComponent<TextMesh>().text = " " +cost;
 		int i = 0;
 		while (i < 2) {
 			GameObject child = new GameObject("audio");
@@ -38,7 +38,7 @@ public class buyScoreMult : MonoBehaviour {
 			audioSources[0].clip = clips[0];
 			audioSources[0].Play();
 			GameObject words = GameObject.Find("ScoreCost");
-			words.GetComponent<TextMesh>().text = "Score x2 Multiplier: " +cost;
+			words.GetComponent<TextMesh>().text = "" +cost;
 			cost=cost*5;
 		}else{
 			audioSources[1].clip = clips[1];

@@ -19,7 +19,7 @@ public class buyBonusMult : MonoBehaviour {
 			i++;
 		}
 		GameObject words = GameObject.Find("BonusCost");
-		words.GetComponent<TextMesh>().text = "Combo last longer: " +cost;
+		words.GetComponent<TextMesh>().text = "" +cost;
 
 		
 	}
@@ -38,7 +38,7 @@ public class buyBonusMult : MonoBehaviour {
 			audioSources[0].clip = clips[0];
 			audioSources[0].Play();
 			GameObject words = GameObject.Find("BonusCost");
-			words.GetComponent<TextMesh>().text = "Combo last longer: " +cost;
+			words.GetComponent<TextMesh>().text = "" +cost;
 			
 		}else{
 			audioSources[1].clip = clips[1];
