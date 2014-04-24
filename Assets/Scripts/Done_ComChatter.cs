@@ -257,7 +257,7 @@ public class Done_ComChatter : MonoBehaviour {
 		speaker[33] = 3;
 		yo[34] = "Oh, okay.";
 		speaker[34] = 2;
-		yo[35] = "…You can still help though, right?";
+		yo[35] = "...You can still help though, right?";
 		speaker[35] = 2;
 		yo[36] = "...";
 		speaker[36] = 3;
