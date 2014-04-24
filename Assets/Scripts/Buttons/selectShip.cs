@@ -11,6 +11,7 @@ public class selectShip : MonoBehaviour {
 	private AudioSource[] audioSources = new AudioSource[2];
 	public string text;
 	public GameObject particles;
+	public int[] unlockVals = new int[6];
 
 	
 	// Use this for initialization
@@ -23,6 +24,12 @@ public class selectShip : MonoBehaviour {
 			audioSources[i].volume=.8f;
 			i++;
 		}
+		unlockVals[0] = 0;
+		unlockVals[1] = 2000;
+		unlockVals[2] = 5000;
+		unlockVals[3] = 10000;
+		unlockVals[4] = 20000;
+		unlockVals[5] = 50000;
 		
 	}
 
@@ -46,7 +53,7 @@ public class selectShip : MonoBehaviour {
 
 				break;
 			case 1:
-				if(opt.GetComponent<options>().highScore > 1000){
+				if(opt.GetComponent<options>().highScore > unlockVals[1]){
 					opt.GetComponent<options> ().shipType = ship;
 					audioSources [0].clip = clips [0];
 					audioSources [0].Play ();
@@ -62,7 +69,7 @@ public class selectShip : MonoBehaviour {
 				}
 				break;
 			case 2:
-				if(opt.GetComponent<options>().highScore > 2000){
+				if(opt.GetComponent<options>().highScore > unlockVals[2]){
 					opt.GetComponent<options> ().shipType = ship;
 					audioSources [0].clip = clips [0];
 					audioSources [0].Play ();
@@ -78,7 +85,7 @@ public class selectShip : MonoBehaviour {
 				}
 				break;
 			case 3:
-				if(opt.GetComponent<options>().highScore > 5000){
+				if(opt.GetComponent<options>().highScore > unlockVals[3]){
 					opt.GetComponent<options> ().shipType = ship;
 					audioSources [0].clip = clips [0];
 					audioSources [0].Play ();
@@ -94,7 +101,7 @@ public class selectShip : MonoBehaviour {
 				}
 				break;
 			case 4:
-				if(opt.GetComponent<options>().highScore > 50000){
+				if(opt.GetComponent<options>().highScore > unlockVals[4]){
 					opt.GetComponent<options> ().shipType = ship;
 					audioSources [0].clip = clips [0];
 					audioSources [0].Play ();
@@ -110,7 +117,7 @@ public class selectShip : MonoBehaviour {
 				}
 				break;
 			case 5:
-				if(opt.GetComponent<options>().highScore > 10000){
+				if(opt.GetComponent<options>().highScore > unlockVals[5]){
 					opt.GetComponent<options> ().shipType = ship;
 					audioSources [0].clip = clips [0];
 					audioSources [0].Play ();

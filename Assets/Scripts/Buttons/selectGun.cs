@@ -14,6 +14,9 @@ public class selectGun : MonoBehaviour {
 	public string text;
 	public GameObject particles;
 
+	//This is new, I implemented this in each of the select scrips to make the unlock script more fluent
+	public int[] unlockVals = new int[5];
+
 
 	// Use this for initialization
 	void Start () {
@@ -25,6 +28,11 @@ public class selectGun : MonoBehaviour {
 			audioSources[i].volume=.8f;
 			i++;
 		}
+		unlockVals[0] = 0;
+		unlockVals[1] = 1000;
+		unlockVals[2] = 2000;
+		unlockVals[3] = 5000;
+		unlockVals[4] = 10000;
 		
 	}
 
@@ -48,7 +56,7 @@ public class selectGun : MonoBehaviour {
 
 				break;
 			case 1:
-				if(opt.GetComponent<options>().highScore > 1000){
+				if(opt.GetComponent<options>().highScore > unlockVals[1]){
 					opt.GetComponent<options> ().weapon = weapon;
 					audioSources [0].clip = clips [0];
 					audioSources [0].Play ();
@@ -64,7 +72,7 @@ public class selectGun : MonoBehaviour {
 				}
 				break;
 			case 2:
-				if(opt.GetComponent<options>().highScore > 2000){
+				if(opt.GetComponent<options>().highScore > unlockVals[2]){
 					opt.GetComponent<options> ().weapon = weapon;
 					audioSources [0].clip = clips [0];
 					audioSources [0].Play ();
@@ -80,7 +88,7 @@ public class selectGun : MonoBehaviour {
 				}
 				break;
 			case 3:
-				if(opt.GetComponent<options>().highScore > 5000){
+				if(opt.GetComponent<options>().highScore > unlockVals[3]){
 					opt.GetComponent<options> ().weapon = weapon;
 					audioSources [0].clip = clips [0];
 					audioSources [0].Play ();
@@ -96,7 +104,7 @@ public class selectGun : MonoBehaviour {
 				}
 				break;
 			case 4:
-				if(opt.GetComponent<options>().highScore > 10000){
+				if(opt.GetComponent<options>().highScore > unlockVals[4]){
 					opt.GetComponent<options> ().weapon = weapon;
 					audioSources [0].clip = clips [0];
 					audioSources [0].Play ();
