@@ -29,6 +29,7 @@ public class selectGun : MonoBehaviour {
 			audioSources[i].volume=.8f;
 			i++;
 		}
+
 		unlockVals[0] = 0;
 		unlockVals[1] = 2000;
 		unlockVals[2] = 5000;

@@ -36,6 +36,7 @@ public class slelectModifier : MonoBehaviour {
 		unlockVals[2] = 5000;
 		unlockVals[3] = 10000;
 		unlockVals[4] = 50000;
+	
 	}
 		
 		
