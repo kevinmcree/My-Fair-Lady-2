@@ -17,11 +17,12 @@ public class slelectModifier : MonoBehaviour {
 	private AudioSource[] audioSources = new AudioSource[2];
 	public string text;
 	public GameObject particles;
-	public int[] unlockVals = new int[5];
+	public int[] unlockVals;
 
 
 	// Use this for initialization
 	void Start () {
+		unlockVals = new int[5];
 		int i = 0;
 		while (i < 2) {
 			GameObject child = new GameObject("audio");
@@ -34,7 +35,7 @@ public class slelectModifier : MonoBehaviour {
 		unlockVals[1] = 2000;
 		unlockVals[2] = 5000;
 		unlockVals[3] = 10000;
-		unlockVals[4] = 20000;
+		unlockVals[4] = 50000;
 	}
 		
 		

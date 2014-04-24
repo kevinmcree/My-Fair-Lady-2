@@ -9,23 +9,44 @@ This class moves around a series of planes with locks painted on them to represe
 public class locks : MonoBehaviour {
 	public Vector3 outOfWay = new Vector3(500,500,500);
 	public int highScore;
-	public int[] selectGunVals = new int[5];
-	public int[] selectShipVals = new int[6];
-	public int[] selectModifierVals = new int[5];
+	public int[] selectGunVals;
+	public int[] selectShipVals;
+	public int[] selectModifierVals;
 
 	// Use this for initialization
 	void Start () {
-		GameObject temp = GameObject.Find ("mod1");
-		for (int i = 0; i < 5; i++)
-			selectModifierVals [i] = temp.GetComponent<slelectModifier> ().unlockVals [i];
+		selectGunVals = new int[5];
+		selectShipVals = new int[6];
+		selectModifierVals = new int[5];
 
-		temp = GameObject.Find ("ship1");
-		for (int i = 0; i < 6; i++)
-			selectModifierVals [i] = temp.GetComponent<slelectModifier> ().unlockVals [i];
+		selectGunVals [0] = 0;
+		selectShipVals [0] = 0;
+		selectModifierVals [0] = 0;
+		selectGunVals [1] = 2000;
+		selectShipVals [1] = 2000;
+		selectModifierVals [1] = 2000;
+		selectGunVals [2] = 5000;
+		selectShipVals [2] = 5000;
+		selectModifierVals [2] = 5000;
+		selectGunVals [3] = 10000;
+		selectShipVals [3] = 10000;
+		selectModifierVals [3] = 10000;
+		selectGunVals [4] = 50000;
+		selectShipVals [5] = 50000;
+		selectModifierVals [4] = 50000;
+		selectShipVals [4] = 100000;
 
-		temp = GameObject.Find ("weapon1");
-		for (int i = 0; i < 5; i++)
-			selectModifierVals [i] = temp.GetComponent<slelectModifier> ().unlockVals [i];
+	//	GameObject temp = GameObject.Find ("mod1");
+	//	for (int i = 0; i < 4; i++)
+	//		selectModifierVals [i] = temp.GetComponent<slelectModifier> ().unlockVals [i];
+
+	//	temp = GameObject.Find ("ship1");
+	//	for (int i = 0; i < 6; i++)
+	//		selectShipVals [i] = temp.GetComponent<selectShip> ().unlockVals [i];
+
+//		temp = GameObject.Find ("weapon1");
+//		for (int i = 0; i < 5; i++)
+//			selectGunVals [i] = temp.GetComponent<selectGun> ().unlockVals [i];
 
 
 	}
@@ -82,7 +103,7 @@ public class locks : MonoBehaviour {
 			
 		}
 		for (int i = 1; i < 6; i++) {
-			if (highScore > selectModifierVals [i]) {
+			if (highScore > selectShipVals [i]) {
 				switch (i) {
 					case 1:
 						temp = GameObject.Find ("heavyShipLock");

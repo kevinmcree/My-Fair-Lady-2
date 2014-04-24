@@ -15,11 +15,12 @@ public class selectGun : MonoBehaviour {
 	public GameObject particles;
 
 	//This is new, I implemented this in each of the select scrips to make the unlock script more fluent
-	public int[] unlockVals = new int[5];
+	public int[] unlockVals;
 
 
 	// Use this for initialization
 	void Start () {
+		unlockVals = new int[5];
 		int i = 0;
 		while (i < 2) {
 			GameObject child = new GameObject("audio");
@@ -29,10 +30,10 @@ public class selectGun : MonoBehaviour {
 			i++;
 		}
 		unlockVals[0] = 0;
-		unlockVals[1] = 1000;
-		unlockVals[2] = 2000;
-		unlockVals[3] = 5000;
-		unlockVals[4] = 10000;
+		unlockVals[1] = 2000;
+		unlockVals[2] = 5000;
+		unlockVals[3] = 10000;
+		unlockVals[4] = 50000;
 		
 	}
 
