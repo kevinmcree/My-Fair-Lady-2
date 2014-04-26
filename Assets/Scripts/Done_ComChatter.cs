@@ -205,7 +205,7 @@ public class Done_ComChatter : MonoBehaviour {
 		yo[2] = "Bird out.";
 		speaker[2] = 1;
 		
-		yo[3] = "So, why did they get you to build these ships, Froggerson?";
+		yo[3] = "So, why did they get you to build\n these ships, Froggerson?";
 		speaker[3] = 3;
 		yo[4] = "He offered to do it for free for the 'experience'.";
 		speaker[4] = 1;
@@ -215,14 +215,14 @@ public class Done_ComChatter : MonoBehaviour {
 		speaker[6] = 1;
 		yo[7] = "He owes you money?";
 		speaker[7] = 3;
-		yo[8] = "Yeah, because the idiot didn't even get the force to cover the materials cost.";
+		yo[8] = "Yeah, because the idiot didn't even get the force\n to cover the materials cost.";
 		speaker[8] = 1;
-		yo[9] = "Aw c'mon guys, don't focus on that. Think of the cool spaceships. Spaceships!";
+		yo[9] = "Aw c'mon guys, don't focus on that. Think of the\n cool spaceships. Spaceships!";
 		speaker[9] = 2;
 		
 		yo[10] = "That's a pretty nice ship, Eliza.";
 		speaker[10] = 2;
-		yo[11] = "'Cause I'm the one who built it, that's what I was getting at.";
+		yo[11] = "'Cause I'm the one who built it, that's what\n I was getting at.";
 		speaker[11]=2;
 		yo[12] = "See, I'm useful! Right?";
 		speaker[12]=2;
@@ -241,7 +241,7 @@ public class Done_ComChatter : MonoBehaviour {
 		yo [23] = "Press F2 to send an impassioned letter to your congressman.";
 		speaker [23] = 0;
 		
-		yo [24] = "You know, it seems like just last week I was learning to be a proper lady on Earth.";
+		yo [24] = "You know, it seems like just last week I was learning\n to be a proper lady on Earth.";
 		speaker[24] = 3;
 		yo [25] = "It's just a change of pace, is what I'm saying.";
 		speaker[25] = 3;
@@ -266,7 +266,7 @@ public class Done_ComChatter : MonoBehaviour {
 		speaker[38] = 2;
 		yo[39] = "I'll be right there! Where are you?";
 		speaker[39] = 3;
-		yo[40] = "About two hundred lightyears from you, I'll give you the coordinates.";
+		yo[40] = "About two hundred lightyears from you, I'll given\n you the coordinates.";
 		speaker[40] = 2;
 		yo[41] = "God dammit Froggerson.";
 		speaker[41] = 3;
@@ -275,7 +275,7 @@ public class Done_ComChatter : MonoBehaviour {
 		speaker[43] = 0;
 		yo [44] = "Aw, thanks Hare.";
 		speaker[44] = 3;
-		yo[45] = "Wait, how do you know my father? You're some kind of alien rabbit thing.";
+		yo[45] = "Wait, how do you know my father? You're some kind\n of alien rabbit thing.";
 		speaker[45] = 3;
 		yo[46] = "Oh, I don't. It just seemed like a nice thing to say~!";
 		speaker[46] = 0;
@@ -307,7 +307,7 @@ public class Done_ComChatter : MonoBehaviour {
 		speaker[59] = 2;
 		yo[60] = "It's a spaceship, why can't I just move in any direction I want?";
 		speaker[60] = 3;
-		yo[61]  = "Oh... Well, that just seemed like a lot of work so I didn't bother.";
+		yo[61]  = "Oh... Well, that just seemed like a lot of work so I\n didn't bother.";
 		speaker[61] = 2;
 		yo[62] = "Why are we working with this guy?";
 		speaker[62] = 3;
@@ -343,11 +343,11 @@ public class Done_ComChatter : MonoBehaviour {
 		yo[78] = "What? You didn't even... screw you Eliza.";
 		speaker[78] = 1;
 		
-		yo[79] = "Eliza, if you hit one of those floating teleporters you can upgrade your ship.";
+		yo[79] = "Eliza, if you hit one of those floating teleporters you\n can upgrade your ship.";
 		speaker[79] = 0;
 		yo[80] = "Ah, alright.  But why is this stuff just floating around?";
 		speaker[80] = 3;
-		yo[81] = "Hey, it's not my fault the cargo eject button looks so much like the smoothie machine.";
+		yo[81] = "Hey, it's not my fault the cargo eject button looks so much\n like the smoothie machine.";
 		speaker[81] = 2;
 		yo[82] = "You have a smoothie machine?";
 		speaker[82] = 1;
@@ -356,7 +356,7 @@ public class Done_ComChatter : MonoBehaviour {
 		
 		yo[84] = "...I don't know, it's pretty big.";
 		speaker[84] = 2;
-		yo[85] = "I'm not a doctor, but as long as it's not discolored you should be fine.";
+		yo[85] = "I'm not a doctor, but as long as it's not discolored you\n should be fine.";
 		speaker[85] = 0;
 		yo[86] = "But it's all sticky and full of pus.";
 		speaker[86] = 2;
@@ -373,7 +373,7 @@ public class Done_ComChatter : MonoBehaviour {
 		speaker[91] = 0;
 		yo[92] = "Ahem.";
 		speaker[92] = 3;
-		yo[93] = "Huh, sure is a lot of static coming through this channel. Almost sounds like whining.";
+		yo[93] = "Huh, sure is a lot of static coming through this channel.\n Almost sounds like whining.";
 		speaker[93] = 1;
 		yo[94] = "Oh, come on!";
 		speaker[94] = 3;
@@ -402,11 +402,11 @@ public class Done_ComChatter : MonoBehaviour {
 		speaker[104] = 1;
 		yo[105] = "Well, it sure is... different.";
 		speaker[105] = 0;
-		yo[106] = "I just don't want to ask Froggerson to do it until Eliza joins a different squad.";
+		yo[106] = "I just don't want to ask Froggerson to do it until Eliza\n joins a different squad.";
 		speaker[106] = 1;
 		yo[107] = "Oh come now, she won't make fun of you.";
 		speaker[107] = 0;
-		yo[108] = "Yeah right, if she sees me flying in a bright pink ship of course she'd--";
+		yo[108] = "Yeah right, if she sees me flying in a bright pink ship of\n course she'd--";
 		speaker[108] = 1;
 		yo[109] = "What are you guys talking about?";
 		speaker[109] = 3;
